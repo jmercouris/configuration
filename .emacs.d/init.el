@@ -42,5 +42,5 @@
 ;; enable elpy for python development
 (package-initialize)
 (elpy-enable)
-;; add sr-speedbar
-(require 'sr-speedbar)
+;; zpt files load html-mode
+(add-to-list 'auto-mode-alist '("\\.pt$" . html-mode))
