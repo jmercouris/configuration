@@ -7,7 +7,6 @@ set --export PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
 set --export PATH /Users/jmercouris/.rvm/bin $PATH
 set --export JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/"
 set --export CLICOLOR "1"
-set --export LSCOLORS "GxFxCxDxBxegedabagaced"
 set --export ATLAS_TOKEN "1Dms5dCXOXmzpw.atlasv1.PuFJToBzrGtyI1YO9Shl8TWoFQLgwg3YojUPOPrNHC99a4z8teZrmxZ9v6PiWbVFDoM"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
