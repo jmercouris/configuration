@@ -10,6 +10,7 @@ set --export CLICOLOR "1"
 set --export ATLAS_TOKEN "1Dms5dCXOXmzpw.atlasv1.PuFJToBzrGtyI1YO9Shl8TWoFQLgwg3YojUPOPrNHC99a4z8teZrmxZ9v6PiWbVFDoM"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
+set --export PYTHONPATH /Users/jmercouris/User/kivy/kivy $PYTHONPATH
 
 # Easy Install alias
 alias easy_install='/opt/local/bin/easy_install-2.7'
