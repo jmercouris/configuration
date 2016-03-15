@@ -30,6 +30,12 @@ alias temperature='osx-cpu-temp'
 alias q='exit'
 # Spotlight functionality in Terminal
 alias spotlight='mdfind'
+# Weather Chicago
+alias weather_chicago='curl wttr.in/chicago'
+alias weather_berlin='curl wttr.in/berlin'
+# Screen Saver
+alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+
 
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'

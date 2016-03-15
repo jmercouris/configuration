@@ -43,7 +43,7 @@
 (package-initialize)
 (elpy-enable)
 ;; zpt files load html-mode
-(add-to-list 'auto-mode-alist '("\\.pt$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
 ;; Artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
@@ -54,5 +54,6 @@
 	    (local-set-key (kbd "<f5>") 'artist-select-op-ellipse)  ; f5 = ellipse
 	    (local-set-key (kbd "C-z") 'undo)
 	    ))
+;; Set Eshell Prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
