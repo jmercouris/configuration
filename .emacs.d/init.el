@@ -14,13 +14,16 @@
 ;; disable menu bar
 (menu-bar-mode -1)
 ;; disable tool bar
-(tool-bar-mode -1)
+(if window-system
+    (tool-bar-mode -1))
 ;; set initial scratch bar message
 (setq initial-scratch-message nil)
 ;; show parenthesis pairing
 (show-paren-mode 1)
 ;; make buffer switch command auto suggestions, also for find-file command
 (ido-mode 1)
+;; Windmove
+(windmove-default-keybindings)
 ;; make ido display choices vertically
 (setq ido-separator "\n")
 ;; display any item that contains the chars you typed
@@ -57,3 +60,31 @@
 ;; Set Eshell Prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
+;; Paste from OSX
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(minimap-always-recenter t)
+ '(minimap-highlight-line nil)
+ '(minimap-mode t)
+ '(minimap-window-location (quote right)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(minimap-active-region-background ((t (:background "gray97")))))

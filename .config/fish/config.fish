@@ -3,17 +3,14 @@ set --export PATH /opt/local/Library/Frameworks/Python.framework/Versions/Curren
 set --export PATH /opt/local/bin /opt/local/sbin $PATH
 set --export PATH /Users/jmercouris/User $PATH
 set --export PATH $PATH /Library/TeX/texbin/
-set --export PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
-set --export PATH /Users/jmercouris/.rvm/bin $PATH
-set --export JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/"
+set --export PATH $PATH /Applications/Postgres.app/Contents/Versions/9.5/bin
 set --export CLICOLOR "1"
 set --export ATLAS_TOKEN "1Dms5dCXOXmzpw.atlasv1.PuFJToBzrGtyI1YO9Shl8TWoFQLgwg3YojUPOPrNHC99a4z8teZrmxZ9v6PiWbVFDoM"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
-set --export PYTHONPATH /Users/jmercouris/User/kivy/kivy $PYTHONPATH
+set --export VIRTUAL_ENV_DISABLE_PROMPT 1
+set --export PYTHONPATH /opt/local/lib/python/site-packages /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
 
-# Easy Install alias
-alias easy_install='/opt/local/bin/easy_install-2.7'
 # Get Battery Status
 alias battery='pmset -g batt'
 # Open Emacs in a a terminal window
@@ -36,6 +33,10 @@ alias weather_berlin='curl wttr.in/berlin'
 # Screen Saver
 alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
+# Alias Postgres
+alias postgres_start='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper start'
+alias postgres_stop='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper stop'
+alias postgres_restart='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper restart'
 
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
