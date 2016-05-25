@@ -5,7 +5,6 @@ set --export PATH /Users/jmercouris/User $PATH
 set --export PATH $PATH /Library/TeX/texbin/
 set --export PATH $PATH /Applications/Postgres.app/Contents/Versions/9.5/bin
 set --export CLICOLOR "1"
-set --export ATLAS_TOKEN "1Dms5dCXOXmzpw.atlasv1.PuFJToBzrGtyI1YO9Shl8TWoFQLgwg3YojUPOPrNHC99a4z8teZrmxZ9v6PiWbVFDoM"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
