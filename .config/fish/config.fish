@@ -9,7 +9,6 @@ set --export ATLAS_TOKEN "1Dms5dCXOXmzpw.atlasv1.PuFJToBzrGtyI1YO9Shl8TWoFQLgwg3
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
-set --export PYTHONPATH /opt/local/lib/python/site-packages /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
 
 # Get Battery Status
 alias battery='pmset -g batt'
@@ -32,6 +31,8 @@ alias weather_chicago='curl wttr.in/chicago'
 alias weather_berlin='curl wttr.in/berlin'
 # Screen Saver
 alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+# Sleep
+alias sleep='pmset sleepnow'
 
 # Alias Postgres
 alias postgres_start='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper start'

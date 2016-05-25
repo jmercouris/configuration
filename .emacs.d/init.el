@@ -72,3 +72,7 @@
 
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
+(put 'upcase-region 'disabled nil)
+
+;; Add Macports Path
+(setq exec-path (append exec-path '("/opt/local/bin")))
