@@ -22,8 +22,14 @@
 (show-paren-mode 1)
 ;; make buffer switch command auto suggestions, also for find-file command
 (ido-mode 1)
-;; Windmove
+;; windmove
 (windmove-default-keybindings)
+(key-chord-define-global "fj" 'windmove-left)
+(key-chord-define-global "fk" 'windmove-down)
+(key-chord-define-global "fl" 'windmove-up)
+(key-chord-define-global "f;" 'windmove-right)
+;; rebind comment region
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; make ido display choices vertically
 (setq ido-separator "\n")
 ;; display any item that contains the chars you typed
@@ -37,6 +43,8 @@
 (and
  (require 'centered-cursor-mode)
  (global-centered-cursor-mode +1))
+;; golden ratio mode
+(golden-ratio-mode 1)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
