@@ -33,11 +33,6 @@ alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/S
 # Sleep
 alias sleep='pmset sleepnow'
 
-# Alias Postgres
-alias postgres_start='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper start'
-alias postgres_stop='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper stop'
-alias postgres_restart='sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql95-server/postgresql95-server.wrapper restart'
-
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
 alias documents='cd /Users/jmercouris/Documents'

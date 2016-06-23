@@ -28,6 +28,8 @@
 (key-chord-define-global "fk" 'windmove-down)
 (key-chord-define-global "fl" 'windmove-up)
 (key-chord-define-global "f;" 'windmove-right)
+;; undo tree mode
+(undo-tree-mode 1)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; make ido display choices vertically
@@ -45,6 +47,8 @@
  (global-centered-cursor-mode +1))
 ;; golden ratio mode
 (golden-ratio-mode 1)
+;; ignore certain buffers
+(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -55,6 +59,8 @@
 (elpy-enable)
 ;; zpt files load html-mode
 (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
+;; neotree window position
+(setq neo-window-position 'right)
 ;; Artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
