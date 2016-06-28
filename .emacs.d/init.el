@@ -16,6 +16,9 @@
 (setq inhibit-splash-screen t)
 ;; disable menu bar
 (menu-bar-mode -1)
+;; disable scroll bar
+(when (display-graphic-p)
+  (scroll-bar-mode -1))
 ;; disable tool bar
 (if window-system
     (tool-bar-mode -1))
