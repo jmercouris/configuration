@@ -9,6 +9,9 @@
    '("melpa" . "http://melpa.org/packages/")
    t)
   (package-initialize))
+;; update system path on OSX
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 ;; disable menu bar
