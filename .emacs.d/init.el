@@ -12,6 +12,8 @@
 ;; update system path on OSX
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+;; set default shell to bash for rgrep
+(setq shell-file-name "/bin/sh")
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 ;; disable menu bar
