@@ -32,6 +32,8 @@ alias weather_berlin='curl wttr.in/berlin'
 alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # Sleep
 alias sleep='pmset sleepnow'
+# Alpine Custom Configuration File
+alias alpine='alpine -P ~/.pine.conf'
 
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
