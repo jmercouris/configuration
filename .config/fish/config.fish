@@ -17,6 +17,8 @@ alias e="emacs -nw"
 alias sudo='sudo '
 # Useful ls alias
 alias l='ls -la'
+# Useful cd alias
+alias c='cd'
 # Get router IP
 alias router='netstat -rn |grep default'
 # Get CPU Temperature
