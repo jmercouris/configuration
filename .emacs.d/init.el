@@ -14,6 +14,8 @@
   (exec-path-from-shell-initialize))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
+;; disable native osx full screen
+(setq ns-use-native-fullscreen nil)
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 ;; disable menu bar
