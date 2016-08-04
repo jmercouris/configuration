@@ -49,6 +49,10 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#D3D3D3")
+;; Disable hline mode in term
+(add-hook 'term-mode-hook (lambda ()
+                            (setq-local global-hl-line-mode
+                                        nil)))
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; centered cursor mode
@@ -100,3 +104,6 @@
 
 ;; Add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
+
+;; Load Additional Files
+(load "~/.emacs.d/irc")
