@@ -105,5 +105,20 @@
 ;; Add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
 
+;; Column
+(setq column-number-mode t)
+;; neotree use ascii instead of folder icons
+(setq neo-theme 'ascii)
+;; C-n/p is more intuitive in vertical layout
+(defun ido-define-keys () 
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-define-keys)
+;; Disable Cursor Blink
+(blink-cursor-mode 0)
+;; Previous and Next Buffer
+(global-set-key (kbd "M-p") 'previous-buffer)
+(global-set-key (kbd "M-n") 'next-buffer)
+
 ;; Load Additional Files
 (load "~/.emacs.d/irc")
