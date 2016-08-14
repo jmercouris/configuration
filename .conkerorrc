@@ -1,1 +1,2 @@
 hint_digits="abcdefghijklmnopqrstuvwxyz";
+define_key(content_buffer_normal_keymap, "d", "follow-new-buffer");
