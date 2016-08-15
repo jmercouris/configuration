@@ -110,7 +110,7 @@
 ;; neotree use ascii instead of folder icons
 (setq neo-theme 'ascii)
 ;; C-n/p is more intuitive in vertical layout
-(defun ido-define-keys () 
+(defun ido-define-keys ()
   (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
   (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-define-keys)
@@ -119,6 +119,8 @@
 ;; Previous and Next Buffer
 (global-set-key (kbd "M-p") 'previous-buffer)
 (global-set-key (kbd "M-n") 'next-buffer)
-
+;; Font Size
+(set-face-attribute 'default nil :height 150)
 ;; Load Additional Files
 (load "~/.emacs.d/irc")
+
