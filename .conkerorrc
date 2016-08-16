@@ -17,3 +17,7 @@ register_user_stylesheet(
             "  line-height: 18px !important;\n"+
             "}"));
 
+// Key kill mode - prevent sites from grabbing key bindings
+require("key-kill");
+key_kill_input_fields = true;
+key_kill_mode.test.push(/\/\/.*\//); //regex matches all sites
