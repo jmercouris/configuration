@@ -123,4 +123,5 @@
 (set-face-attribute 'default nil :height 150)
 ;; Load Additional Files
 (load "~/.emacs.d/irc")
+(load "~/.emacs.d/hydra")
 
