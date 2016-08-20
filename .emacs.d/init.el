@@ -113,7 +113,7 @@
 (global-set-key (kbd "M-p") 'previous-buffer)
 (global-set-key (kbd "M-n") 'next-buffer)
 ;; Font Size
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 144)
 ;; Load Additional Files
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
