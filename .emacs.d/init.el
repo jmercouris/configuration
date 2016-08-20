@@ -120,6 +120,8 @@
 (load "~/.emacs.d/center")
 ;; Enable centered-point-mode in python
 (add-hook 'python-mode-hook 'centered-point-mode)
+;; Enable centered-point-mode in text files
+(add-hook 'text-mode-hook 'centered-point-mode)
 ;; Disable center-point-mode in ansi-term
 (add-hook 'term-mode-hook (lambda ()
 			    (centered-point-mode 0)))
