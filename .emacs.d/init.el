@@ -49,15 +49,8 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#D3D3D3")
-;; Disable center cursor mode in ansi-term
-(add-hook 'term-mode-hook (lambda ()
-			    (centered-cursor-mode 0)))
 ;; truncate lines by default
 (set-default 'truncate-lines t)
-;; centered cursor mode
-(and
- (require 'centered-cursor-mode)
- (global-centered-cursor-mode +1))
 ;; golden ratio mode
 (golden-ratio-mode 1)
 ;; ignore certain buffers
@@ -124,4 +117,9 @@
 ;; Load Additional Files
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
-
+(load "~/.emacs.d/center")
+;; Enable centered-point-mode in python
+(add-hook 'python-mode-hook 'centered-point-mode)
+;; Disable center-point-mode in ansi-term
+(add-hook 'term-mode-hook (lambda ()
+			    (centered-point-mode 0)))
