@@ -74,6 +74,8 @@
 (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
 ;; neotree window position
 (setq neo-window-position 'right)
+;; neotree ignore specific folders
+(setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
 ;; Artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
