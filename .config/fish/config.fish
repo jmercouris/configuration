@@ -7,6 +7,7 @@ set --export PATH $PATH /Applications/Postgres.app/Contents/Versions/9.5/bin
 set --export CLICOLOR "1"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
+# Python Specific Environment Variables
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Colorize less things such as man pages
@@ -47,6 +48,8 @@ alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/S
 alias sleep='pmset sleepnow'
 # Alpine Custom Configuration File
 alias alpine='alpine -P ~/.pine.conf'
+# Move Up a directory
+alias u='cd ../'
 
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
