@@ -49,6 +49,10 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#D3D3D3")
+;; change Highlighted Text Color
+(set-face-attribute 'region nil :background "#00ed00")
+;; set cursor color
+(set-cursor-color "#00ed00")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; golden ratio mode
