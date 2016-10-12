@@ -48,6 +48,8 @@
 (setq ido-enable-flex-matching t)
 ;; highlight current line
 (global-hl-line-mode 1)
+;; only current line in current window
+(setq h1-line-sticky-flag nil)
 (set-face-background 'hl-line "#D3D3D3")
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
@@ -67,6 +69,10 @@
 ;; enable elpy for python development
 (package-initialize)
 (elpy-enable)
+;; sphinx-doc mode in python
+(add-hook 'python-mode-hook (lambda ()
+			      (require 'sphinx-doc)
+			      (sphinx-doc-mode t)))
 ;; zpt files load html-mode
 (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
 ;; neotree window position
@@ -123,4 +129,4 @@
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
 ;; Enable centered-point-mode in python
-(add-hook 'python-mode-hook 'centered-cursor-mode)
+(add-hook 'prog-mode-hook 'centered-point-mode)
