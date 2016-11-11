@@ -106,9 +106,9 @@
 (setq interprogram-paste-function 'copy-from-osx)
 (put 'upcase-region 'disabled nil)
 
-;; Add Macports Path
+;; add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
-;; Column
+;; column
 (setq column-number-mode t)
 ;; neotree use ascii instead of folder icons
 (setq neo-theme 'ascii)
@@ -117,16 +117,24 @@
   (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
   (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-define-keys)
-;; Disable Cursor Blink
+;; disable Cursor Blink
 (blink-cursor-mode 0)
-;; Previous and Next Buffer
+;; previous and Next Buffer
 (global-set-key (kbd "M-p") 'previous-buffer)
 (global-set-key (kbd "M-n") 'next-buffer)
-;; Font Size
+;; font Size
 (set-face-attribute 'default nil :height 144)
-;; Load Additional Files
+;; load Additional Files
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
-;; Enable centered-point-mode in python
-(add-hook 'prog-mode-hook 'centered-point-mode)
+;; enable centered-point-mode in python
+(add-hook 'prog-mode-hook 'centered-cursor-mode)
+;; disable in terminal modes
+(define-global-minor-mode global-centered-point-mode centered-cursor-mode
+  (lambda ()
+    (when (not (memq major-mode
+                     (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode)))
+      (centered-cursor-mode))))
+;; Word count alias
+(defalias 'word-count 'count-words)
