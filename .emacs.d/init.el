@@ -79,7 +79,9 @@
 (setq neo-window-position 'right)
 ;; neotree ignore specific folders
 (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
-;; Artist Mode Hooks
+;; neotree toggle with ctrl-t
+(global-set-key (kbd "C-t") 'neotree-toggle)
+;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "<f1>") 'org-mode)
@@ -136,5 +138,5 @@
     (when (not (memq major-mode
                      (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode)))
       (centered-cursor-mode))))
-;; Word count alias
+;; word count alias
 (defalias 'word-count 'count-words)
