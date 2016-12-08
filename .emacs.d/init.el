@@ -40,7 +40,7 @@
 (key-chord-define-global "f;" 'windmove-right)
 ;; undo tree mode
 (undo-tree-mode 1)
-;; rebind comment region
+;; rkfebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; make ido display choices vertically
 (setq ido-separator "\n")
@@ -140,3 +140,24 @@
       (centered-cursor-mode))))
 ;; word count alias
 (defalias 'word-count 'count-words)
+;; multi-term configuration
+(when (require 'multi-term nil t)
+  (global-set-key (kbd "<f5>") 'multi-term)
+  (global-set-key (kbd "<C-next>") 'multi-term-next)
+  (global-set-key (kbd "<C-prior>") 'multi-term-prev))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
