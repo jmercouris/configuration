@@ -81,6 +81,8 @@
 (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
 ;; neotree toggle with ctrl-t
 (global-set-key (kbd "C-t") 'neotree-toggle)
+;; neotree refresh show file alt-r
+(global-set-key (kbd "M-r") 'neotree-find)
 ;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
@@ -145,7 +147,8 @@
   (global-set-key (kbd "<f5>") 'multi-term)
   (global-set-key (kbd "<C-next>") 'multi-term-next)
   (global-set-key (kbd "<C-prior>") 'multi-term-prev))
-
+;; find file in repository
+(global-set-key (kbd "C-x C-g") 'find-file-in-repository)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -153,7 +156,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex))))
+    (find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -161,3 +164,4 @@
  ;; If there is more than one, they won't work right.
  )
 
+(put 'erase-buffer 'disabled nil)
