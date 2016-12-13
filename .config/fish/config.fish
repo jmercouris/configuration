@@ -9,6 +9,11 @@ set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
 # Python Specific Environment Variables
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
+set --export PYTHONPATH /Users/jmercouris/Projects/scikit-learn
+set --export PYTHONPATH $PYTHONPATH /Users/jmercouris/Projects/AudioRead
+# Neo4j Database Location
+set --export NEO4J_REST_URL 'http://neo4j:passywordy@localhost:7474/db/data/'
+
 
 # Colorize less things such as man pages
 set -x LESS_TERMCAP_mb (printf "\033[01;31m")  
@@ -50,6 +55,8 @@ alias sleep='pmset sleepnow'
 alias alpine='alpine -P ~/.pine.conf'
 # Move Up a directory
 alias u='cd ../'
+# View Git History Graph
+alias git_graph='git log --graph --decorate --oneline'
 
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
