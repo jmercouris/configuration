@@ -157,6 +157,5 @@
  '(package-selected-packages
    (quote
     (restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex))))
-(custom-set-faces
 ;; enable buffer erasing
 (put 'erase-buffer 'disabled nil)
