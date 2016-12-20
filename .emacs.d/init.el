@@ -149,6 +149,12 @@
   (global-set-key (kbd "<C-prior>") 'multi-term-prev))
 ;; find file in repository
 (global-set-key (kbd "C-x C-g") 'find-file-in-repository)
+;; enable buffer erasing
+(put 'erase-buffer 'disabled nil)
+;; switch window behavior uses switch-window package
+(global-set-key (kbd "C-x o") 'switch-window)
+;; golden-ratio should be called when switch-window is called
+(add-to-list 'golden-ratio-extra-commands 'switch-window)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -156,6 +162,12 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex))))
-;; enable buffer erasing
-(put 'erase-buffer 'disabled nil)
+    (switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex)))
+ '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
+ '(switch-window-shortcut-style (quote qwerty)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
