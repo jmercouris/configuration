@@ -155,6 +155,8 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 ;; golden-ratio should be called when switch-window is called
 (add-to-list 'golden-ratio-extra-commands 'switch-window)
+;; magit-status
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -166,3 +168,4 @@
     (rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex)))
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
+(put 'downcase-region 'disabled nil)
