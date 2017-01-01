@@ -157,6 +157,8 @@
 (add-to-list 'golden-ratio-extra-commands 'switch-window)
 ;; magit-status
 (global-set-key (kbd "C-x g") 'magit-status)
+;; python shell prompt warning
+(setq python-shell-prompt-detect-failure-warning nil)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -169,3 +171,9 @@
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
