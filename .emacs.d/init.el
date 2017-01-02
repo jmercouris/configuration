@@ -144,7 +144,7 @@
 (defalias 'word-count 'count-words)
 ;; multi-term configuration
 (when (require 'multi-term nil t)
-  (global-set-key (kbd "<f5>") 'multi-term)
+  (global-set-key (kbd "s-r") 'multi-term)
   (global-set-key (kbd "<C-next>") 'multi-term-next)
   (global-set-key (kbd "<C-prior>") 'multi-term-prev))
 ;; find file in repository
