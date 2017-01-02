@@ -145,8 +145,8 @@
 ;; multi-term configuration
 (when (require 'multi-term nil t)
   (global-set-key (kbd "s-r") 'multi-term)
-  (global-set-key (kbd "<C-next>") 'multi-term-next)
-  (global-set-key (kbd "<C-prior>") 'multi-term-prev))
+  (global-set-key (kbd "s-}") 'multi-term-next)
+  (global-set-key (kbd "s-{") 'multi-term-prev))
 ;; find file in repository
 (global-set-key (kbd "C-x C-g") 'find-file-in-repository)
 ;; enable buffer erasing
