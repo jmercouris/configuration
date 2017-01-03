@@ -168,6 +168,8 @@
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
+;; disable frame creation hotkey
+(global-unset-key (kbd "s-n"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
