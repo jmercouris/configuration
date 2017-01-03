@@ -48,6 +48,10 @@
 (setq ido-enable-flex-matching t)
 ;; highlight current line
 (global-hl-line-mode 1)
+;; disable highlighting in terminal
+(add-hook 'term-mode-hook (lambda ()
+			    (setq-local global-hl-line-mode
+					nil)))
 ;; only current line in current window
 (setq h1-line-sticky-flag nil)
 (set-face-background 'hl-line "#D3D3D3")
