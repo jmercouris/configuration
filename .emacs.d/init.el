@@ -32,12 +32,6 @@
 (show-paren-mode 1)
 ;; make buffer switch command auto suggestions, also for find-file command
 (ido-mode 1)
-;; windmove
-(windmove-default-keybindings)
-(key-chord-define-global "fj" 'windmove-left)
-(key-chord-define-global "fk" 'windmove-down)
-(key-chord-define-global "fl" 'windmove-up)
-(key-chord-define-global "f;" 'windmove-right)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rkfebind comment region
@@ -127,9 +121,6 @@
 (add-hook 'ido-setup-hook 'ido-define-keys)
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
-;; previous and Next Buffer
-(global-set-key (kbd "s-j") 'previous-buffer)
-(global-set-key (kbd "s-;") 'next-buffer)
 ;; font Size
 (set-face-attribute 'default nil :height 144)
 ;; load Additional Files
@@ -174,6 +165,17 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 ;; disable frame creation hotkey
 (global-unset-key (kbd "s-n"))
+;; disable printing hotkey
+(global-unset-key (kbd "s-p"))
+;; previous and Next Buffer
+(global-set-key (kbd "s-n") 'previous-buffer)
+(global-set-key (kbd "s-p") 'next-buffer)
+;; windmove
+(windmove-default-keybindings)
+(global-set-key (kbd "s-j") 'windmove-left)
+(global-set-key (kbd "s-l") 'windmove-down)
+(global-set-key (kbd "s-k") 'windmove-up)
+(global-set-key (kbd "s-;") 'windmove-right)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
