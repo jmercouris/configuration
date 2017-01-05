@@ -128,8 +128,8 @@
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
 ;; previous and Next Buffer
-(global-set-key (kbd "M-p") 'previous-buffer)
-(global-set-key (kbd "M-n") 'next-buffer)
+(global-set-key (kbd "s-j") 'previous-buffer)
+(global-set-key (kbd "s-;") 'next-buffer)
 ;; font Size
 (set-face-attribute 'default nil :height 144)
 ;; load Additional Files
