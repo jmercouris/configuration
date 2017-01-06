@@ -178,15 +178,18 @@
 (global-set-key (kbd "s-;") 'windmove-right)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+;; start hi-win mode
+(hiwin-activate)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex)))
+    (hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio exec-path-from-shell elpy circe centered-cursor-mode auctex)))
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)
@@ -195,4 +198,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
+ '(fringe ((t nil)))
+ '(highlight-indentation-face ((t (:background "gray95"))))
+ '(hiwin-face ((t (:background "gray95"))))
+ '(mode-line ((t (:background "gray55" :foreground "White" :box nil)))))
