@@ -202,4 +202,5 @@
  '(fringe ((t nil)))
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
- '(mode-line ((t (:background "gray55" :foreground "White" :box nil)))))
+ '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))
+ '(term-color-white ((t (:background "white" :foreground "light green")))))
