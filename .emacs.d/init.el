@@ -168,8 +168,8 @@
 ;; disable printing hotkey
 (global-unset-key (kbd "s-p"))
 ;; previous and Next Buffer
-(global-set-key (kbd "s-n") 'previous-buffer)
-(global-set-key (kbd "s-p") 'next-buffer)
+(global-set-key (kbd "s-n") 'next-buffer)
+(global-set-key (kbd "s-p") 'previous-buffer)
 ;; windmove
 (windmove-default-keybindings)
 (global-set-key (kbd "s-j") 'windmove-left)
