@@ -1,6 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs Configuration
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add melpa to packages
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -97,17 +95,16 @@
 ;; Paste from OSX
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
-
+;; Paste to OSX
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
       (process-send-string proc text)
       (process-send-eof proc))))
-
+;; set copy/paste functions
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 (put 'upcase-region 'disabled nil)
-
 ;; add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column
@@ -180,7 +177,6 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; start hi-win mode
 (hiwin-activate)
-
 ;; hide modes from modeline
 (diminish 'hiwin-mode)
 (diminish 'golden-ratio-mode)
