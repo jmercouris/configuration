@@ -170,8 +170,8 @@
 ;; windmove
 (windmove-default-keybindings)
 (global-set-key (kbd "s-j") 'windmove-left)
-(global-set-key (kbd "s-l") 'windmove-down)
-(global-set-key (kbd "s-k") 'windmove-up)
+(global-set-key (kbd "s-k") 'windmove-down)
+(global-set-key (kbd "s-l") 'windmove-up)
 (global-set-key (kbd "s-;") 'windmove-right)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
