@@ -124,6 +124,14 @@
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
+
+;; layout restore
+;; (load "~/.emacs.d/layout-restore")
+;; (require 'layout-restore)
+;; (global-set-key [?\C-c ?l] 'layout-save-current)
+;; (global-set-key [?\C-c ?\C-l ?\C-l] 'layout-restore)
+;; (global-set-key [?\C-c ?\C-l ?\C-c] 'layout-delete-current)
+
 ;; enable centered-point-mode in python
 (add-hook 'prog-mode-hook 'centered-cursor-mode)
 ;; disable in terminal modes
