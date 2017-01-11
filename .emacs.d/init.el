@@ -56,7 +56,7 @@
 ;; golden ratio mode
 (golden-ratio-mode 1)
 ;; autoscale (for wide screen)
-(setq golden-ratio-auto-scale t)
+(setq golden-ratio-adjust-factor .85)
 ;; ignore certain buffers
 (add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
 ;; all back up files into same systemwide temp directory
