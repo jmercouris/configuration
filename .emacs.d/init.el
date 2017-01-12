@@ -187,10 +187,13 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; start hi-win mode
 (hiwin-activate)
-;; hide modes from modeline
-(diminish 'hiwin-mode)
-(diminish 'golden-ratio-mode)
-(diminish 'auto-revert-mode)
+;; highlight symbol at point
+(global-unset-key (kbd "s-h"))
+(global-set-key (kbd "s-h") 'highlight-symbol-at-point)
+
+;; ediff don't open new frame, split horiziontally
+;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; (setq ediff-split-window-function 'split-window-horizontally)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -200,7 +203,7 @@
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (diminish exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe centered-cursor-mode auctex)))
+    (exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe centered-cursor-mode auctex)))
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)
