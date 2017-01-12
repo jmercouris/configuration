@@ -144,9 +144,15 @@
       (centered-cursor-mode))))
 ;; word count alias
 (defalias 'word-count 'count-words)
+;; window register save and recal
+(global-unset-key (kbd "s-r"))
+(global-unset-key (kbd "s-o"))
+(global-set-key (kbd "s-r") 'window-configuration-to-register)
+(global-set-key (kbd "s-o") 'jump-to-register)
 ;; multi-term configuration
+(global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)
-  (global-set-key (kbd "s-r") 'multi-term)
+  (global-set-key (kbd "s-t") 'multi-term)
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
 ;; find file in repository
