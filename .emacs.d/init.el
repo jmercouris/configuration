@@ -96,7 +96,13 @@
       (lambda nil "> "))
 ;; Paste from OSX
 (defun copy-from-osx ()
-  (shell-command-to-string "pbpaste"))
+  "Handle copy/paste intelligently on osx."
+  (let ((pbpaste (purecopy "/usr/bin/pbpaste")))
+    (if (and (eq system-type 'darwin)
+             (file-exists-p pbpaste))
+        (let ((tramp-mode nil)
+              (default-directory "~"))
+          (shell-command-to-string pbpaste)))))
 ;; Paste to OSX
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
@@ -193,6 +199,8 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; start hi-win mode
 (hiwin-activate)
+(hiwin-draw-ol)
+
 ;; highlight symbol at point
 (global-unset-key (kbd "s-h"))
 (global-set-key (kbd "s-h") 'highlight-symbol-at-point)
@@ -209,7 +217,8 @@
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe centered-cursor-mode auctex)))
+    (realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe centered-cursor-mode auctex)))
+ '(realgud:pdb-command-name "python -m pdb")
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)
