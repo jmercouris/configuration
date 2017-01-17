@@ -37,14 +37,11 @@ alias c='cd'
 # Get router IP
 alias router='netstat -rn |grep default'
 # Get CPU Temperature
-alias temperature='osx-cpu-temp'
+alias temperature='osx_cpu_temp'
 # Quit Terminal
 alias q='exit'
 # Spotlight functionality in Terminal
 alias spotlight='mdfind'
-# Weather Chicago
-alias weather_chicago='curl wttr.in/chicago'
-alias weather_berlin='curl wttr.in/berlin'
 # Screen Saver
 alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # Sleep
