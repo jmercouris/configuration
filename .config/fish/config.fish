@@ -24,6 +24,8 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
 # Get Battery Status
 alias battery='pmset -g batt'
+# Sleep
+alias sleep='pmset sleepnow'
 # Open Emacs in a terminal window
 alias e="emacs -nw"
 # Open Emacs in a graphical window
@@ -32,8 +34,6 @@ alias ex="open -n -a /Applications/Emacs.app"
 alias sudo='sudo '
 # Useful ls alias
 alias l='ls -la'
-# Useful cd alias
-alias c='cd'
 # Get router IP
 alias router='netstat -rn |grep default'
 # Get CPU Temperature
@@ -44,19 +44,13 @@ alias q='exit'
 alias spotlight='mdfind'
 # Screen Saver
 alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-# Sleep
-alias sleep='pmset sleepnow'
 # Alpine Custom Configuration File
 alias alpine='alpine -P ~/.pine.conf'
-# Move Up a directory
-alias u='cd ../'
 # View Git History Graph
 alias git_graph='git log --graph --decorate --oneline'
-
 #Folder Shortcut Alias
 alias downloads='cd /Users/jmercouris/Downloads'
 alias documents='cd /Users/jmercouris/Documents'
 alias projects='cd /Users/jmercouris/Projects'
 alias desktop='cd /Users/jmercouris/Desktop'
-alias tub='cd /Users/jmercouris/Documents/TUB'
-alias iit='cd /Users/jmercouris/Documents/IIT'
+
