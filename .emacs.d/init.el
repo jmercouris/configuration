@@ -140,14 +140,8 @@
 ;; (global-set-key [?\C-c ?\C-l ?\C-l] 'layout-restore)
 ;; (global-set-key [?\C-c ?\C-l ?\C-c] 'layout-delete-current)
 
-;; enable centered-point-mode in python
-(add-hook 'prog-mode-hook 'centered-cursor-mode)
-;; disable in terminal modes
-(define-global-minor-mode global-centered-point-mode centered-cursor-mode
-  (lambda ()
-    (when (not (memq major-mode
-                     (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode)))
-      (centered-cursor-mode))))
+;; enable smooth scrolling mode
+(smooth-scrolling-mode 1)
 ;; word count alias
 (defalias 'word-count 'count-words)
 ;; window register save and recal
@@ -200,10 +194,22 @@
 ;; start hi-win mode
 (hiwin-activate)
 (hiwin-draw-ol)
-
 ;; highlight symbol at point
 (global-unset-key (kbd "s-h"))
 (global-set-key (kbd "s-h") 'highlight-symbol-at-point)
+;; minor mode lighter sets to diminish in mode-line
+(defun modeline-set-lighter (minor-mode lighter)
+  (when (assq minor-mode minor-mode-alist)
+    (setcar (cdr (assq minor-mode minor-mode-alist)) lighter)))
+(defun modeline-remove-lighter (minor-mode)
+  (modeline-set-lighter minor-mode ""))
+;; diminish lighters for following modes
+(modeline-remove-lighter 'hiwin-mode)
+(modeline-remove-lighter 'auto-revert-mode)
+(modeline-remove-lighter 'golden-ratio-mode)
+(modeline-remove-lighter 'sphinx-doc-mode)
+(modeline-remove-lighter 'highlight-indentation-mode)
+;; example (modeline-set-lighter 'abbrev-mode " Abbr")
 
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -217,8 +223,10 @@
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe centered-cursor-mode auctex)))
+    (smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
+ '(smooth-scroll-margin 15)
+ '(smooth-scroll-strict-margins nil)
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)

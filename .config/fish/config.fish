@@ -25,7 +25,7 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 # Get Battery Status
 alias battery='pmset -g batt'
 # Open Emacs in a terminal window
-alias e="emacs -q"
+alias e="emacs -nw"
 # Open Emacs in a graphical window
 alias ex="open -n -a /Applications/Emacs.app"
 # Allow alias usage while sudo
