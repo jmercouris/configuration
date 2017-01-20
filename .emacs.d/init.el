@@ -132,6 +132,7 @@
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
+(load "~/.emacs.d/vkill")
 
 ;; layout restore
 ;; (load "~/.emacs.d/layout-restore")
