@@ -212,6 +212,15 @@
 (modeline-remove-lighter 'highlight-indentation-mode)
 ;; example (modeline-set-lighter 'abbrev-mode " Abbr")
 
+;; fill comment to width
+(defun fill-comment ()
+  "Fill text to column width for comments"
+  (interactive)
+  (save-excursion
+    (move-end-of-line 1)
+    (while (< (current-column) fill-column) (insert ?#))))
+(global-set-key (kbd "s-/") 'fill-comment)
+
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
@@ -224,7 +233,7 @@
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
+    (json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
