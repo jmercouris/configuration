@@ -56,7 +56,7 @@
 ;; golden ratio mode
 (golden-ratio-mode 1)
 ;; autoscale (for wide screen)
-(setq golden-ratio-adjust-factor .85)
+(setq golden-ratio-adjust-factor .75)
 ;; ignore certain buffers
 (add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
 ;; all back up files into same systemwide temp directory
@@ -211,7 +211,6 @@
 (modeline-remove-lighter 'sphinx-doc-mode)
 (modeline-remove-lighter 'highlight-indentation-mode)
 ;; example (modeline-set-lighter 'abbrev-mode " Abbr")
-
 ;; fill comment to width
 (defun fill-comment ()
   "Fill text to column width for comments"
@@ -220,6 +219,21 @@
     (move-end-of-line 1)
     (while (< (current-column) fill-column) (insert ?#))))
 (global-set-key (kbd "s-/") 'fill-comment)
+;;xml formatting
+(defun pretty-print-xml-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this.  The function inserts linebreaks to separate tags that have
+nothing but whitespace between them.  It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+      (nxml-mode)
+      (goto-char begin)
+      (while (search-forward-regexp "\>[ \\t]*\<" nil t) 
+        (backward-char) (insert "\n"))
+      (indent-region begin end))
+    (message "Ah, much better!"))
 
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
