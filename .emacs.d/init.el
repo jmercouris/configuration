@@ -162,6 +162,8 @@
 (put 'erase-buffer 'disabled nil)
 ;; switch window behavior uses switch-window package
 (global-set-key (kbd "C-x o") 'switch-window)
+;; switch window kill window
+(global-set-key (kbd "C-x w") 'switch-window-then-delete)
 ;; golden-ratio should be called when switch-window is called
 (add-to-list 'golden-ratio-extra-commands 'switch-window)
 (add-to-list 'golden-ratio-extra-commands 'elpy-occur-definitions)
