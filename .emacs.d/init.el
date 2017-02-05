@@ -263,6 +263,12 @@ by using nxml's indentation rules."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
+ '(font-lock-comment-face ((t (:foreground "gray70"))))
+ '(font-lock-doc-face ((t (:foreground "gray60"))))
+ '(font-lock-function-name-face ((t (:foreground "green4"))))
+ '(font-lock-keyword-face ((t (:foreground "royal blue"))))
+ '(font-lock-string-face ((t (:foreground "dark red"))))
+ '(font-lock-variable-name-face ((t (:foreground "lime green"))))
  '(fringe ((t nil)))
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
