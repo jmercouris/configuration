@@ -30,12 +30,12 @@
 (show-paren-mode 1)
 ;; make buffer switch command auto suggestions, also for find-file command
 (ido-mode 1)
-;; undo tree mode
-(undo-tree-mode 1)
-;; rkfebind comment region
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; make ido display choices vertically
 (setq ido-separator "\n")
+;; undo tree mode
+(undo-tree-mode 1)
+;; rebind comment region
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; display any item that contains the chars you typed
 (setq ido-enable-flex-matching t)
 ;; highlight current line
@@ -50,7 +50,7 @@
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
-(set-cursor-color "#00ed00")
+(set-cursor-color "#00ea00")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; golden ratio mode
