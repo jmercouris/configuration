@@ -50,7 +50,7 @@
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
-(set-cursor-color "#00ea00")
+(set-cursor-color "#00ef00")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; golden ratio mode
@@ -273,4 +273,6 @@ by using nxml's indentation rules."
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
  '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))
+ '(neo-header-face ((t (:foreground "green3"))))
+ '(neo-root-dir-face ((t (:foreground "green3"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))
