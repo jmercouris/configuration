@@ -175,7 +175,7 @@
 (global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "s-g") 'avy-goto-line)
 ;; set smex to super + d
-W(global-set-key (kbd "s-d") 'smex)
+(global-set-key (kbd "s-d") 'smex)
 (global-set-key (kbd "s-D") 'smex-major-mode-commands)
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
