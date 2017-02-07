@@ -50,7 +50,7 @@
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
-(set-cursor-color "#00ef00")
+(set-cursor-color "#00f900")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; golden ratio mode
@@ -175,7 +175,7 @@
 (global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "s-g") 'avy-goto-line)
 ;; set smex to super + d
-(global-set-key (kbd "s-d") 'smex)
+W(global-set-key (kbd "s-d") 'smex)
 (global-set-key (kbd "s-D") 'smex-major-mode-commands)
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
@@ -237,7 +237,9 @@ by using nxml's indentation rules."
         (backward-char) (insert "\n"))
       (indent-region begin end))
     (message "Ah, much better!"))
-
+;; Which key prompts on C-x etc
+(which-key-mode)
+(which-key-setup-minibuffer)
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
@@ -250,7 +252,7 @@ by using nxml's indentation rules."
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
+    (which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
@@ -263,7 +265,7 @@ by using nxml's indentation rules."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
- '(font-lock-comment-face ((t (:foreground "gray70"))))
+ '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray60"))))
  '(font-lock-function-name-face ((t (:foreground "green4"))))
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
