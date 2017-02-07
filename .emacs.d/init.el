@@ -262,7 +262,7 @@ by using nxml's indentation rules."
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
+    (py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
