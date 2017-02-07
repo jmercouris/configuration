@@ -212,6 +212,7 @@ W(global-set-key (kbd "s-d") 'smex)
 (modeline-remove-lighter 'auto-revert-mode)
 (modeline-remove-lighter 'golden-ratio-mode)
 (modeline-remove-lighter 'sphinx-doc-mode)
+(modeline-remove-lighter 'which-key-mode)
 (modeline-remove-lighter 'highlight-indentation-mode)
 ;; example (modeline-set-lighter 'abbrev-mode " Abbr")
 ;; fill comment to width
