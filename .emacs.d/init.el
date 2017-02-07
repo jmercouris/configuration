@@ -241,6 +241,15 @@ by using nxml's indentation rules."
 ;; Which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
+;; shorten mode line for git
+(defun my-shorten-vc-mode-line (string)
+  (cond
+   ((string-prefix-p "Git" string)
+    (concat "G" (substring string 3)))
+   (t
+    string)))
+
+(advice-add 'vc-git-mode-line-string :filter-return 'my-shorten-vc-mode-line)
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
