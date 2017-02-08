@@ -250,6 +250,8 @@ by using nxml's indentation rules."
     string)))
 
 (advice-add 'vc-git-mode-line-string :filter-return 'my-shorten-vc-mode-line)
+
+(defalias 'list-buffers 'ibuffer)
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
@@ -276,7 +278,7 @@ by using nxml's indentation rules."
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
- '(font-lock-doc-face ((t (:foreground "gray60"))))
+ '(font-lock-doc-face ((t (:foreground "gray40"))))
  '(font-lock-function-name-face ((t (:foreground "green4"))))
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
