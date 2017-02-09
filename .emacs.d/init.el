@@ -91,9 +91,19 @@
 	    (local-set-key (kbd "<f5>") 'artist-select-op-ellipse)  ; f5 = ellipse
 	    (local-set-key (kbd "C-z") 'undo)
 	    ))
-;; Set Eshell Prompt
+;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
+;; clear eshell buffer
+(defun eshell-clear-buffer ()
+  "Clear terminal"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
+(add-hook 'eshell-mode-hook
+      '(lambda()
+          (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
 ;; Paste from OSX
 (defun copy-from-osx ()
   "Handle copy/paste intelligently on osx."
