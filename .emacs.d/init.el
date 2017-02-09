@@ -265,6 +265,17 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C-.") 'ido-imenu-anywhere)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
+;; open shell on remote machine
+(defun remote-shell (&optional host)
+  "Open a remote shell to a host."
+  (interactive)
+  (with-temp-buffer
+    (let ((host (if host host (read-string "Host: "))))
+      (cd (concat "/scp:" host ":"))
+      (shell (concat "*" host "*")))))
+;; example of setting up custom shells
+;; (defun myserver-shell () (interactive) (remote-shell "myserver"))
+
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
