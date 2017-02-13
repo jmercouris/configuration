@@ -177,6 +177,7 @@
 ;; golden-ratio should be called when switch-window is called
 (add-to-list 'golden-ratio-extra-commands 'switch-window)
 (add-to-list 'golden-ratio-extra-commands 'elpy-occur-definitions)
+(add-to-list 'golden-ratio-extra-commands 'avy-goto-word-or-subword-1)
 ;; magit-status
 (global-set-key (kbd "C-x g") 'magit-status)
 ;; python shell prompt warning
