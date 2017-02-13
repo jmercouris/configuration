@@ -213,19 +213,13 @@
 (global-unset-key (kbd "s-h"))
 (global-set-key (kbd "s-h") 'highlight-symbol-at-point)
 ;; minor mode lighter sets to diminish in mode-line
-(defun modeline-set-lighter (minor-mode lighter)
-  (when (assq minor-mode minor-mode-alist)
-    (setcar (cdr (assq minor-mode minor-mode-alist)) lighter)))
-(defun modeline-remove-lighter (minor-mode)
-  (modeline-set-lighter minor-mode ""))
-;; diminish lighters for following modes
-(modeline-remove-lighter 'hiwin-mode)
-(modeline-remove-lighter 'auto-revert-mode)
-(modeline-remove-lighter 'golden-ratio-mode)
-(modeline-remove-lighter 'sphinx-doc-mode)
-(modeline-remove-lighter 'which-key-mode)
-(modeline-remove-lighter 'highlight-indentation-mode)
-;; example (modeline-set-lighter 'abbrev-mode " Abbr")
+(require 'diminish)
+(diminish 'hiwin-mode)
+(diminish 'auto-revert-mode)
+(diminish 'golden-ratio-mode)
+(diminish 'sphinx-doc-mode)
+(diminish 'which-key-mode)
+(diminish 'highlight-indentation-mode)
 ;; fill comment to width
 (defun fill-comment ()
   "Fill text to column width for comments"
