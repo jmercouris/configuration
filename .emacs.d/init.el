@@ -94,6 +94,9 @@
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
+;; clear buffer
+(global-unset-key (kbd "s-c"))
+(global-set-key (kbd "s-c") 'erase-buffer)
 ;; clear eshell buffer
 (defun eshell-clear-buffer ()
   "Clear terminal"
@@ -103,7 +106,7 @@
     (eshell-send-input)))
 (add-hook 'eshell-mode-hook
       '(lambda()
-          (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
+	 (local-set-key (kbd "s-c") 'eshell-clear-buffer)))
 ;; Paste from OSX
 (defun copy-from-osx ()
   "Handle copy/paste intelligently on osx."
