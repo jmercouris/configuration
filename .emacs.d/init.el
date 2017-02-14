@@ -270,6 +270,10 @@ by using nxml's indentation rules."
       (shell (concat "*" host "*")))))
 ;; example of setting up custom shells
 ;; (defun myserver-shell () (interactive) (remote-shell "myserver"))
+(setq org-log-done t)
+(setq org-agenda-files (list "~/Work/.work.org"
+                             "~/Documents/Academic/.academic.org" 
+                             "~/Projects/.projects.org"))
 
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
