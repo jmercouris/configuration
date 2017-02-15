@@ -287,6 +287,8 @@ by using nxml's indentation rules."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(circe-default-part-message "Exit.")
+ '(circe-reduce-lurker-spam t)
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
@@ -303,6 +305,7 @@ by using nxml's indentation rules."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
+ '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
  '(font-lock-function-name-face ((t (:foreground "green4"))))
