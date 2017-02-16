@@ -26,18 +26,26 @@
     (tool-bar-mode -1))
 ;; set initial scratch bar message
 (setq initial-scratch-message nil)
+;; make mode-line appear flat
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
+;; disable frame creation hotkey
+(global-unset-key (kbd "s-n"))
+;; disable printing hotkey
+(global-unset-key (kbd "s-p"))
+;; ivy configuration
+(ivy-mode 1)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "s-d") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-plus)))
 ;; show parenthesis pairing
 (show-paren-mode 1)
-;; make buffer switch command auto suggestions, also for find-file command
-(ido-mode 1)
-;; make ido display choices vertically
-(setq ido-separator "\n")
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
-;; display any item that contains the chars you typed
-(setq ido-enable-flex-matching t)
 ;; highlight current line
 (global-hl-line-mode 1)
 ;; disable highlighting in terminal
@@ -59,6 +67,10 @@
 (setq golden-ratio-adjust-factor .75)
 ;; ignore certain buffers
 (add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
+;; golden-ratio should be called when switch-window is called
+(add-to-list 'golden-ratio-extra-commands 'switch-window)
+(add-to-list 'golden-ratio-extra-commands 'elpy-occur-definitions)
+(add-to-list 'golden-ratio-extra-commands 'avy-goto-word-or-subword-1)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -84,11 +96,10 @@
 ;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
-	    (local-set-key (kbd "<f1>") 'org-mode)
-	    (local-set-key (kbd "<f2>") 'artist-select-op-pen-line) ; f2 = pen mode
-            (local-set-key (kbd "<f3>") 'artist-select-op-line)     ; f3 = line
-	    (local-set-key (kbd "<f4>") 'artist-select-op-square)   ; f4 = rectangle
-	    (local-set-key (kbd "<f5>") 'artist-select-op-ellipse)  ; f5 = ellipse
+	    (local-set-key (kbd "<f1>") 'artist-select-op-pen-line) ; f2 = pen mode
+            (local-set-key (kbd "<f2>") 'artist-select-op-line)     ; f3 = line
+	    (local-set-key (kbd "<f3>") 'artist-select-op-square)   ; f4 = rectangle
+	    (local-set-key (kbd "<f4>") 'artist-select-op-ellipse)  ; f5 = ellipse
 	    (local-set-key (kbd "C-z") 'undo)
 	    ))
 ;; set eshell prompt
@@ -132,11 +143,6 @@
 (setq column-number-mode t)
 ;; neotree use ascii instead of folder icons
 (setq neo-theme 'ascii)
-;; C-n/p is more intuitive in vertical layout
-(defun ido-define-keys ()
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
-(add-hook 'ido-setup-hook 'ido-define-keys)
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
 ;; font Size
@@ -146,18 +152,8 @@
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
 (load "~/.emacs.d/vkill")
-
-;; layout restore
-;; (load "~/.emacs.d/layout-restore")
-;; (require 'layout-restore)
-;; (global-set-key [?\C-c ?l] 'layout-save-current)
-;; (global-set-key [?\C-c ?\C-l ?\C-l] 'layout-restore)
-;; (global-set-key [?\C-c ?\C-l ?\C-c] 'layout-delete-current)
-
 ;; enable smooth scrolling mode
 (smooth-scrolling-mode 1)
-;; word count alias
-(defalias 'word-count 'count-words)
 ;; window register save and recal
 (global-unset-key (kbd "s-r"))
 (global-unset-key (kbd "s-o"))
@@ -177,27 +173,14 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 ;; switch window kill window
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
-;; golden-ratio should be called when switch-window is called
-(add-to-list 'golden-ratio-extra-commands 'switch-window)
-(add-to-list 'golden-ratio-extra-commands 'elpy-occur-definitions)
-(add-to-list 'golden-ratio-extra-commands 'avy-goto-word-or-subword-1)
 ;; magit-status
 (global-set-key (kbd "C-x g") 'magit-status)
+(setq magit-completing-read-function 'ivy-completing-read)
 ;; python shell prompt warning
 (setq python-shell-prompt-detect-failure-warning nil)
 ;; avy movement commands
 (global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "s-g") 'avy-goto-line)
-;; set smex to super + d
-(global-set-key (kbd "s-d") 'smex)
-(global-set-key (kbd "s-D") 'smex-major-mode-commands)
-;; make mode-line appear flat
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
-;; disable frame creation hotkey
-(global-unset-key (kbd "s-n"))
-;; disable printing hotkey
-(global-unset-key (kbd "s-p"))
 ;; previous and Next Buffer
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-set-key (kbd "s-p") 'previous-buffer)
@@ -260,7 +243,7 @@ by using nxml's indentation rules."
 ;; use ibuffer instead of regular buffer list
 (defalias 'list-buffers 'ibuffer)
 ;; imenu anywhere binding
-(global-set-key (kbd "C-.") 'ido-imenu-anywhere)
+(global-set-key (kbd "C-.") 'imenu-anywhere)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
 ;; open shell on remote machine
@@ -288,11 +271,11 @@ by using nxml's indentation rules."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t)
+ '(circe-reduce-lurker-spam t t)
  '(hiwin-mode t)
  '(package-selected-packages
    (quote
-    (browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
+    (flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
