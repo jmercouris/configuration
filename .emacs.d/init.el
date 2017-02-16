@@ -41,6 +41,14 @@
 ;; flex search for everything but swiper
 (setq ivy-re-builders-alist
       '((swiper . ivy--regex-plus) (t . ivy--regex-fuzzy)))
+;; ivy kill switch buffer
+(define-key
+    ivy-switch-buffer-map
+    (kbd "C-k")
+  (lambda ()
+    (interactive)
+    (ivy-set-action 'kill-buffer)
+    (ivy-done)))
 ;; show parenthesis pairing
 (show-paren-mode 1)
 ;; undo tree mode
@@ -207,6 +215,7 @@
 (diminish 'sphinx-doc-mode)
 (diminish 'which-key-mode)
 (diminish 'highlight-indentation-mode)
+(diminish 'ivy-mode)
 ;; fill comment to width
 (defun fill-comment ()
   "Fill text to column width for comments"
