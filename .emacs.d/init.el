@@ -38,8 +38,9 @@
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "s-d") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;; flex search for everything but swiper
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-plus)))
+      '((swiper . ivy--regex-plus) (t . ivy--regex-fuzzy)))
 ;; show parenthesis pairing
 (show-paren-mode 1)
 ;; undo tree mode
@@ -291,10 +292,10 @@ by using nxml's indentation rules."
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
- '(font-lock-function-name-face ((t (:foreground "green4"))))
+ '(font-lock-function-name-face ((t (:foreground "forest green"))))
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
- '(font-lock-variable-name-face ((t (:foreground "lime green"))))
+ '(font-lock-variable-name-face ((t (:foreground "green3"))))
  '(fringe ((t nil)))
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
