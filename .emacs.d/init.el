@@ -254,6 +254,8 @@ by using nxml's indentation rules."
 (defalias 'list-buffers 'ibuffer)
 ;; imenu anywhere binding
 (global-set-key (kbd "C-.") 'imenu-anywhere)
+;; imenu binding
+(global-set-key (kbd "C->") 'imenu)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
 ;; open shell on remote machine
