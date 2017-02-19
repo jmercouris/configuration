@@ -30,3 +30,77 @@ _g_o to
   ("l" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("g" org-goto :exit t))
+
+(defhydra hydra-window ()
+   "
+Movement^^       ^Split^           ^Switch^        ^Resize^
+----------------------------------------------------------------
+_j_ ←           _v_ertical         _b_uffer        _u_ X←
+_k_ ↓           _x_ horizontal     _f_ind files    _i_ X↓
+_l_ ↑           _1_only this       _s_wap          _o_ X↑
+_;_ →           _d_elete                         _p_ X→
+_F_ollow                   
+_SPC_ cancel                    
+"
+   ("j" windmove-left )
+   ("k" windmove-down )
+   ("l" windmove-up )
+   (";" windmove-right )
+   ("u" hydra-move-splitter-left)
+   ("i" hydra-move-splitter-down)
+   ("o" hydra-move-splitter-up)
+   ("p" hydra-move-splitter-right)
+   ("b" ivy-switch-buffer)
+   ("f" counsel-find-file)
+   ("F" follow-mode)
+   ("s" switch-window-then-swap-buffer) 
+       
+   ("v" (lambda ()
+          (interactive)
+          (split-window-right)
+          (windmove-right))
+       )
+   ("x" (lambda ()
+          (interactive)
+          (split-window-below)
+          (windmove-down))
+       )
+   ("d" delete-window)
+   ("1" delete-other-windows)
+   ("SPC" nil)
+   )
+
+(defun hydra-move-splitter-left (arg)
+  "Move window splitter left."
+  (interactive "p")
+  (if (let ((windmove-wrap-around))
+        (windmove-find-other-window 'right))
+      (shrink-window-horizontally arg)
+    (enlarge-window-horizontally arg)))
+
+(defun hydra-move-splitter-right (arg)
+  "Move window splitter right."
+  (interactive "p")
+  (if (let ((windmove-wrap-around))
+        (windmove-find-other-window 'right))
+      (enlarge-window-horizontally arg)
+    (shrink-window-horizontally arg)))
+
+(defun hydra-move-splitter-up (arg)
+  "Move window splitter up."
+  (interactive "p")
+  (if (let ((windmove-wrap-around))
+        (windmove-find-other-window 'up))
+      (enlarge-window arg)
+    (shrink-window arg)))
+
+(defun hydra-move-splitter-down (arg)
+  "Move window splitter down."
+  (interactive "p")
+  (if (let ((windmove-wrap-around))
+        (windmove-find-other-window 'up))
+      (shrink-window arg)
+    (enlarge-window arg)))
+
+(global-unset-key (kbd "s-w"))
+(global-set-key (kbd "s-w") 'hydra-window/body)
