@@ -72,16 +72,6 @@
 (set-cursor-color "#00f900")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
-;; golden ratio mode
-(golden-ratio-mode 1)
-;; autoscale (for wide screen)
-(setq golden-ratio-adjust-factor .75)
-;; ignore certain buffers
-(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
-;; golden-ratio should be called when switch-window is called
-(add-to-list 'golden-ratio-extra-commands 'switch-window)
-(add-to-list 'golden-ratio-extra-commands 'elpy-occur-definitions)
-(add-to-list 'golden-ratio-extra-commands 'avy-goto-word-or-subword-1)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -205,7 +195,6 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; start hi-win mode
 (hiwin-activate)
-(hiwin-draw-ol)
 ;; highlight symbol at point
 (global-unset-key (kbd "s-h"))
 (global-set-key (kbd "s-h") 'highlight-symbol-at-point)

@@ -40,7 +40,7 @@ _k_ ↓           _x_ horizontal     _f_ind files    _i_ X↓
 _l_ ↑           _1_only this       _s_wap          _o_ X↑
 _;_ →           _d_elete                         _p_ X→
 _F_ollow                   
-_SPC_ cancel                    
+_q_ quit                    
 "
    ("j" windmove-left )
    ("k" windmove-down )
@@ -67,7 +67,7 @@ _SPC_ cancel
        )
    ("d" delete-window)
    ("1" delete-other-windows)
-   ("SPC" nil)
+   ("q" nil)
    )
 
 (defun hydra-move-splitter-left (arg)
@@ -102,5 +102,6 @@ _SPC_ cancel
       (shrink-window arg)
     (enlarge-window arg)))
 
+;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-w"))
 (global-set-key (kbd "s-w") 'hydra-window/body)
