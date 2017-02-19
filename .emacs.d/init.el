@@ -204,7 +204,7 @@
 (eval-after-load "sphinx-doc" '(diminish 'sphinx-doc-mode))
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "elpy" '(diminish 'elpy-mode))
-(diminish 'auto-revert-mode)
+(eval-after-load "magit" '(diminish 'auto-revert-mode))
 (diminish 'highlight-indentation-mode)
 (diminish 'ivy-mode)
 ;; fill comment to width
