@@ -33,6 +33,8 @@
 (global-unset-key (kbd "s-n"))
 ;; disable printing hotkey
 (global-unset-key (kbd "s-p"))
+; disable auto save
+(setq auto-save-default nil)
 ;; ivy configuration
 (ivy-mode 1)
 (global-set-key "\C-s" 'swiper)
@@ -208,12 +210,12 @@
 (global-unset-key (kbd "s-h"))
 (global-set-key (kbd "s-h") 'highlight-symbol-at-point)
 ;; minor mode lighter sets to diminish in mode-line
-(require 'diminish)
-(diminish 'hiwin-mode)
+(eval-after-load "hiwin" '(diminish 'hiwin-mode))
+(eval-after-load "golden-ratio" '(diminish 'golden-ratio-mode))
+(eval-after-load "sphinx-doc" '(diminish 'sphinx-doc-mode))
+(eval-after-load "which-key" '(diminish 'which-key-mode))
+(eval-after-load "elpy" '(diminish 'elpy-mode))
 (diminish 'auto-revert-mode)
-(diminish 'golden-ratio-mode)
-(diminish 'sphinx-doc-mode)
-(diminish 'which-key-mode)
 (diminish 'highlight-indentation-mode)
 (diminish 'ivy-mode)
 ;; fill comment to width
@@ -285,6 +287,11 @@ by using nxml's indentation rules."
  '(circe-default-part-message "Exit.")
  '(circe-reduce-lurker-spam t t)
  '(hiwin-mode t)
+ '(ivy-completing-read-handlers-alist
+   (quote
+    ((tmm-menubar . completing-read-default)
+     (tmm-shortcut . completing-read-default)
+     (elpy-doc . completing-read-default))))
  '(package-selected-packages
    (quote
     (flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
