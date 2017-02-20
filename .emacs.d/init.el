@@ -1,3 +1,4 @@
+;; Emacs Configuration
 ;; add melpa to packages
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -186,10 +187,10 @@
 (global-set-key (kbd "s-p") 'previous-buffer)
 ;; windmove
 (windmove-default-keybindings)
-(global-set-key (kbd "s-h") 'windmove-left)
-(global-set-key (kbd "s-j") 'windmove-down)
-(global-set-key (kbd "s-k") 'windmove-up)
-(global-set-key (kbd "s-l") 'windmove-right)
+(global-set-key (kbd "s-j") 'windmove-left)
+(global-set-key (kbd "s-k") 'windmove-down)
+(global-set-key (kbd "s-l") 'windmove-up)
+(global-set-key (kbd "s-;") 'windmove-right)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; start hi-win mode

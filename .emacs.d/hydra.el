@@ -35,21 +35,21 @@ _g_o to
    "
 Movement^^       ^Split^           ^Switch^        ^Resize^
 ----------------------------------------------------------------
-_h_ ←           _v_ertical         _b_uffer        _y_ X←
-_j_ ↓           _x_ horizontal     _f_ind files    _u_ X↓
-_k_ ↑           _1_only this       _s_wap          _i_ X↑
-_l_ →           _d_elete                         _o_ X→
+_j_ ←           _v_ertical         _b_uffer        _u_ X←
+_k_ ↓           _x_ horizontal     _f_ind files    _i_ X↓
+_l_ ↑           _1_only this       _s_wap          _o_ X↑
+_;_ →           _d_elete                         _p_ X→
 _F_ollow                   
 _q_ quit                    
 "
-   ("h" windmove-left )
-   ("j" windmove-down )
-   ("k" windmove-up )
-   ("l" windmove-right )
-   ("y" hydra-move-splitter-left)
-   ("u" hydra-move-splitter-down)
-   ("i" hydra-move-splitter-up)
-   ("o" hydra-move-splitter-right)
+   ("j" windmove-left )
+   ("k" windmove-down )
+   ("l" windmove-up )
+   (";" windmove-right )
+   ("u" hydra-move-splitter-left)
+   ("i" hydra-move-splitter-down)
+   ("o" hydra-move-splitter-up)
+   ("p" hydra-move-splitter-right)
    ("b" ivy-switch-buffer)
    ("f" counsel-find-file)
    ("F" follow-mode)
