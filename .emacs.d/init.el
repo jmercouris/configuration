@@ -86,6 +86,11 @@
 			      (sphinx-doc-mode t)))
 ;; zpt files load html-mode
 (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
+;; peep-dired kill buffers on disabling of minor mode
+(setq peep-dired-cleanup-on-disable t)
+;; dired bind
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "M-p") 'peep-dired) ))
 ;; neotree window position
 (setq neo-window-position 'right)
 ;; neotree ignore specific folders
@@ -278,7 +283,7 @@ by using nxml's indentation rules."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t t)
+ '(circe-reduce-lurker-spam t)
  '(hiwin-mode t)
  '(ivy-completing-read-handlers-alist
    (quote
@@ -287,7 +292,7 @@ by using nxml's indentation rules."
      (elpy-doc . completing-read-default))))
  '(package-selected-packages
    (quote
-    (flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
+    (peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy rainbow-delimiters switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode key-chord jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
