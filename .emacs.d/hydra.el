@@ -3,15 +3,19 @@
   ("=" text-scale-increase "in")
   ("-" text-scale-decrease "out"))
 
-(defhydra hydra-magit (:color blue :columns 8)
+(defhydra hydra-magit (:color blue :columns 1)
   "Magit"
-  ("c" magit-status "status")
-  ("C" magit-checkout "checkout")
-  ("v" magit-branch-manager "branch manager")
+  ("s" magit-status "status")
+  ("c" magit-checkout "checkout")
   ("m" magit-merge "merge")
   ("l" magit-log "log")
   ("!" magit-git-command "command")
-  ("$" magit-process "process"))
+  ("$" magit-process "process")
+  ("q" nil "quit"))
+
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-m"))
+(global-set-key (kbd "s-m") 'hydra-magit/body)
 
 (defhydra hydra-org (:color red :hint nil)
   "
