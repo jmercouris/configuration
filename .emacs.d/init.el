@@ -154,7 +154,11 @@
 (load "~/.emacs.d/center")
 (load "~/.emacs.d/vkill")
 ;; enable smooth scrolling mode
-(smooth-scrolling-mode 1)
+;; (smooth-scrolling-mode 1)
+;; (add-hook 'post-command-hook
+;;   (lambda ()
+;;     (recenter '("don't redraw"))))
+(setq scroll-step 1)
 ;; window register save and recal
 (global-unset-key (kbd "s-r"))
 (global-unset-key (kbd "s-o"))
