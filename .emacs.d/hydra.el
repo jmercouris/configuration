@@ -1,7 +1,25 @@
-(defhydra hydra-zoom (global-map "<f2>")
-  "zoom"
+(defhydra hydra-desktop (:color blue :columns 1)
+  "Desktop"
+  ("c" desktop-clear "clear")
+  ("s" desktop-save "save")
+  ("r" desktop-revert "revert")
+  ("d" desktop-change-dir "open")
+  ("q" nil "quit"))
+
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-z"))
+(global-set-key (kbd "s-z") 'hydra-desktop/body)
+
+(defhydra hydra-zoom (:columns 2)
+  "Zoom"
   ("=" text-scale-increase "in")
-  ("-" text-scale-decrease "out"))
+  ("-" text-scale-decrease "out")
+  ("0" (text-scale-adjust 0) "reset")
+  ("q" nil "quit" :color blue))
+
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "<f2>"))
+(global-set-key (kbd "<f2>") 'hydra-zoom/body)
 
 (defhydra hydra-magit (:color blue :columns 2)
   "Version Control"
