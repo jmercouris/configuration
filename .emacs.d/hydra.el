@@ -3,14 +3,15 @@
   ("=" text-scale-increase "in")
   ("-" text-scale-decrease "out"))
 
-(defhydra hydra-magit (:color blue :columns 1)
-  "Magit"
+(defhydra hydra-magit (:color blue :columns 2)
+  "Version Control"
   ("s" magit-status "status")
+  ;; ("h" log-view-find-revision "history")
+  ("b" magit-blame "blame")
   ("c" magit-checkout "checkout")
   ("m" magit-merge "merge")
   ("l" magit-log "log")
   ("!" magit-git-command "command")
-  ("$" magit-process "process")
   ("q" nil "quit"))
 
 ;; Assign Hydra to hotkey
