@@ -155,7 +155,7 @@ _q_ quit
   ("/" hydra-ibuffer-filter/body :color blue)
 
   ("o" ibuffer-visit-buffer-other-window "other window" :color blue)
-  ("q" ibuffer-quit "quit ibuffer" :color blue)
+  ("q" quit-window "quit ibuffer" :color blue)
   ("." nil "toggle hydra" :color blue))
 
 (defhydra hydra-ibuffer-mark (:color teal :columns 5
@@ -223,3 +223,5 @@ _q_ quit
 (eval-after-load "ibuffer"
   '(progn
   (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)))
+
+;;(defhydra hydra-restclient-mode
