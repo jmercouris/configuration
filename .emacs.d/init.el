@@ -179,11 +179,6 @@
 (blink-cursor-mode 0)
 ;; font Size
 (set-face-attribute 'default nil :height 144)
-;; load Additional Files
-(load "~/.emacs.d/irc")
-(load "~/.emacs.d/hydra")
-(load "~/.emacs.d/center")
-(load "~/.emacs.d/vkill")
 ;; enable smooth scrolling mode
 ;; (smooth-scrolling-mode 1)
 ;; (add-hook 'post-command-hook
@@ -304,6 +299,13 @@ by using nxml's indentation rules."
   "Show the full path file name in the minibuffer."
   (interactive)
   (message (buffer-file-name)))
+
+;; load Additional Files
+(load "~/.emacs.d/irc")
+(load "~/.emacs.d/hydra")
+(load "~/.emacs.d/center")
+(load "~/.emacs.d/vkill")
+
 ;; ediff don't open new frame, split horiziontally
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; (setq ediff-split-window-function 'split-window-horizontally)
