@@ -273,6 +273,7 @@ by using nxml's indentation rules."
 (advice-add 'vc-git-mode-line-string :filter-return 'my-shorten-vc-mode-line)
 ;; use ibuffer instead of regular buffer list
 (defalias 'list-buffers 'ibuffer)
+(setq ibuffer-expert t)
 ;; imenu anywhere binding
 (global-set-key (kbd "C-.") 'imenu-anywhere)
 ;; imenu binding
