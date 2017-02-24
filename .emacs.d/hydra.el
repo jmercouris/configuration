@@ -224,4 +224,15 @@ _q_ quit
   '(progn
   (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)))
 
+(defhydra hydra-avy (:color blue)
+  "avy-goto"
+  ("c" avy-goto-char "char")
+  ("C" avy-goto-char-2 "char-2")
+  ("w" avy-goto-word-1 "word")
+  ("s" avy-goto-subword-1 "subword"))
+
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-g"))
+(global-set-key (kbd "s-g") 'hydra-avy/body)
+
 ;; TODO: Def hydra restclient-mode
