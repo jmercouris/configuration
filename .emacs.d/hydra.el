@@ -224,4 +224,4 @@ _q_ quit
   '(progn
   (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)))
 
-;; TODO: Def hydra restclient-modea
+;; TODO: Def hydra restclient-mode
