@@ -317,6 +317,14 @@ by using nxml's indentation rules."
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
  '(circe-reduce-lurker-spam t)
+ '(display-time-world-list
+   (quote
+    (("America/Chicago" "Chicago")
+     ("Europe/Berlin" "Berlin")
+     ("Europe/Athens" "Athens")
+     ("Europe/London" "London")
+     ("America/Los_Angeles" "San Francisco")
+     ("America/Argentina/Buenos_Aires" "Buenos Aires"))))
  '(hiwin-mode t)
  '(ivy-completing-read-handlers-alist
    (quote
