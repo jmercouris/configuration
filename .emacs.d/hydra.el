@@ -1,3 +1,7 @@
+;; Mode specific hydras are activated always by s-h (cmd + h)
+(global-unset-key (kbd "s-h"))
+
+;; Hydra Desktop
 (defhydra hydra-desktop (:color blue :columns 1)
   "Desktop"
   ("c" desktop-clear "clear")
@@ -5,22 +9,22 @@
   ("r" desktop-revert "revert")
   ("d" desktop-change-dir "open")
   ("q" nil "quit"))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-z"))
 (global-set-key (kbd "s-z") 'hydra-desktop/body)
 
+;; Hydra Zoom
 (defhydra hydra-zoom (:columns 2)
   "Zoom"
   ("=" text-scale-increase "in")
   ("-" text-scale-decrease "out")
   ("0" (text-scale-adjust 0) "reset")
   ("q" nil "quit" :color blue))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "<f2>"))
 (global-set-key (kbd "<f2>") 'hydra-zoom/body)
 
+;; Hydra Magit
 (defhydra hydra-magit (:color blue :columns 2)
   "Version Control"
   ("s" magit-status "status")
@@ -31,11 +35,11 @@
   ("l" magit-log "log")
   ("!" magit-git-command "command")
   ("q" nil "quit"))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-m"))
 (global-set-key (kbd "s-m") 'hydra-magit/body)
 
+;; Hydra Org
 (defhydra hydra-org (:color red :hint nil)
   "
 Navigation^
@@ -92,7 +96,6 @@ _q_ quit
    ("1" delete-other-windows)
    ("q" nil)
    )
-
 (defun hydra-move-splitter-left (arg)
   "Move window splitter left."
   (interactive "p")
@@ -100,7 +103,6 @@ _q_ quit
         (windmove-find-other-window 'right))
       (shrink-window-horizontally arg)
     (enlarge-window-horizontally arg)))
-
 (defun hydra-move-splitter-right (arg)
   "Move window splitter right."
   (interactive "p")
@@ -108,7 +110,6 @@ _q_ quit
         (windmove-find-other-window 'right))
       (enlarge-window-horizontally arg)
     (shrink-window-horizontally arg)))
-
 (defun hydra-move-splitter-up (arg)
   "Move window splitter up."
   (interactive "p")
@@ -116,7 +117,6 @@ _q_ quit
         (windmove-find-other-window 'up))
       (enlarge-window arg)
     (shrink-window arg)))
-
 (defun hydra-move-splitter-down (arg)
   "Move window splitter down."
   (interactive "p")
@@ -124,11 +124,11 @@ _q_ quit
         (windmove-find-other-window 'up))
       (shrink-window arg)
     (enlarge-window arg)))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-w"))
 (global-set-key (kbd "s-w") 'hydra-window/body)
 
+;; Hydra iBuffer
 (defhydra hydra-ibuffer-main (:color pink :hint nil)
   "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
@@ -222,19 +222,20 @@ _q_ quit
 ;; Assign hydra to hotkey when in ibuffer mode
 (eval-after-load "ibuffer"
   '(progn
-  (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)))
+  (define-key ibuffer-mode-map (kbd "s-h") 'hydra-ibuffer-main/body)))
 
+;; Hydra Avy
 (defhydra hydra-avy (:color blue)
   "avy-goto"
   ("c" avy-goto-char "char")
   ("C" avy-goto-char-2 "char-2")
   ("w" avy-goto-word-1 "word")
   ("s" avy-goto-subword-1 "subword"))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-g"))
 (global-set-key (kbd "s-g") 'hydra-avy/body)
 
+;; Hydra Restclient
 (defhydra hydra-restclient (:color green :columns 2)
   "Restclient"
   ("n" restclient-jump-next "next")
@@ -242,8 +243,7 @@ _q_ quit
   ("RET" restclient-http-send-current-stay-in-window "execute")
   ("x" restclient-http-send-current "execute response focus")
   ("q" nil "quit"))
-
 ;; Assign hydra to hotkey when in restclient mode
 (eval-after-load "restclient"
   '(progn
-  (define-key restclient-mode-map (kbd "C-c C-h") 'hydra-restclient/body)))
+  (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
