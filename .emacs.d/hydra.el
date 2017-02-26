@@ -235,4 +235,15 @@ _q_ quit
 (global-unset-key (kbd "s-g"))
 (global-set-key (kbd "s-g") 'hydra-avy/body)
 
-;; TODO: Def hydra restclient-mode
+(defhydra hydra-restclient (:color green :columns 2)
+  "Restclient"
+  ("n" restclient-jump-next "next")
+  ("p" restclient-jump-prev "previous")
+  ("RET" restclient-http-send-current-stay-in-window "execute")
+  ("x" restclient-http-send-current "execute response focus")
+  ("q" nil "quit"))
+
+;; Assign hydra to hotkey when in restclient mode
+(eval-after-load "restclient"
+  '(progn
+  (define-key restclient-mode-map (kbd "C-c C-h") 'hydra-restclient/body)))
