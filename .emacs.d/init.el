@@ -204,8 +204,7 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 ;; switch window kill window
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
-;; magit-status
-(global-set-key (kbd "C-x g") 'magit-status)
+;; magit setup
 (setq magit-completing-read-function 'ivy-completing-read)
 ;; python shell prompt warning
 (setq python-shell-prompt-detect-failure-warning nil)
@@ -222,6 +221,9 @@
 (global-set-key (kbd "s-;") 'windmove-right)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+;; set hiwin always active;; set default shell to bash for rgrep
+;; always active for circe buffers, terminals, scratch buffers
+(setq hiwin-always-active-buffer-name-regexp "\\*terminal<[0-9]>\\*\\|#[A-Za-z]+\\|\\*scratch\\*")
 ;; start hi-win mode
 (hiwin-activate)
 ;; highlight symbol at point
