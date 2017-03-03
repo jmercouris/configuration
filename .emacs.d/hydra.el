@@ -28,11 +28,12 @@
 (defhydra hydra-magit (:color blue :columns 2)
   "Version Control"
   ("s" magit-status "status")
-  ;; ("h" log-view-find-revision "history")
+  ("h" log-view-find-revision "history")
   ("b" magit-blame "blame")
   ("c" magit-checkout "checkout")
   ("m" magit-merge "merge")
   ("l" magit-log "log")
+  ("d" vc-diff "diff")
   ("!" magit-git-command "command")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey

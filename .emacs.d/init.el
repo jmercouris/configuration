@@ -225,7 +225,7 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; set hiwin always active;; set default shell to bash for rgrep
 ;; always active for circe buffers, terminals, scratch buffers
-(setq hiwin-always-active-buffer-name-regexp "\\*terminal<[0-9]>\\*\\|#[A-Za-z]+\\|\\*scratch\\*\\|[-A-Za-z0-9]+\\@[-A-Za-z0-9]+")
+(setq hiwin-always-active-buffer-name-regexp "\\*terminal<[0-9]>\\*\\|#[A-Za-z]+\\|\\*scratch\\*\\|\\*Python\\*")
 ;; start hi-win mode
 (hiwin-activate)
 ;; highlight symbol at point
