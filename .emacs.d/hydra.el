@@ -7,7 +7,7 @@
   ("c" desktop-clear "clear")
   ("s" desktop-save "save")
   ("r" desktop-revert "revert")
-  ("d" desktop-change-dir "open")
+  ("o" desktop-change-dir "open")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-z"))
