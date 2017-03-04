@@ -12,8 +12,6 @@
   (exec-path-from-shell-initialize))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
-;; disable native osx full screen
-(setq ns-use-native-fullscreen nil)
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 ;; disable menu bar
@@ -308,11 +306,6 @@ by using nxml's indentation rules."
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
-(load "~/.emacs.d/vkill")
-
-;; ediff don't open new frame, split horiziontally
-;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-;; (setq ediff-split-window-function 'split-window-horizontally)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
