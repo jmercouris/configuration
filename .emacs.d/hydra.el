@@ -251,7 +251,7 @@ _q_ quit
   (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
 
 ;; Hydra Python
-(defhydra hydra-python (:columns 3)
+(defhydra hydra-python (:columns 4)
   "Python"
   ("s" py-isort-region "sort imports")
   ("f" elpy-format-code "format code")
