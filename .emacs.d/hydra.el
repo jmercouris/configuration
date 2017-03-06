@@ -234,8 +234,8 @@ _q_ quit
   ("s" avy-goto-subword-1 "subword")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
-(global-unset-key (kbd "s-g"))
-(global-set-key (kbd "s-g") 'hydra-avy/body)
+(global-unset-key (kbd "s-."))
+(global-set-key (kbd "s-.") 'hydra-avy/body)
 
 ;; Hydra Restclient
 (defhydra hydra-restclient (:columns 2)

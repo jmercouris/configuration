@@ -186,8 +186,6 @@
 (setq magit-completing-read-function 'ivy-completing-read)
 ;; python shell prompt warning
 (setq python-shell-prompt-detect-failure-warning nil)
-;; avy movement commands
-(global-set-key (kbd "s-.") 'avy-goto-word-1)
 ;; previous and Next Buffer
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-set-key (kbd "s-p") 'previous-buffer)
