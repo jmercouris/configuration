@@ -328,6 +328,7 @@ by using nxml's indentation rules."
     ((tmm-menubar . completing-read-default)
      (tmm-shortcut . completing-read-default)
      (elpy-doc . completing-read-default))))
+ '(org-return-follows-link t)
  '(package-selected-packages
    (quote
     (peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))

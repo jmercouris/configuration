@@ -249,3 +249,22 @@ _q_ quit
 (eval-after-load "restclient"
   '(progn
   (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
+
+;; Hydra Python
+(defhydra hydra-python (:columns 3)
+  "Python"
+  ("s" py-isort-region "sort imports")
+  ("f" elpy-format-code "format code")
+  ("i" indent-for-tab-command "indent")
+  ("j" elpy-goto-definition "push definition")
+  ("k" pop-tag-mark "pop definition")
+  ("d" elpy-doc "doc")
+  ("o" elpy-occur-definitions "outline")
+  ("l" elpy-shell-switch-to-shell "shell")
+  ("n" end-of-defun "next func")
+  ("p" beginning-of-defun "prev func")
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in python mode
+(eval-after-load "python"
+  '(progn
+  (define-key python-mode-map (kbd "s-h") 'hydra-python/body)))
