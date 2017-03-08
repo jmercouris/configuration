@@ -299,6 +299,31 @@ by using nxml's indentation rules."
     (when new-kill-string
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
+;; Temporary fix until Emacs rc 25.2
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))
+
+;; define a function to scroll with the cursor in place, moving the page instead
+;; Navigation Functions
+(defun scroll-down-in-place (n)
+  (interactive "p")
+  (previous-line n)
+  (unless (eq (window-start) (point-min))
+    (scroll-down n)))
+(defun scroll-up-in-place (n)
+  (interactive "p")
+  (next-line n)
+  (unless (eq (window-end) (point-max))
+    (scroll-up n)))
+(global-set-key "\M-n" 'scroll-up-in-place)
+(global-set-key "\M-p" 'scroll-down-in-place)
 
 ;; load Additional Files
 (load "~/.emacs.d/irc")
