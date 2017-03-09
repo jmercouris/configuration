@@ -24,8 +24,8 @@
 (global-unset-key (kbd "<f2>"))
 (global-set-key (kbd "<f2>") 'hydra-zoom/body)
 
-;; Hydra Magit
-(defhydra hydra-magit (:color blue :columns 2)
+;; Hydra vc
+(defhydra hydra-vc (:color blue :columns 2)
   "Version Control"
   ("s" magit-status "status")
   ("h" vc-print-log "history")
@@ -38,7 +38,7 @@
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-m"))
-(global-set-key (kbd "s-m") 'hydra-magit/body)
+(global-set-key (kbd "s-m") 'hydra-vc/body)
 
 ;; Hydra Org
 (defhydra hydra-org (:color red :hint nil)
@@ -58,6 +58,11 @@ _g_o to
   ("l" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("g" org-goto :exit t))
+
+;; Assign hydra to hotkey when in org mode
+(eval-after-load "org"
+  '(progn
+  (define-key org-mode-map (kbd "s-h") 'hydra-org/body)))
 
 (defhydra hydra-window ()
    "
