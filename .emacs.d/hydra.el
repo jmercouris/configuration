@@ -72,7 +72,7 @@ _j_ ←           _v_ertical         _b_uffer        _u_ X←
 _k_ ↓           _x_ horizontal     _f_ind files    _i_ X↓
 _l_ ↑           _1_only this       _s_wap          _o_ X↑
 _;_ →           _d_elete                         _p_ X→
-_F_ollow                   
+_F_ollow        _e_qualize           
 _q_ quit                    
 "
    ("j" windmove-left )
@@ -100,6 +100,7 @@ _q_ quit
        )
    ("d" delete-window)
    ("1" delete-other-windows)
+   ("e" balance-windows)
    ("q" nil)
    )
 (defun hydra-move-splitter-left (arg)
