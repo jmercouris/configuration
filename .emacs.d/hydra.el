@@ -274,3 +274,45 @@ _q_ quit
 (eval-after-load "python"
   '(progn
   (define-key python-mode-map (kbd "s-h") 'hydra-python/body)))
+
+;; Projectile Hydra
+(defhydra hydra-projectile (:color teal
+                            :hint nil)
+  "
+     PROJECTILE: %(projectile-project-root)
+
+     Find File            Search/Tags          Buffers                Cache
+------------------------------------------------------------------------------------------
+_s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
+ _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
+ _fd_: file curr dir   _o_: multi-occur     _s-k_: Kill all buffers  _X_: cleanup non-existing
+  _r_: recent file                                               ^^^^_z_: cache current
+  _d_: dir
+
+"
+  ("a"   counsel-projectile-ag)
+  ("b"   counsel-projectile-switch-to-buffer)
+  ("c"   counsel-projectile-invalidate-cache)
+  ("d"   counsel-projectile-find-dir)
+  ("s-f" counsel-projectile-find-file)
+  ("ff"  counsel-projectile-find-file-dwim)
+  ("fd"  projectile-find-file-in-directory)
+  ("g"   ggtags-update-tags)
+  ("s-g" ggtags-update-tags)
+  ("i"   projectile-ibuffer)
+  ("K"   counsel-projectile-kill-buffers)
+  ("s-k" projectile-kill-buffers)
+  ("o"   projectile-multi-occur)
+  ("s-p" counsel-projectile-switch-project "switch project")
+  ("p"   counsel-projectile-switch-project)
+  ("s"   counsel-projectile-switch-project)
+  ("r"   counsel-projectile-recentf)
+  ("x"   counsel-projectile-remove-known-project)
+  ("X"   projectile-cleanup-known-projects)
+  ("z"   projectile-cache-current-file)
+  ("`"   hydra-projectile-other-window/body "other window")
+  ("q"   nil "cancel" :color blue))
+
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-f"))
+(global-set-key (kbd "s-f") 'hydra-projectile/body)
