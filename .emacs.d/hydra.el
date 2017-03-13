@@ -237,6 +237,7 @@ _q_ quit
   ("C" avy-goto-char-2 "char-2")
   ("w" avy-goto-word-1 "word")
   ("s" avy-goto-subword-1 "subword")
+  ("l" avy-goto-line "line")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-."))
