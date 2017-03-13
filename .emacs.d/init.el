@@ -325,7 +325,8 @@ by using nxml's indentation rules."
 (global-set-key "\M-n" 'scroll-up-in-place)
 (global-set-key "\M-p" 'scroll-down-in-place)
 
-;; Projectile 
+;; Projectile
+ (projectile-global-mode)
 (setq projectile-enable-caching t)
 (counsel-projectile-on)
 
