@@ -55,10 +55,18 @@
 ;; enable elpy for python development
 (package-initialize)
 (elpy-enable)
-
+;; temporary python shell fix until Emacs rc 25.2
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))
 ;; peep-dired kill buffers on disabling of minor mode
 (setq peep-dired-cleanup-on-disable t)
-
 ;; neotree window position
 (setq neo-window-position 'right)
 ;; neotree ignore specific folders
@@ -69,7 +77,6 @@
 (global-set-key (kbd "M-r") 'neotree-find)
 ;; neotree use ascii instead of folder icons
 (setq neo-theme 'ascii)
-
 ;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
@@ -79,99 +86,52 @@
 	    (local-set-key (kbd "<f4>") 'artist-select-op-ellipse)  ; f5 = ellipse
 	    (local-set-key (kbd "C-z") 'undo)
 	    ))
-
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
-
 ;; clear buffer
 (global-unset-key (kbd "s-c"))
 (global-set-key (kbd "s-c") 'erase-buffer)
-
-;; clear eshell buffer
-(defun eshell-clear-buffer ()
-  "Clear terminal"
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (eshell-send-input)))
-(add-hook 'eshell-mode-hook
-      '(lambda()
-	 (local-set-key (kbd "s-c") 'eshell-clear-buffer)))
-
-;; paste from OSX
-(defun copy-from-osx ()
-  "Handle copy/paste intelligently on osx."
-  (let ((pbpaste (purecopy "/usr/bin/pbpaste")))
-    (if (and (eq system-type 'darwin)
-             (file-exists-p pbpaste))
-        (let ((tramp-mode nil)
-              (default-directory "~"))
-          (shell-command-to-string pbpaste)))))
-;; paste to OSX
-(defun paste-to-osx (text &optional push)
-  (let ((process-connection-type nil))
-    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-      (process-send-string proc text)
-      (process-send-eof proc))))
-;; set copy/paste functions
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
-(put 'upcase-region 'disabled nil)
-
 ;; add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column
 (setq column-number-mode t)
-
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
-
 ;; font Size
 (set-face-attribute 'default nil :height 144)
-
 ;; scroll behavior
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
-
 ;; window register save and recal
 (global-unset-key (kbd "s-r"))
 (global-unset-key (kbd "s-o"))
 (global-set-key (kbd "s-r") 'window-configuration-to-register)
 (global-set-key (kbd "s-o") 'jump-to-register)
-
 ;; multi-term configuration
 (global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)
   (global-set-key (kbd "s-t") 'multi-term)
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
-
 ;; find file in repository
 (global-set-key (kbd "C-x C-g") 'find-file-in-repository)
-
 ;; enable buffer erasing
 (put 'erase-buffer 'disabled nil)
-
 ;; switch window behavior uses switch-window package
 (global-set-key (kbd "C-x o") 'switch-window)
-
 ;; switch window kill window
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
-
 ;; magit setup
 (setq magit-completing-read-function 'ivy-completing-read)
-
 ;; python shell prompt warning
 (setq python-shell-prompt-detect-failure-warning nil)
-
 ;; previous and Next Buffer
 (global-unset-key (kbd "s-n"))
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-unset-key (kbd "s-p"))
 (global-set-key (kbd "s-p") 'previous-buffer)
-
 ;; windmove
 (windmove-default-keybindings)
 (global-set-key (kbd "s-j") 'windmove-left)
@@ -197,30 +157,6 @@
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (diminish 'highlight-indentation-mode)
 (diminish 'ivy-mode)
-
-;; fill comment to width
-(defun fill-comment ()
-  "Fill text to column width for comments"
-  (interactive)
-  (save-excursion
-    (move-end-of-line 1)
-    (while (< (current-column) fill-column) (insert ?#))))
-(global-set-key (kbd "s-/") 'fill-comment)
-;;xml formatting
-(defun pretty-print-xml-region (begin end)
-  "Pretty format XML markup in region. You need to have nxml-mode
-http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
-this.  The function inserts linebreaks to separate tags that have
-nothing but whitespace between them.  It then indents the markup
-by using nxml's indentation rules."
-  (interactive "r")
-  (save-excursion
-      (nxml-mode)
-      (goto-char begin)
-      (while (search-forward-regexp "\>[ \\t]*\<" nil t) 
-        (backward-char) (insert "\n"))
-      (indent-region begin end))
-    (message "Ah, much better!"))
 ;; Which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
@@ -241,74 +177,12 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C->") 'imenu)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
-;; open shell on remote machine
-(defun remote-shell (&optional host)
-  "Open a remote shell to a host."
-  (interactive)
-  (with-temp-buffer
-    (let ((host (if host host (read-string "Host: "))))
-      (cd (concat "/scp:" host ":"))
-      (shell (concat "*" host "*")))))
-;; example of setting up custom shells
-;; (defun myserver-shell () (interactive) (remote-shell "myserver"))
+;; org configuration
 (setq org-log-done t)
 (setq org-agenda-files (list "~/.root.org"
                              "~/Documents/Academic/.academic.org"
 			     "~/Projects/.projects.org"
 			     "~/Work/.work.org"))
-;; show file name 
-(defun show-file-name ()
-  "Show the full path file name in the minibuffer."
-  (interactive)
-  (message (buffer-file-name)))
-;; copy buffer file name to kill ring
-(defun copy-buffer-file-name-as-kill (choice)
-  "Copyies the buffer {name/mode}, file {name/full path/directory} to the kill-ring."
-  (interactive "cCopy (b) buffer name, (m) buffer major mode, (f) full buffer-file path, (d) buffer-file directory, (n) buffer-file basename")
-  (let ((new-kill-string)
-        (name (if (eq major-mode 'dired-mode)
-                  (dired-get-filename)
-                (or (buffer-file-name) ""))))
-    (cond ((eq choice ?f)
-           (setq new-kill-string name))
-          ((eq choice ?d)
-           (setq new-kill-string (file-name-directory name)))
-          ((eq choice ?n)
-           (setq new-kill-string (file-name-nondirectory name)))
-          ((eq choice ?b)
-           (setq new-kill-string (buffer-name)))
-          ((eq choice ?m)
-           (setq new-kill-string (format "%s" major-mode)))
-          (t (message "Quit")))
-    (when new-kill-string
-      (message "%s copied" new-kill-string)
-      (kill-new new-kill-string))))
-;; Temporary fix until Emacs rc 25.2
-(with-eval-after-load 'python
-  (defun python-shell-completion-native-try ()
-    "Return non-nil if can trigger native completion."
-    (let ((python-shell-completion-native-enable t)
-          (python-shell-completion-native-output-timeout
-           python-shell-completion-native-try-output-timeout))
-      (python-shell-completion-native-get-completions
-       (get-buffer-process (current-buffer))
-       nil "_"))))
-
-;; define a function to scroll with the cursor in place, moving the page instead
-;; Navigation Functions
-(defun scroll-down-in-place (n)
-  (interactive "p")
-  (previous-line n)
-  (unless (eq (window-start) (point-min))
-    (scroll-down n)))
-(defun scroll-up-in-place (n)
-  (interactive "p")
-  (next-line n)
-  (unless (eq (window-end) (point-max))
-    (scroll-up n)))
-(global-set-key "\M-n" 'scroll-up-in-place)
-(global-set-key "\M-p" 'scroll-down-in-place)
-
 ;; Projectile
  (projectile-global-mode)
 (setq projectile-enable-caching t)
@@ -319,6 +193,7 @@ by using nxml's indentation rules."
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
+(load "~/.emacs.d/functions")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
