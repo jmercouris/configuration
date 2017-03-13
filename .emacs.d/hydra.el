@@ -225,7 +225,6 @@ _q_ quit
   ("<" ibuffer-filter-by-size-lt "size")
   ("/" ibuffer-filter-disable "disable")
   ("b" hydra-ibuffer-main/body "back" :color blue))
-
 ;; Assign hydra to hotkey when in ibuffer mode
 (eval-after-load "ibuffer"
   '(progn
@@ -295,7 +294,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   ("c"   counsel-projectile-invalidate-cache)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
-  ("ff"  counsel-projectile-find-file-dwim)
+  ("ff"  projectile-find-file-dwim)
   ("fd"  projectile-find-file-in-directory)
   ("g"   ggtags-update-tags)
   ("s-g" ggtags-update-tags)
@@ -306,13 +305,23 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   ("s-p" counsel-projectile-switch-project "switch project")
   ("p"   counsel-projectile-switch-project)
   ("s"   counsel-projectile-switch-project)
-  ("r"   counsel-projectile-recentf)
+  ("r"   projectile-recentf)
   ("x"   counsel-projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
   ("`"   hydra-projectile-other-window/body "other window")
   ("q"   nil "cancel" :color blue))
-
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-f"))
 (global-set-key (kbd "s-f") 'hydra-projectile/body)
+
+;; Hydra vc
+(defhydra hydra-dired (:color blue :columns 1)
+  "Dired"
+  ("v" peep-dired "peep")
+  ("n" dired-next-line "next line")
+  ("p" dired-previous-line "previous line")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(eval-after-load "dired" '(progn
+  (define-key dired-mode-map (kbd "s-h") 'hydra-dired/body) ))

@@ -1,4 +1,3 @@
-;; Emacs Configuration
 ;; add melpa to packages
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -27,32 +26,6 @@
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
-;; disable frame creation hotkey
-(global-unset-key (kbd "s-n"))
-;; disable printing hotkey
-(global-unset-key (kbd "s-p"))
-; disable auto save
-(setq auto-save-default nil)
-;; ivy configuration
-(ivy-mode 1)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "s-d") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;; flex search for everything but swiper
-(setq ivy-re-builders-alist
-      '((swiper . ivy--regex-plus)
-	(counsel-git-grep . ivy--regex-plus)
-	(t . ivy--regex-fuzzy)))
-;; ivy kill switch buffer
-(define-key
-    ivy-switch-buffer-map
-    (kbd "C-k")
-  (lambda ()
-    (interactive)
-    (ivy-set-action 'kill-buffer)
-    (ivy-done)))
-;; bind to C-c j
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
 ;; show parenthesis pairing
 (show-paren-mode 1)
 ;; undo tree mode
@@ -61,12 +34,12 @@
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; highlight current line
 (global-hl-line-mode 1)
+;; only current line in current window
+(setq h1-line-sticky-flag nil)
 ;; disable highlighting in terminal
 (add-hook 'term-mode-hook (lambda ()
 			    (setq-local global-hl-line-mode
 					nil)))
-;; only current line in current window
-(setq h1-line-sticky-flag nil)
 (set-face-background 'hl-line "#D3D3D3")
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
@@ -82,17 +55,10 @@
 ;; enable elpy for python development
 (package-initialize)
 (elpy-enable)
-;; sphinx-doc mode in python
-(add-hook 'python-mode-hook (lambda ()
-			      (require 'sphinx-doc)
-			      (sphinx-doc-mode t)))
-;; zpt files load html-mode
-(add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
+
 ;; peep-dired kill buffers on disabling of minor mode
 (setq peep-dired-cleanup-on-disable t)
-;; dired bind
-(eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "M-p") 'peep-dired) ))
+
 ;; neotree window position
 (setq neo-window-position 'right)
 ;; neotree ignore specific folders
@@ -101,6 +67,9 @@
 (global-set-key (kbd "C-t") 'neotree-toggle)
 ;; neotree refresh show file alt-r
 (global-set-key (kbd "M-r") 'neotree-find)
+;; neotree use ascii instead of folder icons
+(setq neo-theme 'ascii)
+
 ;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
@@ -110,12 +79,15 @@
 	    (local-set-key (kbd "<f4>") 'artist-select-op-ellipse)  ; f5 = ellipse
 	    (local-set-key (kbd "C-z") 'undo)
 	    ))
+
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
+
 ;; clear buffer
 (global-unset-key (kbd "s-c"))
 (global-set-key (kbd "s-c") 'erase-buffer)
+
 ;; clear eshell buffer
 (defun eshell-clear-buffer ()
   "Clear terminal"
@@ -126,7 +98,8 @@
 (add-hook 'eshell-mode-hook
       '(lambda()
 	 (local-set-key (kbd "s-c") 'eshell-clear-buffer)))
-;; Paste from OSX
+
+;; paste from OSX
 (defun copy-from-osx ()
   "Handle copy/paste intelligently on osx."
   (let ((pbpaste (purecopy "/usr/bin/pbpaste")))
@@ -135,7 +108,7 @@
         (let ((tramp-mode nil)
               (default-directory "~"))
           (shell-command-to-string pbpaste)))))
-;; Paste to OSX
+;; paste to OSX
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
@@ -145,50 +118,60 @@
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 (put 'upcase-region 'disabled nil)
+
 ;; add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column
 (setq column-number-mode t)
-;; neotree use ascii instead of folder icons
-(setq neo-theme 'ascii)
+
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
+
 ;; font Size
 (set-face-attribute 'default nil :height 144)
-;; enable smooth scrolling mode
-;; (smooth-scrolling-mode 1)
-;; (add-hook 'post-command-hook
-;;   (lambda ()
-;;     (recenter '("don't redraw"))))
+
+;; scroll behavior
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
+
 ;; window register save and recal
 (global-unset-key (kbd "s-r"))
 (global-unset-key (kbd "s-o"))
 (global-set-key (kbd "s-r") 'window-configuration-to-register)
 (global-set-key (kbd "s-o") 'jump-to-register)
+
 ;; multi-term configuration
 (global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)
-  (global-set-key (kbd "s-t") 'multi-term)
-  (global-set-key (kbd "s-}") 'multi-term-next)
-  (global-set-key (kbd "s-{") 'multi-term-prev))
+  (global-set-key (kbd "s-t") 'multi-term)
+  (global-set-key (kbd "s-}") 'multi-term-next)
+  (global-set-key (kbd "s-{") 'multi-term-prev))
+
 ;; find file in repository
 (global-set-key (kbd "C-x C-g") 'find-file-in-repository)
+
 ;; enable buffer erasing
 (put 'erase-buffer 'disabled nil)
+
 ;; switch window behavior uses switch-window package
 (global-set-key (kbd "C-x o") 'switch-window)
+
 ;; switch window kill window
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
+
 ;; magit setup
 (setq magit-completing-read-function 'ivy-completing-read)
+
 ;; python shell prompt warning
 (setq python-shell-prompt-detect-failure-warning nil)
+
 ;; previous and Next Buffer
+(global-unset-key (kbd "s-n"))
 (global-set-key (kbd "s-n") 'next-buffer)
+(global-unset-key (kbd "s-p"))
 (global-set-key (kbd "s-p") 'previous-buffer)
+
 ;; windmove
 (windmove-default-keybindings)
 (global-set-key (kbd "s-j") 'windmove-left)
@@ -214,6 +197,7 @@
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (diminish 'highlight-indentation-mode)
 (diminish 'ivy-mode)
+
 ;; fill comment to width
 (defun fill-comment ()
   "Fill text to column width for comments"
@@ -332,6 +316,7 @@ by using nxml's indentation rules."
 
 ;; load Additional Files
 (load "~/.emacs.d/irc")
+(load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/center")
 
