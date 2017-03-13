@@ -155,8 +155,10 @@
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "elpy" '(diminish 'elpy-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
+(eval-after-load "ivy" '(diminish 'ivy-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
 (diminish 'highlight-indentation-mode)
-(diminish 'ivy-mode)
+
 ;; Which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
