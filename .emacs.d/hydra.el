@@ -1,7 +1,7 @@
 ;; Mode specific hydras are activated always by s-h (cmd + h)
 (global-unset-key (kbd "s-h"))
 
-;; Hydra Desktop
+;; desktop
 (defhydra hydra-desktop (:color blue :columns 1)
   "Desktop"
   ("c" desktop-clear "clear")
@@ -13,7 +13,7 @@
 (global-unset-key (kbd "s-z"))
 (global-set-key (kbd "s-z") 'hydra-desktop/body)
 
-;; Hydra Zoom
+;; zoom
 (defhydra hydra-zoom (:columns 2)
   "Zoom"
   ("=" text-scale-increase "in")
@@ -24,7 +24,7 @@
 (global-unset-key (kbd "<f2>"))
 (global-set-key (kbd "<f2>") 'hydra-zoom/body)
 
-;; Hydra vc
+;; vc
 (defhydra hydra-vc (:color blue :columns 2)
   "Version Control"
   ("s" magit-status "status")
@@ -40,7 +40,7 @@
 (global-unset-key (kbd "s-m"))
 (global-set-key (kbd "s-m") 'hydra-vc/body)
 
-;; Hydra Org
+;; org
 (defhydra hydra-org (:color red :hint nil)
   "
 Navigation^
@@ -64,6 +64,7 @@ _g_o to
   '(progn
   (define-key org-mode-map (kbd "s-h") 'hydra-org/body)))
 
+;; window movement / management
 (defhydra hydra-window ()
    "
 Movement^^       ^Split^           ^Switch^        ^Resize^
@@ -135,7 +136,7 @@ _q_ quit
 (global-unset-key (kbd "s-w"))
 (global-set-key (kbd "s-w") 'hydra-window/body)
 
-;; Hydra iBuffer
+;; iBuffer
 (defhydra hydra-ibuffer-main (:color pink :hint nil)
   "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
@@ -230,7 +231,7 @@ _q_ quit
   '(progn
   (define-key ibuffer-mode-map (kbd "s-h") 'hydra-ibuffer-main/body)))
 
-;; Hydra Avy
+;; avy
 (defhydra hydra-avy (:color blue)
   "Avy-Goto"
   ("c" avy-goto-char "char")
@@ -243,7 +244,7 @@ _q_ quit
 (global-unset-key (kbd "s-."))
 (global-set-key (kbd "s-.") 'hydra-avy/body)
 
-;; Hydra Restclient
+;; Restclient
 (defhydra hydra-restclient (:columns 2)
   "Restclient"
   ("n" restclient-jump-next "next")
@@ -256,7 +257,7 @@ _q_ quit
   '(progn
   (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
 
-;; Hydra Python
+;; Python
 (defhydra hydra-python (:columns 4)
   "Python"
   ("s" py-isort-region "sort imports")
@@ -275,7 +276,7 @@ _q_ quit
   '(progn
   (define-key python-mode-map (kbd "s-h") 'hydra-python/body)))
 
-;; Projectile Hydra
+;; projectile
 (defhydra hydra-projectile (:color teal
                             :hint nil)
   "
@@ -316,7 +317,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 (global-unset-key (kbd "s-f"))
 (global-set-key (kbd "s-f") 'hydra-projectile/body)
 
-;; Hydra vc
+;; dired
 (defhydra hydra-dired (:color blue :columns 1)
   "Dired"
   ("v" peep-dired "peep")
@@ -327,7 +328,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "s-h") 'hydra-dired/body) ))
 
-;; GNUS Hydra
+;; gnus
 (eval-after-load 'gnus-group
   '(progn
      (defhydra hydra-gnus-group (:color blue :columns 1)
@@ -381,6 +382,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 
      (define-key gnus-article-mode-map (kbd "s-h") 'hydra-gnus-article/body)))
 
+;; message mode
 (eval-after-load 'message
   '(progn
      (defhydra hydra-message (:color blue :columns 1)
