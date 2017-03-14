@@ -40,7 +40,7 @@
 (add-hook 'term-mode-hook (lambda ()
 			    (setq-local global-hl-line-mode
 					nil)))
-(set-face-background 'hl-line "#D3D3D3")
+(set-face-background 'hl-line "#DEDEDE")
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
@@ -203,7 +203,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t t)
+ '(circe-reduce-lurker-spam t)
  '(display-time-world-list
    (quote
     (("America/Chicago" "Chicago")
@@ -237,7 +237,7 @@
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
- '(font-lock-function-name-face ((t (:foreground "forest green"))))
+ '(font-lock-function-name-face ((t (:foreground "green4"))))
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
  '(font-lock-variable-name-face ((t (:foreground "green3"))))
