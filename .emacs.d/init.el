@@ -28,6 +28,8 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 ;; show parenthesis pairing
 (show-paren-mode 1)
+;; set fringe mode to disable by default
+(set-fringe-mode 0)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
