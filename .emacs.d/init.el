@@ -144,11 +144,10 @@
 (global-set-key (kbd "s-;") 'windmove-right)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
-;; set hiwin always active;; set default shell to bash for rgrep
-;; always active for circe buffers, terminals, scratch buffers
-(setq hiwin-always-active-buffer-name-regexp "\\*terminal<[0-9]>\\*\\|#[A-Za-z]+\\|\\*scratch\\*\\|\\*Python\\*")
-;; start hi-win mode
-(hiwin-activate)
+;; auto dim other buffers
+(add-hook 'after-init-hook (lambda ()
+  (when (fboundp 'auto-dim-other-buffers-mode)
+    (auto-dim-other-buffers-mode t))))
 ;; highlight symbol at point
 (global-unset-key (kbd "s-s"))
 (global-set-key (kbd "s-s") 'highlight-symbol-at-point)
@@ -207,7 +206,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t t)
+ '(circe-reduce-lurker-spam t)
  '(display-time-world-list
    (quote
     (("America/Chicago" "Chicago")
@@ -225,7 +224,7 @@
  '(org-return-follows-link t)
  '(package-selected-packages
    (quote
-    (yasnippet counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy hiwin smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))
+    (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(smooth-scroll-margin 15)
  '(smooth-scroll-strict-margins nil)
@@ -238,6 +237,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
+ '(auto-dim-other-buffers-face ((t (:background "gray95"))))
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
@@ -251,4 +251,5 @@
  '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))
  '(neo-header-face ((t (:foreground "green3"))))
  '(neo-root-dir-face ((t (:foreground "green3"))))
+ '(show-paren-match ((t (:background "SeaGreen1"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))
