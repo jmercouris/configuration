@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: google_docstring
+# key: gd
+# group: object oriented
+# --
+def ${1:name}(self$2):
+    \"\"\"$3
+    ${2:$(python-args-to-docstring-google)}
+    \"\"\"
+    $0
