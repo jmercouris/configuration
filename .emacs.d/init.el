@@ -15,9 +15,11 @@
 (setq inhibit-splash-screen t)
 ;; disable menu bar
 (menu-bar-mode -1)
-;; disable scroll bar
 (when (display-graphic-p)
-  (scroll-bar-mode -1))
+  ;; disable scroll bar
+  (scroll-bar-mode -1)
+  ;; set fringe mode to disable by default
+  (set-fringe-mode 0))
 ;; disable tool bar
 (if window-system
     (tool-bar-mode -1))
@@ -28,8 +30,6 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 ;; show parenthesis pairing
 (show-paren-mode 1)
-;; set fringe mode to disable by default
-(set-fringe-mode 0)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
