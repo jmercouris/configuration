@@ -59,7 +59,6 @@
 (yas-global-mode 1)
 ;; enable elpy for python development
 (package-initialize)
-;; disable elpy yasnippet in favor of custom
 (elpy-enable)
 ;; temporary python shell fix until Emacs rc 25.2
 (with-eval-after-load 'python
@@ -209,7 +208,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t)
+ '(circe-reduce-lurker-spam t t)
  '(display-time-world-list
    (quote
     (("America/Chicago" "Chicago")
@@ -227,10 +226,8 @@
  '(org-return-follows-link t)
  '(package-selected-packages
    (quote
-    (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode smooth-scrolling realgud exec-path-from-shell elpy smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))
+    (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
- '(smooth-scroll-margin 15)
- '(smooth-scroll-strict-margins nil)
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
 (put 'downcase-region 'disabled nil)
