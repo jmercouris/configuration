@@ -199,7 +199,6 @@
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
-(load "~/.emacs.d/center")
 (load "~/.emacs.d/functions")
 
 (custom-set-variables
@@ -226,7 +225,7 @@
  '(org-return-follows-link t)
  '(package-selected-packages
    (quote
-    (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy smex avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree sphinx-doc perspective persp-mode neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra golden-ratio circe auctex)))
+    (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex)))
  '(realgud:pdb-command-name "python -m pdb")
  '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
  '(switch-window-shortcut-style (quote qwerty)))
