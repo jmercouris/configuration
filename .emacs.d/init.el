@@ -199,6 +199,7 @@
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
+(load "~/.emacs.d/multi-smtp")
 (load "~/.emacs.d/functions")
 
 (custom-set-variables
