@@ -43,12 +43,12 @@
 ;; org
 (defhydra hydra-org (:color red :hint nil)
   "
-Navigation^
+Navigation^                 Operations
 ---------------------------------------------------------
-_j_ next heading
+_j_ next heading             ^_s_ort
 _k_ prev heading
-_h_ next heading (same level)
-_l_ prev heading (same level)
+_h_ next heading (=level)
+_l_ prev heading (=level)
 _u_p higher heading
 _g_o to
 "
@@ -57,7 +57,9 @@ _g_o to
   ("h" org-forward-heading-same-level)
   ("l" org-backward-heading-same-level)
   ("u" outline-up-heading)
-  ("g" org-goto :exit t))
+  ("s" org-sort)
+  ("g" org-goto :exit t)
+  ("q" nil))
 
 ;; Assign hydra to hotkey when in org mode
 (eval-after-load "org"
