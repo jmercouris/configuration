@@ -126,6 +126,8 @@
 (put 'erase-buffer 'disabled nil)
 ;; switch window behavior uses switch-window package
 (global-set-key (kbd "C-x o") 'switch-window)
+(setq switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
+(setq switch-window-shortcut-style (quote qwerty))
 ;; switch window kill window
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
 ;; magit setup
@@ -196,6 +198,7 @@
 (counsel-projectile-on)
 
 ;; load Additional Files
+(load "~/.emacs.d/private")
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
@@ -207,8 +210,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(circe-default-part-message "Exit.")
- '(circe-reduce-lurker-spam t t)
  '(display-time-world-list
    (quote
     (("America/Chicago" "Chicago")
@@ -217,7 +218,6 @@
      ("Europe/London" "London")
      ("America/Los_Angeles" "San Francisco")
      ("America/Argentina/Buenos_Aires" "Buenos Aires"))))
- '(hiwin-mode t)
  '(ivy-completing-read-handlers-alist
    (quote
     ((tmm-menubar . completing-read-default)
@@ -227,9 +227,7 @@
  '(package-selected-packages
    (quote
     (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex)))
- '(realgud:pdb-command-name "python -m pdb")
- '(switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
- '(switch-window-shortcut-style (quote qwerty)))
+ '(realgud:pdb-command-name "python -m pdb"))
 (put 'downcase-region 'disabled nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
