@@ -445,3 +445,17 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))
 (global-set-key (kbd "s-b") 'hydra-browse/body)
+
+;; hydra artist-mode
+(defhydra hydra-artist-mode (:color blue :columns 2)
+  "Draw"
+  ("p" artist-select-op-pen-line "pen")
+  ("l" artist-select-op-line "line")
+  ("s" artist-select-op-square "square")
+  ("e" artist-select-op-ellipse "ellipse")
+  ("z" undo "undo")
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in artist mode
+(eval-after-load "artist"
+  '(progn
+  (define-key artist-mode-map (kbd "s-h") 'hydra-artist-mode/body)))

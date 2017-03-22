@@ -53,15 +53,6 @@
 (global-set-key (kbd "C-t") 'neotree-toggle)
 ;; neotree refresh show file alt-r
 (global-set-key (kbd "M-r") 'neotree-find)
-;; artist Mode Hooks
-(add-hook 'artist-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "<f1>") 'artist-select-op-pen-line) ; f2 = pen mode
-            (local-set-key (kbd "<f2>") 'artist-select-op-line)     ; f3 = line
-	    (local-set-key (kbd "<f3>") 'artist-select-op-square)   ; f4 = rectangle
-	    (local-set-key (kbd "<f4>") 'artist-select-op-ellipse)  ; f5 = ellipse
-	    (local-set-key (kbd "C-z") 'undo)
-	    ))
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
