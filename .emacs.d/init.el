@@ -11,42 +11,12 @@
   (exec-path-from-shell-initialize))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
-;; disable splash screen
-(setq inhibit-splash-screen t)
-;; disable menu bar
-(menu-bar-mode -1)
-(when (display-graphic-p)
-  ;; disable scroll bar
-  (scroll-bar-mode -1)
-  ;; set fringe mode to disable by default
-  (set-fringe-mode 0))
-;; disable tool bar
-(if window-system
-    (tool-bar-mode -1))
-;; set initial scratch bar message
-(setq initial-scratch-message nil)
-;; make mode-line appear flat
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
 ;; show parenthesis pairing
 (show-paren-mode 1)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
-;; highlight current line
-(global-hl-line-mode 1)
-;; only current line in current window
-(setq h1-line-sticky-flag nil)
-;; disable highlighting in terminal
-(add-hook 'term-mode-hook (lambda ()
-			    (setq-local global-hl-line-mode
-					nil)))
-(set-face-background 'hl-line "#DEDEDE")
-;; change Highlighted Text Color
-(set-face-attribute 'region nil :background "#00ed00")
-;; set cursor color
-(set-cursor-color "#00f900")
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; all back up files into same systemwide temp directory
@@ -57,9 +27,10 @@
 ;; setup yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
-;; enable elpy for python development
+;; python configuration
 (package-initialize)
 (elpy-enable)
+(setq realgud:pdb-command-name "python -m pdb")
 ;; temporary python shell fix until Emacs rc 25.2
 (with-eval-after-load 'python
   (defun python-shell-completion-native-try ()
@@ -74,14 +45,14 @@
 (setq peep-dired-cleanup-on-disable t)
 ;; neotree window position
 (setq neo-window-position 'right)
+;; neotree use ascii instead of folder icons
+(setq neo-theme 'ascii)
 ;; neotree ignore specific folders
 (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
 ;; neotree toggle with ctrl-t
 (global-set-key (kbd "C-t") 'neotree-toggle)
 ;; neotree refresh show file alt-r
 (global-set-key (kbd "M-r") 'neotree-find)
-;; neotree use ascii instead of folder icons
-(setq neo-theme 'ascii)
 ;; artist Mode Hooks
 (add-hook 'artist-mode-hook
 	  (lambda ()
@@ -101,10 +72,6 @@
 (setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column
 (setq column-number-mode t)
-;; disable Cursor Blink
-(blink-cursor-mode 0)
-;; font Size
-(set-face-attribute 'default nil :height 144)
 ;; scroll behavior
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
@@ -162,18 +129,9 @@
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'highlight-indentation-mode)
-
-;; Which key prompts on C-x etc
+;; which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
-;; shorten mode line for git
-(defun my-shorten-vc-mode-line (string)
-  (cond
-   ((string-prefix-p "Git" string)
-    (concat "G" (substring string 3)))
-   (t
-    string)))
-(advice-add 'vc-git-mode-line-string :filter-return 'my-shorten-vc-mode-line)
 ;; use ibuffer instead of regular buffer list
 (defalias 'list-buffers 'ibuffer)
 (setq ibuffer-expert t)
@@ -183,18 +141,31 @@
 (global-set-key (kbd "C->") 'imenu)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
+;; down case region
+(put 'downcase-region 'disabled nil)
 ;; org configuration
 (setq org-log-done t)
+(setq org-return-follows-link t)
 (setq org-agenda-files (list "~/.root.org"
                              "~/Documents/Academic/.academic.org"
 			     "~/Projects/.projects.org"
 			     "~/Work/.work.org"))
-;; Projectile
+;; projectile
  (projectile-global-mode)
 (setq projectile-enable-caching t)
 (counsel-projectile-on)
+;; set world time list
+(setq display-time-world-list
+      (quote
+       (("America/Chicago" "Chicago")
+	("Europe/Berlin" "Berlin")
+	("Europe/Athens" "Athens")
+	("Europe/London" "London")
+	("America/Los_Angeles" "San Francisco")
+	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
 
 ;; load Additional Files
+(load "~/.emacs.d/theme")
 (load "~/.emacs.d/private")
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
@@ -207,25 +178,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(display-time-world-list
-   (quote
-    (("America/Chicago" "Chicago")
-     ("Europe/Berlin" "Berlin")
-     ("Europe/Athens" "Athens")
-     ("Europe/London" "London")
-     ("America/Los_Angeles" "San Francisco")
-     ("America/Argentina/Buenos_Aires" "Buenos Aires"))))
+
  '(ivy-completing-read-handlers-alist
    (quote
     ((tmm-menubar . completing-read-default)
      (tmm-shortcut . completing-read-default)
      (elpy-doc . completing-read-default))))
- '(org-return-follows-link t)
  '(package-selected-packages
    (quote
     (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex)))
- '(realgud:pdb-command-name "python -m pdb"))
-(put 'downcase-region 'disabled nil)
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
