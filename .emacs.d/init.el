@@ -151,9 +151,6 @@
 (add-hook 'after-init-hook (lambda ()
   (when (fboundp 'auto-dim-other-buffers-mode)
     (auto-dim-other-buffers-mode t))))
-;; highlight symbol at point
-(global-unset-key (kbd "s-s"))
-(global-set-key (kbd "s-s") 'highlight-symbol-at-point)
 ;; minor mode lighter sets to diminish in mode-line
 (eval-after-load "hiwin" '(diminish 'hiwin-mode))
 (eval-after-load "golden-ratio" '(diminish 'golden-ratio-mode))

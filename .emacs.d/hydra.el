@@ -67,7 +67,7 @@ _g_o to
   (define-key org-mode-map (kbd "s-h") 'hydra-org/body)))
 
 ;; window movement / management
-(defhydra hydra-window ()
+(defhydra hydra-window (:hint nil)
    "
 Movement^^       ^Split^           ^Switch^        ^Resize^
 ----------------------------------------------------------------
@@ -143,14 +143,14 @@ _q_ quit
   "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
 -^----------^-+-^----^--------+-^-------^--------+-^----^-------
-  _k_:    ʌ   | _m_: mark     | _D_: delete      | _g_: refresh
+  _p_:    ʌ   | _m_: mark     | _D_: delete      | _g_: refresh
  _RET_: visit | _u_: unmark   | _S_: save        | _s_: sort
-  _j_:    v   | _*_: specific | _a_: all actions | _/_: filter
+  _n_:    v   | _*_: specific | _a_: all actions | _/_: filter
 -^----------^-+-^----^--------+-^-------^--------+-^----^-------
 "
-  ("j" ibuffer-forward-line)
+  ("n" ibuffer-forward-line)
   ("RET" ibuffer-visit-buffer :color blue)
-  ("k" ibuffer-backward-line)
+  ("p" ibuffer-backward-line)
 
   ("m" ibuffer-mark-forward)
   ("u" ibuffer-unmark-forward)
@@ -404,3 +404,44 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
      "Switch Account"
      ("h" set-email-home "Set Email Home")
      ("w" set-email-work "Set Email Work"))))
+
+;; hydra rectangle
+(defhydra hydra-rectangle (:body-pre (rectangle-mark-mode 1)
+                                     :hint nil
+                                     :post (deactivate-mark))
+  "
+  ^_p_^       _w_ copy      _o_pen       _N_umber-lines
+_b_   _f_     _y_ank        _t_ype       _e_xchange-point
+  ^_n_^       _d_ kill      _c_lear      _r_eset-region-mark
+^^^^          _u_ndo        _q_ quit
+"
+  ("p" rectangle-previous-line)
+  ("n" rectangle-next-line)
+  ("b" rectangle-backward-char)
+  ("f" rectangle-forward-char)
+  ("d" kill-rectangle)                    ;; C-x r k
+  ("y" yank-rectangle)                    ;; C-x r y
+  ("w" copy-rectangle-as-kill)            ;; C-x r M-w
+  ("o" open-rectangle)                    ;; C-x r o
+  ("t" string-rectangle)                  ;; C-x r t
+  ("c" clear-rectangle)                   ;; C-x r c
+  ("e" rectangle-exchange-point-and-mark) ;; C-x C-x
+  ("N" rectangle-number-lines)            ;; C-x r N
+  ("r" (if (region-active-p)
+           (deactivate-mark)
+         (rectangle-mark-mode 1)))
+  ("u" undo nil)
+  ("q" nil))
+;; assign hydra to hotkey
+(global-unset-key (kbd "s-s"))
+(global-set-key (kbd "s-s") 'hydra-rectangle/body)
+
+;; hydra browse
+(defhydra hydra-browse (:color blue :columns 2)
+  "Browse"
+  ("n" narrow-to-defun "narrow")
+  ("w" widen "widen")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-b"))
+(global-set-key (kbd "s-b") 'hydra-browse/body)
