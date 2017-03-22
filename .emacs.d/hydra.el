@@ -71,10 +71,10 @@ _g_o to
    "
 Movement^^       ^Split^           ^Switch^        ^Resize^
 ----------------------------------------------------------------
-_j_ ←           _v_ertical         _b_uffer        _u_ X←
-_k_ ↓           _x_ horizontal     _f_ind files    _i_ X↓
-_l_ ↑           _1_only this       _s_wap          _o_ X↑
-_;_ →           _d_elete                         _p_ X→
+_j_ ←           _v_ertical         _b_uffer        _u_ ←
+_k_ ↓           _x_ horizontal     _f_ind files    _i_ ↓
+_l_ ↑           _1_only this       _s_wap          _o_ ↑
+_;_ →           _d_elete                         _p_ →
 _F_ollow        _e_qualize           
 _q_ quit                    
 "
@@ -459,3 +459,18 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 (eval-after-load "artist"
   '(progn
   (define-key artist-mode-map (kbd "s-h") 'hydra-artist-mode/body)))
+
+;; hydra eww-mode
+(defhydra hydra-eww (:color blue :columns 2)
+  "Browse"
+  ("r" eww-readable "readable")
+  ("d" eww-download "download")
+  ("g" eww-reload "reload")
+  ("x" eww-browse-with-external-browser "external browse")
+  ("b" eww-back-url "backward")
+  ("f" eww-forward-url "forward")
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in artist mode
+(eval-after-load "eww"
+  '(progn
+  (define-key eww-mode-map (kbd "s-h") 'hydra-eww/body)))

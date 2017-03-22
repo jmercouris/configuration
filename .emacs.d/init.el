@@ -154,6 +154,8 @@
 	("Europe/London" "London")
 	("America/Los_Angeles" "San Francisco")
 	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
+;; yes or no to y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 ;; load Additional Files
