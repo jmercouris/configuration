@@ -353,6 +353,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   '(progn
      (defhydra hydra-gnus-summary (:color blue :columns 1)
        "Do?"
+       ("d" gnus-summary-delete-article "Delete Article")
        ("s" gnus-summary-show-thread "Show thread")
        ("h" gnus-summary-hide-thread "Hide thread")
        ("n" gnus-summary-insert-new-articles "Refresh / N")
@@ -465,6 +466,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "Browse"
   ("r" eww-readable "readable")
   ("d" eww-download "download")
+  ("l" eww-list-buffers "list buffers")
   ("g" eww-reload "reload")
   ("x" eww-browse-with-external-browser "external browse")
   ("b" eww-back-url "backward")

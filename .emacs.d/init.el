@@ -156,6 +156,11 @@
 	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
+;; auto-rename new eww buffers
+(defun rename-eww-hook ()
+  "Rename eww browser's buffer so sites open in new page."
+  (rename-buffer "eww" t))
+(add-hook 'eww-mode-hook #'rename-eww-hook)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 ;; load Additional Files
