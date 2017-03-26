@@ -46,7 +46,7 @@
 Navigation^                 Operations
 ---------------------------------------------------------
 _j_ next heading             ^_s_ort
-_k_ prev heading
+_k_ prev heading             _i_nsert url
 _h_ next heading (=level)
 _l_ prev heading (=level)
 _u_p higher heading
@@ -58,6 +58,7 @@ _g_o to
   ("l" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("s" org-sort)
+  ("i" org-insert-link)
   ("g" org-goto :exit t)
   ("q" nil))
 
@@ -476,3 +477,13 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 (eval-after-load "eww"
   '(progn
   (define-key eww-mode-map (kbd "s-h") 'hydra-eww/body)))
+
+;; hydra info-mode
+(defhydra hydra-info (:color blue :columns 2)
+  "Buffer Info"
+  ("f" copy-buffer-file-name-as-kill  "buffer file name")
+  ("w" count-words "count words/lines")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-i"))
+(global-set-key (kbd "s-i") 'hydra-info/body)

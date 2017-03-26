@@ -9,6 +9,9 @@
     ((tmm-menubar . completing-read-default)
      (tmm-shortcut . completing-read-default)
      (elpy-doc . completing-read-default))))
+ '(org-agenda-files
+   (quote
+    ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))
  '(package-selected-packages
    (quote
     (auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex))))
