@@ -45,17 +45,17 @@
   "
 Navigation^                 Operations
 ---------------------------------------------------------
-_j_ next heading             _s_ort
-_k_ prev heading             _i_nsert url
-_h_ next heading (=level)
-_l_ prev heading (=level)
+_f_ next heading             _s_ort
+_b_ prev heading             _i_nsert url
+_n_ next heading (=level)
+_p_ prev heading (=level)
 _u_p higher heading
 _g_o to
 "
-  ("j" outline-next-visible-heading)
-  ("k" outline-previous-visible-heading)
-  ("h" org-forward-heading-same-level)
-  ("l" org-backward-heading-same-level)
+  ("f" outline-next-visible-heading)
+  ("b" outline-previous-visible-heading)
+  ("n" org-forward-heading-same-level)
+  ("p" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("s" org-sort)
   ("i" org-insert-link)
