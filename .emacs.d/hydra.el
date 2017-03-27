@@ -45,7 +45,7 @@
   "
 Navigation^                 Operations
 ---------------------------------------------------------
-_j_ next heading             ^_s_ort
+_j_ next heading             _s_ort
 _k_ prev heading             _i_nsert url
 _h_ next heading (=level)
 _l_ prev heading (=level)
@@ -75,8 +75,8 @@ Movement^^       ^Split^           ^Switch^        ^Resize^
 _j_ ←           _v_ertical         _b_uffer        _u_ ←
 _k_ ↓           _x_ horizontal     _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _s_wap          _o_ ↑
-_;_ →           _d_elete                         _p_ →
-_F_ollow        _e_qualize           
+_;_ →           _d_elete           ^ ^             _p_ →
+_F_ollow        _e_qualize         ^ ^             _8_0 columns
 _q_ quit                    
 "
    ("j" windmove-left )
@@ -90,7 +90,8 @@ _q_ quit
    ("b" ivy-switch-buffer)
    ("f" counsel-find-file)
    ("F" follow-mode)
-   ("s" switch-window-then-swap-buffer) 
+   ("s" switch-window-then-swap-buffer)
+   ("8" set-80-columns)
        
    ("v" (lambda ()
           (interactive)
@@ -487,3 +488,34 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-i"))
 (global-set-key (kbd "s-i") 'hydra-info/body)
+
+(defhydra hydra-multiple-cursors (:hint nil)
+  "
+     ^Up^            ^Down^        ^Other^
+----------------------------------------------
+[_p_]   Next    [_n_]   Next    [_l_] Edit lines
+[_P_]   Skip    [_N_]   Skip    [_a_] Mark all
+[_M-p_] Unmark  [_M-n_] Unmark  [_r_] Mark by regexp
+^ ^             ^ ^             [_q_] Quit
+"
+  ("l" mc/edit-lines :exit t)
+  ("a" mc/mark-all-like-this :exit t)
+  ("n" mc/mark-next-like-this)
+  ("N" mc/skip-to-next-like-this)
+  ("M-n" mc/unmark-next-like-this)
+  ("p" mc/mark-previous-like-this)
+  ("P" mc/skip-to-previous-like-this)
+  ("M-p" mc/unmark-previous-like-this)
+  ("r" mc/mark-all-in-region-regexp :exit t)
+  ("q" nil))
+
+;; hydra edit mode
+;; hydra eww-mode
+(defhydra hydra-edit (:color blue :columns 2)
+  "Edit"
+  ("r" hydra-rectangle/body "rectangle")
+  ("m" hydra-multiple-cursors/body "multiple cursors")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-e"))
+(global-set-key (kbd "s-e") 'hydra-edit/body)

@@ -109,3 +109,14 @@ by using nxml's indentation rules."
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 (put 'upcase-region 'disabled nil)
+
+(defun set-window-width (n)
+  "Set the selected window's width."
+  (if (> n (window-width))
+      (enlarge-window-horizontally (- n (window-width)))
+      (shrink-window-horizontally (- (window-width) n))))
+
+(defun set-80-columns ()
+  "Set the selected window to 80 columns."
+  (interactive)
+  (set-window-width 80))
