@@ -510,7 +510,6 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("q" nil))
 
 ;; hydra edit mode
-;; hydra eww-mode
 (defhydra hydra-edit (:color blue :columns 2)
   "Edit"
   ("r" hydra-rectangle/body "rectangle")
@@ -519,3 +518,14 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-e"))
 (global-set-key (kbd "s-e") 'hydra-edit/body)
+
+;; hydra circe mode
+(defhydra hydra-irc (:color blue :columns 2)
+  "IRC"
+  ("r" circe-reconnect "reconnect")
+  ("n" tracking-next-buffer "next unread buffer")
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in artist mode
+(eval-after-load "circe"
+  '(progn
+  (define-key circe-mode-map (kbd "s-h") 'hydra-irc/body)))
