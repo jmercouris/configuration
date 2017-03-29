@@ -43,11 +43,11 @@
 ;; org
 (defhydra hydra-org (:color red :hint nil)
   "
-Navigation^                 Operations
+Navigation^                 Operations      Configuration
 ---------------------------------------------------------
-_f_ next heading             _s_ort
+_f_ next heading             _s_ort            in_d_ent mode
 _b_ prev heading             _i_nsert url
-_n_ next heading (=level)
+_n_ next heading (=level)    _a_rchive
 _p_ prev heading (=level)
 _u_p higher heading
 _g_o to
@@ -60,6 +60,8 @@ _g_o to
   ("s" org-sort)
   ("i" org-insert-link)
   ("g" org-goto :exit t)
+  ("d" org-indent-mode)
+  ("a" org-archive-subtree-default)
   ("q" nil))
 
 ;; Assign hydra to hotkey when in org mode
@@ -444,7 +446,10 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "Browse"
   ("n" narrow-to-defun "narrow")
   ("w" widen "widen")
-  ("q" nil "quit"))
+  ("q" nil "quit")
+  ("g" pop-global-mark "pop global mark")
+  ("m" set-mark-command "mark command")
+  )
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))
 (global-set-key (kbd "s-b") 'hydra-browse/body)
