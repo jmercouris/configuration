@@ -14,7 +14,7 @@
     ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))
  '(package-selected-packages
    (quote
-    (multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex))))
+    (yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell elpy avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode jinja2-mode hydra circe auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -117,6 +117,7 @@
 (eval-after-load "elpy" '(diminish 'elpy-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
+(eval-after-load "yas" '(diminish 'yas-minor-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'highlight-indentation-mode)
