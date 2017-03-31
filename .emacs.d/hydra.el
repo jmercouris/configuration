@@ -446,9 +446,12 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "Browse"
   ("n" narrow-to-defun "narrow")
   ("w" widen "widen")
+  ("e" eww "eww")
+  ("f" back-button-local-forward "forward local ring")
+  ("b" back-button-local-backward "backward local ring")
+  ("n" back-button-global-forward "forward global ring")
+  ("p" back-button-global-backward "backward global ring")
   ("q" nil "quit")
-  ("g" pop-global-mark "pop global mark")
-  ("m" set-mark-command "mark command")
   )
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))
@@ -501,6 +504,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 [_p_]   Next    [_n_]   Next    [_l_] Edit lines
 [_P_]   Skip    [_N_]   Skip    [_a_] Mark all
 [_M-p_] Unmark  [_M-n_] Unmark  [_r_] Mark by regexp
+^ ^             ^ ^             [_d_] Mark all defun
 ^ ^             ^ ^             [_q_] Quit
 "
   ("l" mc/edit-lines :exit t)
@@ -512,6 +516,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("P" mc/skip-to-previous-like-this)
   ("M-p" mc/unmark-previous-like-this)
   ("r" mc/mark-all-in-region-regexp :exit t)
+  ("d" mc/mark-all-like-this-in-defun :exit t)
   ("q" nil))
 
 ;; hydra edit mode
@@ -534,3 +539,15 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 (eval-after-load "circe"
   '(progn
   (define-key circe-mode-map (kbd "s-h") 'hydra-irc/body)))
+
+;; hydra term mode
+(defhydra hydra-term (:color blue :columns 2)
+  "Term"
+  ("l" term-line-mode "term-line mode")
+  ("c" term-char-mode "term-char mode")
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in artist mode
+(eval-after-load "multi-term"
+  '(progn
+     (define-key term-raw-map (kbd "s-h") 'hydra-term/body)
+     (define-key term-mode-map (kbd "s-h") 'hydra-term/body)))

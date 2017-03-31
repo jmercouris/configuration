@@ -11,8 +11,6 @@
   (exec-path-from-shell-initialize))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
-;; show parenthesis pairing
-(show-paren-mode 1)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
@@ -27,20 +25,6 @@
 ;; setup yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
-;; python configuration
-(package-initialize)
-(elpy-enable)
-(setq realgud:pdb-command-name "python -m pdb")
-;; temporary python shell fix until Emacs rc 25.2
-(with-eval-after-load 'python
-  (defun python-shell-completion-native-try ()
-    "Return non-nil if can trigger native completion."
-    (let ((python-shell-completion-native-enable t)
-          (python-shell-completion-native-output-timeout
-           python-shell-completion-native-try-output-timeout))
-      (python-shell-completion-native-get-completions
-       (get-buffer-process (current-buffer))
-       nil "_"))))
 ;; peep-dired kill buffers on disabling of minor mode
 (setq peep-dired-cleanup-on-disable t)
 ;; neotree window position
@@ -117,7 +101,8 @@
 (eval-after-load "elpy" '(diminish 'elpy-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "yas" '(diminish 'yas-minor-mode))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
+(eval-after-load "back-button" '(diminish 'back-button-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'highlight-indentation-mode)
@@ -159,6 +144,10 @@
 	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
+;; back button mode
+(back-button-mode 1)
+;; smart parens mode
+(show-smartparens-global-mode +1)
 ;; auto-rename new eww buffers
 (defun rename-eww-hook ()
   "Rename eww browser's buffer so sites open in new page."
@@ -175,3 +164,6 @@
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/multi-smtp")
 (load "~/.emacs.d/functions")
+;; load Develop Files
+(load "~/.emacs.d/develop/_python")
+(load "~/.emacs.d/develop/_c")
