@@ -236,6 +236,7 @@ _q_ quit
   ("c" avy-goto-char "char")
   ("C" avy-goto-char-2 "char-2")
   ("w" avy-goto-word-1 "word")
+  ("." avy-goto-word-1)
   ("s" avy-goto-subword-1 "subword")
   ("l" avy-goto-line "line")
   ("q" nil "quit"))
@@ -279,7 +280,7 @@ _q_ quit
 (defhydra hydra-projectile (:color teal
                             :hint nil)
   "
-     PROJECTILE: %(projectile-project-root)
+     Projectile: %(projectile-project-root)
 
      Find File            Search/Tags          Buffers                Cache
 ------------------------------------------------------------------------------------------

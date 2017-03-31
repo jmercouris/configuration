@@ -148,6 +148,8 @@
 (back-button-mode 1)
 ;; smart parens mode
 (show-smartparens-global-mode +1)
+;; automatically insert matching character
+(electric-pair-mode 1)
 ;; auto-rename new eww buffers
 (defun rename-eww-hook ()
   "Rename eww browser's buffer so sites open in new page."
