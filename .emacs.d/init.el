@@ -27,6 +27,7 @@
 (yas-global-mode 1)
 ;; peep-dired kill buffers on disabling of minor mode
 (setq peep-dired-cleanup-on-disable t)
+(setq peep-dired-ignored-extensions '("pyc"))
 ;; neotree window position
 (setq neo-window-position 'right)
 ;; neotree use ascii instead of folder icons
