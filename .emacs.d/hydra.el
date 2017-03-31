@@ -75,7 +75,7 @@ _g_o to
 Movement^^       ^Split^           ^Switch^        ^Resize^
 ----------------------------------------------------------------
 _j_ ←           _v_ertical         _b_uffer        _u_ ←
-_k_ ↓           _x_ horizontal     _f_ind files    _i_ ↓
+_k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _s_wap          _o_ ↑
 _;_ →           _d_elete           ^ ^             _p_ →
 _F_ollow        _e_qualize         ^ ^             _8_0 columns
@@ -94,17 +94,10 @@ _q_ quit
    ("F" follow-mode)
    ("s" switch-window-then-swap-buffer)
    ("8" set-80-columns)
-       
-   ("v" (lambda ()
-          (interactive)
-          (split-window-right)
-          (windmove-right))
-       )
-   ("x" (lambda ()
-          (interactive)
-          (split-window-below)
-          (windmove-down))
-       )
+   ("v" split-window-right)
+   ("h" split-window-below)
+   ("3" split-window-right)
+   ("2" split-window-below)
    ("d" delete-window)
    ("1" delete-other-windows)
    ("e" balance-windows)
