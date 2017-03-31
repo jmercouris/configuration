@@ -95,9 +95,6 @@
   (when (fboundp 'auto-dim-other-buffers-mode)
     (auto-dim-other-buffers-mode t))))
 ;; minor mode lighter sets to diminish in mode-line
-(eval-after-load "hiwin" '(diminish 'hiwin-mode))
-(eval-after-load "golden-ratio" '(diminish 'golden-ratio-mode))
-(eval-after-load "sphinx-doc" '(diminish 'sphinx-doc-mode))
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "elpy" '(diminish 'elpy-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
@@ -106,7 +103,7 @@
 (eval-after-load "back-button" '(diminish 'back-button-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
-(diminish 'highlight-indentation-mode)
+(eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 ;; which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
