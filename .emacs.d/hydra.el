@@ -48,7 +48,7 @@ Navigation^                 Operations      Configuration
 _f_ next heading             _s_ort            in_d_ent mode
 _b_ prev heading             _i_nsert url
 _n_ next heading (=level)    _a_rchive
-_p_ prev heading (=level)
+_p_ prev heading (=level)    _c_opy url
 _u_p higher heading
 _g_o to
 "
@@ -62,6 +62,7 @@ _g_o to
   ("g" org-goto :exit t)
   ("d" org-indent-mode)
   ("a" org-archive-subtree-default)
+  ("c" org-retrieve-url-from-point)
   ("q" nil))
 
 ;; Assign hydra to hotkey when in org mode
