@@ -5,7 +5,8 @@
 (defhydra hydra-desktop (:color blue :columns 1)
   "Desktop"
   ("c" desktop-clear "clear")
-  ("s" desktop-save "save")
+  ("S" desktop-save "save")
+  ("s" desktop-save-current-dir "save current directory")
   ("r" desktop-revert "revert")
   ("o" desktop-change-dir "open")
   ("q" nil "quit"))
@@ -546,3 +547,5 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   '(progn
      (define-key term-raw-map (kbd "s-h") 'hydra-term/body)
      (define-key term-mode-map (kbd "s-h") 'hydra-term/body)))
+;; Hydra latex
+;; auto-fill-mode

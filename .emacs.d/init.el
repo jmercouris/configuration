@@ -17,6 +17,8 @@
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
+;; disable mouse
+(global-disable-mouse-mode)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -104,6 +106,7 @@
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
+(eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
 ;; which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)
@@ -146,8 +149,8 @@
 (back-button-mode 1)
 ;; smart parens mode
 (show-smartparens-global-mode +1)
-;; automatically insert matching character
-(electric-pair-mode 1)
+;; docview mode continuous
+(setq doc-view-continuous t)
 ;; auto-rename new eww buffers
 (defun rename-eww-hook ()
   "Rename eww browser's buffer so sites open in new page."

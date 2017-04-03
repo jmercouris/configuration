@@ -111,7 +111,7 @@ by using nxml's indentation rules."
 (put 'upcase-region 'disabled nil)
 
 (defun set-window-width (n)
-  "Set the selected window's width."
+  "Set the selected window's width to N columns wide."
   (if (> n (window-width))
       (enlarge-window-horizontally (- n (window-width)))
       (shrink-window-horizontally (- (window-width) n))))
@@ -129,7 +129,15 @@ by using nxml's indentation rules."
                  ;; starts at buffer-start or ends at buffer-end
                  (buffer-substring-no-properties (or (cadr link-info) (point-min))
                                                  (or (caddr link-info) (point-max))))))
-    (if (not text)
-        (error "Not in org link")
-      (add-text-properties 0 (length text) '(yank-handler (my-yank-org-link)) text)
-      (kill-new text))))
+    (setq substring text)
+    (kill-new text)
+    ))
+
+(defun desktop-save-current-dir ()
+  (interactive)
+  (desktop-save (file-name-directory
+			  (if (eq major-mode 'dired-mode)
+			      (dired-get-filename)
+			    (or (buffer-file-name) ""))
+			  ))
+  )
