@@ -520,6 +520,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "Edit"
   ("r" hydra-rectangle/body "rectangle")
   ("m" hydra-multiple-cursors/body "multiple cursors")
+  ("e" er/expand-region "expand region")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-e"))

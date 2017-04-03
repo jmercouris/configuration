@@ -45,7 +45,7 @@
       (lambda nil "> "))
 ;; clear buffer
 (global-unset-key (kbd "s-c"))
-(global-set-key (kbd "s-c") 'erase-buffer)
+(global-set-key (kbd "s-c") 'clear-buffer-redraw)
 ;; add Macports Path
 (setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column

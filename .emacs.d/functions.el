@@ -141,3 +141,8 @@ by using nxml's indentation rules."
 			    (or (buffer-file-name) ""))
 			  ))
   )
+(defun clear-buffer-redraw ()
+  (interactive)
+  (erase-buffer)
+  (next-buffer)
+  (previous-buffer))
