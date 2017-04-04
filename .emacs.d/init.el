@@ -9,6 +9,8 @@
 ;; update system path on OSX
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+;; add Macports Path
+(setq exec-path (append exec-path '("/opt/local/bin")))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
 ;; undo tree mode
@@ -43,11 +45,11 @@
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
+;; enable buffer erasing
+(put 'erase-buffer 'disabled nil)
 ;; clear buffer
 (global-unset-key (kbd "s-c"))
 (global-set-key (kbd "s-c") 'clear-buffer-redraw)
-;; add Macports Path
-(setq exec-path (append exec-path '("/opt/local/bin")))
 ;; column
 (setq column-number-mode t)
 ;; scroll behavior
@@ -65,10 +67,6 @@
   (global-set-key (kbd "s-t") 'multi-term)
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
-;; find file in repository
-(global-set-key (kbd "C-x C-g") 'find-file-in-repository)
-;; enable buffer erasing
-(put 'erase-buffer 'disabled nil)
 ;; switch window behavior uses switch-window package
 (global-set-key (kbd "C-x o") 'switch-window)
 (setq switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
