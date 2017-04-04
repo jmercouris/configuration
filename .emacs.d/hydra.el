@@ -284,12 +284,12 @@ _q_ quit
   "
      Projectile: %(projectile-project-root)
 
-     Find File          Search/Tags          Cache
+    Find File          Search/Tags         Cache
 ---------------------------------------------------------------------
 _s-f_: file            _a_: ag              _c_: cache clear
- _ff_: file dwim       _g_: git grep        _x_: remove known project
- _fd_: file curr dir   _o_: multi-occur     _X_: cleanup non-existing
-  _d_: dir                               ^^^_z_: cache current
+ _fd_: file curr dir   _g_: git grep        _x_: remove known project
+  _d_: dir             _o_: multi-occur     _X_: cleanup non-existing
+                                        ^^^^_z_: cache current
 
 
 "
@@ -297,7 +297,6 @@ _s-f_: file            _a_: ag              _c_: cache clear
   ("c"   counsel-projectile-invalidate-cache)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
-  ("ff"  projectile-find-file-dwim)
   ("fd"  projectile-find-file-in-directory)
   ("g"   counsel-git-grep)
   ("s-g" ggtags-update-tags)
@@ -310,7 +309,6 @@ _s-f_: file            _a_: ag              _c_: cache clear
   ("x"   counsel-projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
-  ("`"   hydra-projectile-other-window/body "other window")
   ("q"   nil "cancel" :color blue))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-f"))
