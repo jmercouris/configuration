@@ -433,15 +433,15 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 (global-set-key (kbd "s-s") 'hydra-rectangle/body)
 
 ;; hydra browse
-(defhydra hydra-browse (:color blue :columns 2)
+(defhydra hydra-browse (:color red :columns 2)
   "Browse"
   ("n" narrow-to-defun "narrow")
   ("w" widen "widen")
   ("e" eww "eww")
   ("f" back-button-local-forward "forward local ring")
   ("b" back-button-local-backward "backward local ring")
-  ("n" back-button-global-forward "forward global ring")
-  ("p" back-button-global-backward "backward global ring")
+  ("gf" back-button-global-forward "forward global ring")
+  ("gb" back-button-global-backward "backward global ring")
   ("q" nil "quit")
   )
 ;; Assign Hydra to hotkey
@@ -527,7 +527,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("r" circe-reconnect "reconnect")
   ("n" tracking-next-buffer "next unread buffer")
   ("q" nil "quit"))
-;; Assign hydra to hotkey when in artist mode
+;; Assign hydra to hotkey when in circe mode
 (eval-after-load "circe"
   '(progn
   (define-key circe-mode-map (kbd "s-h") 'hydra-irc/body)))
@@ -538,7 +538,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("l" term-line-mode "term-line mode")
   ("c" term-char-mode "term-char mode")
   ("q" nil "quit"))
-;; Assign hydra to hotkey when in artist mode
+;; Assign hydra to hotkey when in term mode
 (eval-after-load "multi-term"
   '(progn
      (define-key term-raw-map (kbd "s-h") 'hydra-term/body)
