@@ -5,3 +5,4 @@
 (setq c-default-style "bsd")
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'c-mode-hook 'flycheck-mode)
+;; add semantic mode
