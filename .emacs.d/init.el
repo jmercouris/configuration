@@ -6,6 +6,8 @@
    '("melpa" . "http://melpa.org/packages/")
    t)
   (package-initialize))
+;; disable quit by command + q
+(global-unset-key (kbd "s-q"))
 ;; update system path on OSX
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
