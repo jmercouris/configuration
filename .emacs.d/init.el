@@ -40,10 +40,6 @@
 (setq neo-theme 'ascii)
 ;; neotree ignore specific folders
 (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
-;; neotree toggle with ctrl-t
-(global-set-key (kbd "C-t") 'neotree-toggle)
-;; neotree refresh show file alt-r
-(global-set-key (kbd "M-r") 'neotree-find)
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
@@ -98,7 +94,12 @@
     (auto-dim-other-buffers-mode t))))
 ;; minor mode lighter sets to diminish in mode-line
 (eval-after-load "which-key" '(diminish 'which-key-mode))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
 (eval-after-load "elpy" '(diminish 'elpy-mode))
+(eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
+(eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
@@ -147,6 +148,9 @@
 	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
+;; occur mode n-p
+(define-key occur-mode-map (kbd "n") 'next-line)
+(define-key occur-mode-map (kbd "p") 'previous-line)
 ;; back button mode
 (back-button-mode 1)
 ;; smart parens mode

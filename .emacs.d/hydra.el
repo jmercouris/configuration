@@ -260,18 +260,28 @@ _q_ quit
   (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
 
 ;; Python
-(defhydra hydra-python (:columns 4)
-  "Python"
-  ("s" py-isort-region "sort imports")
-  ("f" elpy-format-code "format code")
-  ("i" indent-for-tab-command "indent")
-  ("j" elpy-goto-definition "push definition")
-  ("k" pop-tag-mark "pop definition")
-  ("d" elpy-doc "doc")
-  ("o" elpy-occur-definitions "outline")
-  ("l" elpy-shell-switch-to-shell "shell")
-  ("n" end-of-defun "next func")
-  ("p" beginning-of-defun "prev func")
+(defhydra hydra-python (:color blue :hint nil)
+  "
+    Navigation          Formatting         Shell
+---------------------------------------------------------------------
+   Documentation_?_       _s_ort imports       shel_l_
+   Definitions_._         _i_ndent             send regio_n_
+   _a_ssignments      
+   _r_eferences
+   _o_utline
+   _c_lass outline
+
+"
+  ("s" py-isort-region)
+  ("?" anaconda-mode-show-doc)
+  ("." anaconda-mode-find-definitions :color red)
+  ("a" anaconda-mode-find-assignments)
+  ("r" anaconda-mode-find-references)
+  ("i" indent-for-tab-command)
+  ("l" python-shell)
+  ("n" python-shell-send-region)
+  ("o" python-outline)
+  ("c" python-class-outline)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "python"
@@ -441,6 +451,8 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("b" back-button-local-backward "backward local ring")
   ("gf" back-button-global-forward "forward global ring")
   ("gb" back-button-global-backward "backward global ring")
+  ("t" neotree-toggle "neotree toggle")
+  ("r" neotree-find "neotree find")
   ("q" nil "quit")
   )
 ;; Assign Hydra to hotkey
