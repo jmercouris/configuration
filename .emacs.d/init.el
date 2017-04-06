@@ -107,6 +107,8 @@
 (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 (eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
+;; don't open new windows for these buffers
+(add-to-list 'same-window-buffer-names "*wclock*")
 ;; which key prompts on C-x etc
 (which-key-mode)
 (which-key-setup-minibuffer)

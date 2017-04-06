@@ -286,14 +286,13 @@ _q_ quit
 
     Find File          Search/Tags         Cache
 ---------------------------------------------------------------------
-_s-f_: file            _a_: ag              _c_: cache clear
- _fd_: file curr dir   _g_: git grep        _x_: remove known project
-  _d_: dir             _o_: multi-occur     _X_: cleanup non-existing
-                                        ^^^^_z_: cache current
+_s-f_: file            _g_: git grep        _c_: cache clear
+ _fd_: file curr dir   _o_: multi-occur     _x_: remove known project
+  _d_: dir                                ^^_X_: cleanup non-existing
+                                        ^^_z_: cache current
 
 
 "
-  ("a"   counsel-projectile-ag)
   ("c"   counsel-projectile-invalidate-cache)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
