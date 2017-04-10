@@ -536,7 +536,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 (global-set-key (kbd "s-e") 'hydra-edit/body)
 
 ;; hydra circe mode
-(defhydra hydra-irc (:color blue :columns 2)
+(defhydra hydra-irc (:color red :columns 2)
   "IRC"
   ("r" circe-reconnect "reconnect")
   ("n" tracking-next-buffer "next unread buffer")
