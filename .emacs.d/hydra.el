@@ -266,7 +266,7 @@ _q_ quit
 ---------------------------------------------------------------------
    Documentation_?_       _s_ort imports       shel_l_
    Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments          _f_lycheck error     _t_est django
+   _a_ssignments          _f_lycheck error     _t_est
    _r_eferences           _r_emove unused
    _o_utline
    _c_lass outline
