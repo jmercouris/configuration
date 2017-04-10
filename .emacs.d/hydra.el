@@ -266,8 +266,8 @@ _q_ quit
 ---------------------------------------------------------------------
    Documentation_?_       _s_ort imports       shel_l_
    Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments      
-   _r_eferences
+   _a_ssignments          _f_lycheck error     _t_est django
+   _r_eferences           _r_emove unused
    _o_utline
    _c_lass outline
 
@@ -282,6 +282,9 @@ _q_ quit
   ("n" python-shell-send-region)
   ("o" python-outline)
   ("c" python-class-outline)
+  ("f" flycheck-next-error :color red)
+  ("t" python-django-test)
+  ("r" pyrm)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "python"

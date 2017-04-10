@@ -146,3 +146,6 @@ by using nxml's indentation rules."
   (erase-buffer)
   (next-buffer)
   (previous-buffer))
+
+(defun replace-in-string (what with in)
+  (replace-regexp-in-string (regexp-quote what) with in nil 'literal))

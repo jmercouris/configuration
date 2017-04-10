@@ -35,3 +35,18 @@
   (interactive)
   (occur "class ")
   )
+
+(defun pyrm ()
+  (interactive)
+  (setq command (concatenate 'string "autoflake --in-place --remove-unused-variables " buffer-file-name))
+  (shell-command command)
+  ;; Reload the modified file
+  (revert-buffer t t)
+  )
+
+(defun python-django-test ()
+  (interactive)
+  (kill-new
+   (concatenate 'string "./manage.py test "
+		(replace-in-string (projectile-project-root) "" (buffer-file-name)))
+))
