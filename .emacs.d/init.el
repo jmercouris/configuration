@@ -125,6 +125,7 @@
 ;; down case region
 (put 'downcase-region 'disabled nil)
 ;; org configuration
+(setq org-startup-indented t)
 (setq org-log-done t)
 (setq org-return-follows-link t)
 (setq org-todo-keywords
