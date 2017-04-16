@@ -1,11 +1,11 @@
 # Export Path Variables
 set --export PATH /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin $PATH
 set --export PATH /opt/local/bin /opt/local/sbin $PATH
+set --export PATH $PATH /opt/local/libexec/qt5/bin
 set --export PATH /Users/jmercouris/User $PATH
 # Python Specific Environment Variables
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
 set --export PYTHONPATH /Users/jmercouris/Projects/scikit-learn
-set --export PYTHONPATH $PYTHONPATH /Users/jmercouris/Projects/AudioRead
 
 set --export CLICOLOR "1"
 set --export VISUAL "emacs -nw"

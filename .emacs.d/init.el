@@ -177,3 +177,4 @@
 ;; load Develop Files
 (load "~/.emacs.d/develop/_python")
 (load "~/.emacs.d/develop/_c")
+(load "~/.emacs.d/develop/_lisp")
