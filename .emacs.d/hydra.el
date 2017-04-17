@@ -440,9 +440,6 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
          (rectangle-mark-mode 1)))
   ("u" undo nil)
   ("q" nil))
-;; assign hydra to hotkey
-(global-unset-key (kbd "s-s"))
-(global-set-key (kbd "s-s") 'hydra-rectangle/body)
 
 ;; hydra browse
 (defhydra hydra-browse (:color red :columns 2)

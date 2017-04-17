@@ -9,6 +9,9 @@
 
 (setq realgud:pdb-command-name "python -m pdb")
 
+;; python shell prompt warning
+(setq python-shell-prompt-detect-failure-warning nil)
+
 ;; temporary python shell fix until Emacs rc 25.2
 (with-eval-after-load 'python
   (defun python-shell-completion-native-try ()

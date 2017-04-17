@@ -75,15 +75,12 @@
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
 ;; magit setup
 (setq magit-completing-read-function 'ivy-completing-read)
-;; python shell prompt warning
-(setq python-shell-prompt-detect-failure-warning nil)
 ;; previous and Next Buffer
 (global-unset-key (kbd "s-n"))
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-unset-key (kbd "s-p"))
 (global-set-key (kbd "s-p") 'previous-buffer)
 ;; windmove
-(windmove-default-keybindings)
 (global-set-key (kbd "s-j") 'windmove-left)
 (global-set-key (kbd "s-k") 'windmove-down)
 (global-set-key (kbd "s-l") 'windmove-up)
@@ -91,9 +88,7 @@
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; auto dim other buffers
-(add-hook 'after-init-hook (lambda ()
-  (when (fboundp 'auto-dim-other-buffers-mode)
-    (auto-dim-other-buffers-mode t))))
+(auto-dim-other-buffers-mode t)
 ;; minor mode lighter sets to diminish in mode-line
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
@@ -137,7 +132,7 @@
 			     "~/Projects/.projects.org"
 			     "~/Work/.work.org"))
 ;; projectile
- (projectile-global-mode)
+(projectile-global-mode)
 (setq projectile-enable-caching t)
 (counsel-projectile-on)
 ;; set world time list
