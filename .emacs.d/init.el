@@ -23,6 +23,8 @@
 (set-default 'truncate-lines t)
 ;; disable mouse
 (global-disable-mouse-mode)
+;; disable tool tip mode
+(tooltip-mode 0)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
