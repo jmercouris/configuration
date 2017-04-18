@@ -4,11 +4,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-dim-other-buffers-mode t)
- '(ivy-completing-read-handlers-alist
-   (quote
-    ((tmm-menubar . completing-read-default)
-     (tmm-shortcut . completing-read-default)
-     (elpy-doc . completing-read-default))))
  '(org-agenda-files
    (quote
     ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))

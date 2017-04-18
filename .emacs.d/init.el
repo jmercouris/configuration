@@ -92,7 +92,6 @@
 ;; minor mode lighter sets to diminish in mode-line
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "elpy" '(diminish 'elpy-mode))
 (eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
 (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
