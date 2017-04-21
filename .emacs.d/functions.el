@@ -85,30 +85,10 @@ by using nxml's indentation rules."
   (let ((inhibit-read-only t))
     (erase-buffer)
     (eshell-send-input)))
+
 (add-hook 'eshell-mode-hook
       '(lambda()
 	 (local-set-key (kbd "s-c") 'eshell-clear-buffer)))
-
-;; paste from OSX
-(defun copy-from-osx ()
-  "Handle copy/paste intelligently on osx."
-  (let ((pbpaste (purecopy "/usr/bin/pbpaste")))
-    (if (and (eq system-type 'darwin)
-             (file-exists-p pbpaste))
-        (let ((tramp-mode nil)
-              (default-directory "~"))
-          (shell-command-to-string pbpaste)))))
-
-;; paste to OSX
-(defun paste-to-osx (text &optional push)
-  (let ((process-connection-type nil))
-    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-      (process-send-string proc text)
-      (process-send-eof proc))))
-;; set copy/paste functions
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
-(put 'upcase-region 'disabled nil)
 
 (defun set-window-width (n)
   "Set the selected window's width to N columns wide."
@@ -130,17 +110,15 @@ by using nxml's indentation rules."
                  (buffer-substring-no-properties (or (cadr link-info) (point-min))
                                                  (or (caddr link-info) (point-max))))))
     (setq substring text)
-    (kill-new text)
-    ))
+    (kill-new text)))
 
 (defun desktop-save-current-dir ()
   (interactive)
   (desktop-save (file-name-directory
 			  (if (eq major-mode 'dired-mode)
 			      (dired-get-filename)
-			    (or (buffer-file-name) ""))
-			  ))
-  )
+			    (or (buffer-file-name) "")))))
+
 (defun clear-buffer-redraw ()
   (interactive)
   (erase-buffer)

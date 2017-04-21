@@ -6,15 +6,13 @@
    '("melpa" . "http://melpa.org/packages/")
    t)
   (package-initialize))
-;; disable quit by command + q
-(global-unset-key (kbd "s-q"))
-;; update system path on OSX
+;; load osx specific things
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-;; add Macports Path
-(setq exec-path (append exec-path '("/opt/local/bin")))
+  (load "~/.emacs.d/osx.el"))
 ;; set default shell to bash for rgrep
 (setq shell-file-name "/bin/sh")
+;; allow upcase region
+(put 'upcase-region 'disabled nil)
 ;; undo tree mode
 (undo-tree-mode 1)
 ;; rebind comment region
