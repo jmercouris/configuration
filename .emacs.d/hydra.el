@@ -78,8 +78,8 @@ Movement^^       ^Split^           ^Switch^        ^Resize^
 ----------------------------------------------------------------
 _j_ ←           _v_ertical         _b_uffer        _u_ ←
 _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
-_l_ ↑           _1_only this       _s_wap          _o_ ↑
-_;_ →           _d_elete           ^ ^             _p_ →
+_l_ ↑           _1_only this       _P_rojectile    _o_ ↑
+_;_ →           _d_elete           _s_wap           _p_ →
 _F_ollow        _e_qualize         ^ ^             _8_0 columns
 _q_ quit                    
 "
@@ -93,6 +93,7 @@ _q_ quit
    ("p" hydra-move-splitter-right)
    ("b" ivy-switch-buffer)
    ("f" counsel-find-file)
+   ("P" counsel-projectile-find-file)
    ("F" follow-mode)
    ("s" switch-window-then-swap-buffer)
    ("8" set-80-columns)
@@ -330,8 +331,8 @@ _s-f_: file            _g_: git grep        _c_: cache clear
 (defhydra hydra-dired (:color blue :columns 1)
   "Dired"
   ("v" peep-dired "peep")
-  ("n" dired-next-line "next line")
-  ("p" dired-previous-line "previous line")
+  ("n" dired-next-line "next line" :color red)
+  ("p" dired-previous-line "previous line" :color red)
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (eval-after-load "dired" '(progn

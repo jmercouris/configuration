@@ -83,6 +83,10 @@
 (global-set-key (kbd "s-k") 'windmove-down)
 (global-set-key (kbd "s-l") 'windmove-up)
 (global-set-key (kbd "s-;") 'windmove-right)
+;; framemove
+(require 'framemove)
+(windmove-default-keybindings)
+(setq framemove-hook-into-windmove t)
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; auto dim other buffers
@@ -172,3 +176,4 @@
 (load "~/.emacs.d/develop/_python")
 (load "~/.emacs.d/develop/_c")
 (load "~/.emacs.d/develop/_lisp")
+(load "~/.emacs.d/develop/_yaml")
