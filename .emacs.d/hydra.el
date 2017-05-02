@@ -454,6 +454,9 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("gb" back-button-global-backward "backward global ring")
   ("t" neotree-toggle "neotree toggle")
   ("r" neotree-find "neotree find")
+  ("h" hs-minor-mode "hide show mode")
+  ("s" hs-toggle-hiding "toggle hiding")
+  ("a" hs-show-all "show all hidden")
   ("q" nil "quit")
   )
 ;; Assign Hydra to hotkey
