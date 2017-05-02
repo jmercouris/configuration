@@ -181,7 +181,7 @@ _q_ quit
   ("e" ibuffer-mark-dissociated-buffers "dissociated")
   ("h" ibuffer-mark-help-buffers "help")
   ("z" ibuffer-mark-compressed-file-buffers "compressed")
-  ("b" hydra-ibuffer-main/body "back" :color blue))
+  ("q" hydra-ibuffer-main/body "back" :color blue))
 
 (defhydra hydra-ibuffer-action (:color teal :columns 4
                                 :after-exit
@@ -204,7 +204,7 @@ _q_ quit
   ("V" ibuffer-do-revert "revert")
   ("W" ibuffer-do-view-and-eval "view-and-eval")
   ("X" ibuffer-do-shell-command-pipe "shell-command-pipe")
-  ("b" nil "back"))
+  ("q" nil "back"))
 
 (defhydra hydra-ibuffer-sort (:color amaranth :columns 3)
   "Sort"
@@ -214,7 +214,7 @@ _q_ quit
   ("s" ibuffer-do-sort-by-size "size")
   ("f" ibuffer-do-sort-by-filename/process "filename")
   ("m" ibuffer-do-sort-by-major-mode "mode")
-  ("b" hydra-ibuffer-main/body "back" :color blue))
+  ("q" hydra-ibuffer-main/body "back" :color blue))
 
 (defhydra hydra-ibuffer-filter (:color amaranth :columns 4)
   "Filter"
@@ -227,7 +227,7 @@ _q_ quit
   (">" ibuffer-filter-by-size-gt "size")
   ("<" ibuffer-filter-by-size-lt "size")
   ("/" ibuffer-filter-disable "disable")
-  ("b" hydra-ibuffer-main/body "back" :color blue))
+  ("q" hydra-ibuffer-main/body "back" :color blue))
 ;; Assign hydra to hotkey when in ibuffer mode
 (eval-after-load "ibuffer"
   '(progn
