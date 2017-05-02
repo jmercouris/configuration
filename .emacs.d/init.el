@@ -15,6 +15,9 @@
 (put 'upcase-region 'disabled nil)
 ;; undo tree mode
 (undo-tree-mode 1)
+;; hs mode
+(load-library "hideshow")
+(global-set-key (kbd "C-=") 'hs-toggle-hiding)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 ;; truncate lines by default
