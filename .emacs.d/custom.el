@@ -16,7 +16,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
- '(auto-dim-other-buffers-face ((t (:background "gray90"))))
+ '(auto-dim-other-buffers-face ((t (:background "gray85"))))
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
@@ -30,5 +30,6 @@
  '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))
  '(neo-header-face ((t (:foreground "green3"))))
  '(neo-root-dir-face ((t (:foreground "green3"))))
+ '(org-level-2 ((t (:foreground "royal blue"))))
  '(show-paren-match ((t (:background "SeaGreen1"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))
