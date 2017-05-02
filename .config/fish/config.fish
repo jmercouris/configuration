@@ -32,8 +32,6 @@ alias l='ls -la'
 alias router='netstat -rn |grep default'
 # Quit Terminal
 alias q='exit'
-# Screen Saver
-alias screen_saver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 # Alpine Custom Configuration File
 alias alpine='alpine -P ~/.pine.conf'
 #Folder Shortcut Alias
