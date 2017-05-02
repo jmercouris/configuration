@@ -26,3 +26,26 @@
 ;; set copy/paste functions
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
+
+;; desktop
+(defhydra hydra-system (:color blue :columns 1)
+  "System"
+  ("b" battery "battery status")
+  ("s" sleep "sleep")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-s"))
+(global-set-key (kbd "s-s") 'hydra-system/body)
+
+(defun battery ()
+  (interactive)
+  (display-message-or-buffer
+   (shell-command-to-string "battery")))
+
+(defun sleep ()
+  (interactive)
+  (shell-command "cpu_sleep"))
+
+(defun screen-saver ()
+  (interactive)
+  (shell-command "screen_saver" 0))
