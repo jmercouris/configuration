@@ -51,3 +51,9 @@ interactive("find-url-from-history-new-buffer",
 
 define_key(content_buffer_normal_keymap, "h", "find-url-from-history-new-buffer");
 define_key(content_buffer_normal_keymap, "H", "find-url-from-history");
+
+function my_title_format (window) {
+    return '{'+get_current_profile()+'} '+window.buffers.current.description;
+}
+
+title_format_fn = my_title_format;
