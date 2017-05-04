@@ -79,7 +79,7 @@ Movement^^       ^Split^           ^Switch^        ^Resize^
 _j_ ←           _v_ertical         _b_uffer        _u_ ←
 _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _P_rojectile    _o_ ↑
-_;_ →           _d_elete           _s_wap           _p_ →
+_;_ →           _d_elete           _s_wap          _p_ →
 _F_ollow        _e_qualize         ^ ^             _8_0 columns
 _q_ quit                    
 "
@@ -104,8 +104,8 @@ _q_ quit
    ("d" delete-window)
    ("1" delete-other-windows)
    ("e" balance-windows)
-   ("q" nil)
-   )
+   ("q" nil))
+
 (defun hydra-move-splitter-left (arg)
   "Move window splitter left."
   (interactive "p")
@@ -113,6 +113,7 @@ _q_ quit
         (windmove-find-other-window 'right))
       (shrink-window-horizontally arg)
     (enlarge-window-horizontally arg)))
+
 (defun hydra-move-splitter-right (arg)
   "Move window splitter right."
   (interactive "p")
@@ -120,6 +121,7 @@ _q_ quit
         (windmove-find-other-window 'right))
       (enlarge-window-horizontally arg)
     (shrink-window-horizontally arg)))
+
 (defun hydra-move-splitter-up (arg)
   "Move window splitter up."
   (interactive "p")
@@ -127,6 +129,7 @@ _q_ quit
         (windmove-find-other-window 'up))
       (enlarge-window arg)
     (shrink-window arg)))
+
 (defun hydra-move-splitter-down (arg)
   "Move window splitter down."
   (interactive "p")
@@ -296,7 +299,7 @@ _q_ quit
 (defhydra hydra-projectile (:color blue
                             :hint nil)
   "
-     Projectile: %(projectile-project-root)
+    Projectile: %(projectile-project-root)
 
     Find File          Search/Tags         Cache
 ---------------------------------------------------------------------
@@ -304,7 +307,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
  _fd_: file curr dir   _o_: multi-occur     _x_: remove known project
   _d_: dir                                ^^_X_: cleanup non-existing
                                         ^^_z_: cache current
-
+                                        ^^_k_: uncache current
 
 "
   ("c"   counsel-projectile-invalidate-cache)
@@ -322,6 +325,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("x"   counsel-projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
+  ("k"   projectile-purge-file-from-cache)
   ("q"   nil "cancel" :color blue))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-f"))
