@@ -41,6 +41,25 @@
 (global-unset-key (kbd "s-m"))
 (global-set-key (kbd "s-m") 'hydra-vc/body)
 
+;; timeclock
+(defhydra hydra-timeclock (:color blue :hint nil)
+  "
+Clock^^         Report
+---------------------------------------------------------
+log_i_n         generate _r_eport
+log_o_ut        visit _l_og file
+^              _w_orkday remaining
+"
+  ("i" timeclock-in)
+  ("o" timeclock-out)
+  ("r" timeclock-generate-report)
+  ("l" timeclock-visit-timelog)
+  ("w" timeclock-workday-remaining-string)
+  ("q" nil))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-a"))
+(global-set-key (kbd "s-a") 'hydra-timeclock/body)
+
 ;; org
 (defhydra hydra-org (:color red :hint nil)
   "
@@ -65,7 +84,6 @@ _g_o to
   ("a" org-archive-subtree-default)
   ("c" org-retrieve-url-from-point)
   ("q" nil))
-
 ;; Assign hydra to hotkey when in org mode
 (eval-after-load "org"
   '(progn
