@@ -6,7 +6,7 @@
 ;; copy buffer file name to kill ring
 (defun copy-buffer-file-name-as-kill (choice)
   "Copyies the buffer {name/mode}, file {name/full path/directory} to the kill-ring."
-  (interactive "cCopy (b) buffer name, (m) buffer major mode, (f) full buffer-file path, (d) buffer-file directory, (n) buffer-file basename")
+  (interactive "Copy (b) buffer name, (m) buffer major mode, (f) full buffer-file path, (d) buffer-file directory, (n) buffer-file basename")
   (let ((new-kill-string)
         (name (if (eq major-mode 'dired-mode)
                   (dired-get-filename)
@@ -142,3 +142,11 @@ This command is convenient when reading novel, documentation."
   (if (eq (cdr (window-margins)) nil)
       (set-window-margins nil 0 (- (window-body-width) fill-column))
     (set-window-margins nil 0 0)))
+
+(defun company-to-yasnippet ()
+  "Company suggestions for yasnippet"
+  (interactive)
+  (company-abort)
+  (call-interactively 'company-yasnippet))
+(global-unset-key (kbd "<backtab>"))
+(bind-key* "<backtab>" 'company-to-yasnippet)
