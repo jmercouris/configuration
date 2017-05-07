@@ -15,6 +15,8 @@
 (put 'upcase-region 'disabled nil)
 ;; undo tree mode
 (undo-tree-mode 1)
+;; enable narrow-to-region mode (C-x-n-n)
+(put 'narrow-to-region 'disabled nil)
 ;; hs mode
 (load-library "hideshow")
 (global-set-key (kbd "C-=") 'hs-toggle-hiding)
