@@ -5,9 +5,12 @@
  ;; If there is more than one, they won't work right.
  '(auto-dim-other-buffers-mode t)
  '(frame-resize-pixelwise t)
+ '(mode-line-format
+   (quote
+    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(org-agenda-files
    (quote
-    ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")) t)
+    ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))
  '(package-selected-packages
    (quote
     (use-package highlight-indentation dired+ framemove yaml-mode slime-company slime list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
@@ -33,5 +36,6 @@
  '(neo-header-face ((t (:foreground "green3"))))
  '(neo-root-dir-face ((t (:foreground "green3"))))
  '(org-level-2 ((t (:foreground "royal blue"))))
+ '(org-level-3 ((t (:inherit outline-3 :foreground "gray40"))))
  '(show-paren-match ((t (:background "SeaGreen1"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))

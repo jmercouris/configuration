@@ -133,7 +133,9 @@
 (setq org-log-done t)
 (setq org-return-follows-link t)
 (setq org-todo-keywords
-      '((sequence "TODO" "WAIT" "DONE")))
+      '((sequence "TODO" "EXEC" "WAIT" "APRV" "DONE")))
+(setq org-todo-keyword-faces
+      '(("WAIT" . "gray") ("APRV" . "green")))
 (setq org-agenda-files (list "~/.root.org"
                              "~/Documents/Academic/.academic.org"
 			     "~/Projects/.projects.org"
