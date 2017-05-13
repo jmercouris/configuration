@@ -352,7 +352,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
 ;; dired
 (defhydra hydra-dired (:color blue :columns 1)
   "Dired"
-  ("v" peep-dired "peep")
+  ("s" peep-dired "show preview")
   ("n" dired-next-line "next line" :color red)
   ("p" dired-previous-line "previous line" :color red)
   ("q" nil "quit"))
