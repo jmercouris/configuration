@@ -99,7 +99,7 @@ _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _P_rojectile    _o_ ↑
 _;_ →           _d_elete           _s_wap          _p_ →
 _F_ollow        _e_qualize         ^ ^             _8_0 columns
-_q_ quit                    
+_q_uit                    
 "
    ("j" windmove-left )
    ("k" windmove-down )
@@ -465,21 +465,32 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   ("q" nil))
 
 ;; hydra browse
-(defhydra hydra-browse (:color red :columns 2)
-  "Browse"
-  ("n" narrow-to-defun "narrow")
-  ("w" widen "widen")
-  ("e" eww "eww")
-  ("f" back-button-local-forward "forward local ring")
-  ("b" back-button-local-backward "backward local ring")
-  ("gf" back-button-global-forward "forward global ring")
-  ("gb" back-button-global-backward "backward global ring")
-  ("t" neotree-toggle "neotree toggle")
-  ("r" neotree-find "neotree find")
-  ("h" hs-minor-mode "hide show mode")
-  ("s" hs-toggle-hiding "toggle hiding")
-  ("a" hs-show-all "show all hidden")
-  ("q" nil "quit")
+(defhydra hydra-browse (:color red :hint nil)
+  "
+Ring^^^                  Hiding^^          Directory
+---------------------------------------------------------
+_f_orward  local        _n_arrow          _t_oggle tree
+_b_ackward local        _w_iden           _r_efresh point
+_gf_global forward      _h_ide mode       _d_ired
+_gb_global backward     _s_how toggle
+^^                      show _a_ll
+_q_uit
+"
+  ("f" back-button-local-forward)
+  ("b" back-button-local-backward)
+  ("gf" back-button-global-forward)
+  ("gb" back-button-global-backward)
+
+  ("n" narrow-to-defun)
+  ("w" widen)
+  ("h" hs-minor-mode)
+  ("s" hs-toggle-hiding)
+  ("a" hs-show-all)
+
+  ("t" neotree-toggle)
+  ("r" neotree-find)
+  ("d" dired)
+  ("q" nil)
   )
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))
