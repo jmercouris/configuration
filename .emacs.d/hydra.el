@@ -469,10 +469,11 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "
 Ring^^^                  Hiding^^          Directory
 ---------------------------------------------------------
-_f_orward  local        _n_arrow          _t_oggle tree
-_b_ackward local        _w_iden           _r_efresh point
-_gf_global forward      _h_ide mode       _d_ired
-_gb_global backward     _s_how toggle
+_f_orward  local        _nd_efun          _t_oggle tree
+_b_ackward local        _nr_egion         _r_efresh point
+_gf_global forward      _w_iden           _d_ired
+_gb_global backward     _h_ide mode
+^^                      _s_how toggle
 ^^                      show _a_ll
 _q_uit
 "
@@ -481,7 +482,8 @@ _q_uit
   ("gf" back-button-global-forward)
   ("gb" back-button-global-backward)
 
-  ("n" narrow-to-defun)
+  ("nd" narrow-to-defun)
+  ("nr" narrow-to-region)
   ("w" widen)
   ("h" hs-minor-mode)
   ("s" hs-toggle-hiding)
