@@ -150,3 +150,9 @@ This command is convenient when reading novel, documentation."
   (call-interactively 'company-yasnippet))
 (global-unset-key (kbd "<backtab>"))
 (bind-key* "<backtab>" 'company-to-yasnippet)
+
+(defun imenu-reposition ()
+  "Imenu that will scroll the function as high up as necessary to be readable"
+  (interactive)
+  (call-interactively 'imenu)
+  (reposition-window))
