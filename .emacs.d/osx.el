@@ -40,7 +40,7 @@
 (defun battery ()
   (interactive)
   (display-message-or-buffer
-   (shell-command-to-string "battery")))
+   (shell-command-to-string "cpu_battery")))
 
 (defun sleep ()
   (interactive)
