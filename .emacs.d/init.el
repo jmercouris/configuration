@@ -140,6 +140,10 @@
                              "~/Documents/Academic/.academic.org"
 			     "~/Projects/.projects.org"
 			     "~/Work/.work.org"))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((lisp . t)))
+(setq org-src-fontify-natively t)
 ;; projectile
 (projectile-global-mode)
 (setq projectile-enable-caching t)
