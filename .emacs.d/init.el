@@ -121,9 +121,9 @@
 (defalias 'list-buffers 'ibuffer)
 (setq ibuffer-expert t)
 ;; imenu anywhere binding
-(global-set-key (kbd "C-.") 'imenu-anywhere)
+(global-set-key (kbd "C-.") 'ivy-imenu-anywhere)
 ;; imenu binding
-(global-set-key (kbd "C->") 'imenu)
+(global-set-key (kbd "C->") 'imenu-reposition)
 ;; use browse-kill ring as the default for M-y
 (browse-kill-ring-default-keybindings)
 ;; down case region
