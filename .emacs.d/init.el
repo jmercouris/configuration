@@ -48,18 +48,13 @@
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
-;; enable buffer erasing
-(put 'erase-buffer 'disabled nil)
-;; clear buffer
-(global-unset-key (kbd "s-c"))
-(global-set-key (kbd "s-c") 'clear-buffer-redraw)
 ;; column
 (setq column-number-mode t)
 ;; scroll behavior
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
-;; window register save and recal
+;; window register save and recall
 (global-unset-key (kbd "s-r"))
 (global-unset-key (kbd "s-o"))
 (global-set-key (kbd "s-r") 'window-configuration-to-register)
