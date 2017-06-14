@@ -443,14 +443,14 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   "
   ^_p_^       _w_ copy      _o_pen       _N_umber-lines
 _b_   _f_     _y_ank        _t_ype       _e_xchange-point
-  ^_n_^       _d_ kill      _c_lear      _r_eset-region-mark
+  ^_n_^       _k_ill        _c_lear      _r_eset-region-mark
 ^^^^          _u_ndo        _q_ quit
 "
   ("p" rectangle-previous-line)
   ("n" rectangle-next-line)
   ("b" rectangle-backward-char)
   ("f" rectangle-forward-char)
-  ("d" kill-rectangle)                    ;; C-x r k
+  ("k" kill-rectangle)                    ;; C-x r k
   ("y" yank-rectangle)                    ;; C-x r y
   ("w" copy-rectangle-as-kill)            ;; C-x r M-w
   ("o" open-rectangle)                    ;; C-x r o
