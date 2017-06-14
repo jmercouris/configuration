@@ -38,8 +38,8 @@
   (next-line n)
   (unless (eq (window-end) (point-max))
     (scroll-up n)))
-(global-set-key (kbd "M-n") 'scroll-up-in-place)
-(global-set-key (kbd "M-p") 'scroll-down-in-place)
+(bind-key* "M-p" 'scroll-down-in-place)
+(bind-key* "M-n" 'scroll-up-in-place)
 
 ;; open shell on remote machine
 (defun remote-shell (&optional host)

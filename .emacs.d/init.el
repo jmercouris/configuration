@@ -78,6 +78,8 @@
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-unset-key (kbd "s-p"))
 (global-set-key (kbd "s-p") 'previous-buffer)
+;; kill current buffer
+(global-set-key (kbd "s-d") 'kill-this-buffer)
 ;; windmove
 (global-set-key (kbd "s-j") 'windmove-left)
 (global-set-key (kbd "s-k") 'windmove-down)
@@ -107,6 +109,7 @@
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 (eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
 (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
 ;; don't open new windows for these buffers
 (add-to-list 'same-window-buffer-names "*wclock*")
 ;; which key prompts on C-x etc
