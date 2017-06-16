@@ -594,5 +594,14 @@ _q_uit
   '(progn
      (define-key term-raw-map (kbd "s-h") 'hydra-term/body)
      (define-key term-mode-map (kbd "s-h") 'hydra-term/body)))
-;; Hydra latex
-;; auto-fill-mode
+
+;; hydra json mode
+(defhydra hydra-json (:color blue :columns 2)
+  "Json"
+  ("f" json-mode-beautify "format")
+  ("p" json-mode-show-path "show path")
+  ("n" json-navigator-navigate-region "navigate region")
+  ("q" nil "quit"))
+(eval-after-load "json"
+  '(progn
+  (define-key json-mode-map (kbd "s-h") 'hydra-json/body)))
