@@ -69,7 +69,7 @@ _f_ next heading             _s_ort            in_d_ent mode
 _b_ prev heading             _i_nsert url
 _n_ next heading (=level)    _a_rchive
 _p_ prev heading (=level)    _c_opy url
-_u_p higher heading
+_u_p higher heading          e_x_ecute src
 _g_o to
 "
   ("f" outline-next-visible-heading)
@@ -83,6 +83,7 @@ _g_o to
   ("d" org-indent-mode)
   ("a" org-archive-subtree-default)
   ("c" org-retrieve-url-from-point)
+  ("x" org-babel-execute-src-block)
   ("q" nil))
 ;; Assign hydra to hotkey when in org mode
 (eval-after-load "org"
