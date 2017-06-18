@@ -602,6 +602,6 @@ _q_uit
   ("p" json-mode-show-path "show path")
   ("n" json-navigator-navigate-region "navigate region")
   ("q" nil "quit"))
-(eval-after-load "json"
+(eval-after-load "json-mode"
   '(progn
   (define-key json-mode-map (kbd "s-h") 'hydra-json/body)))

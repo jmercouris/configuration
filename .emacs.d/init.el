@@ -173,9 +173,11 @@
   "Rename eww browser's buffer so sites open in new page."
   (rename-buffer "eww" t))
 (add-hook 'eww-mode-hook #'rename-eww-hook)
+;; Ctrl + tab suggests completion based on git
+(global-set-key (kbd "<C-tab>") 'git-complete)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
-;; load Additional Files
+;; load additional files
 (load "~/.emacs.d/theme")
 (load "~/.emacs.d/custom")
 (load "~/.emacs.d/private")
@@ -184,7 +186,9 @@
 (load "~/.emacs.d/hydra")
 (load "~/.emacs.d/multi-smtp")
 (load "~/.emacs.d/functions")
-;; load Develop Files
+;; load external packages
+(load "~/.emacs.d/packages/git-complete/git-complete")
+;; load develop files
 (load "~/.emacs.d/develop/_python")
 (load "~/.emacs.d/develop/_c")
 (load "~/.emacs.d/develop/_lisp")
