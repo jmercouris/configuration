@@ -1,3 +1,4 @@
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "ecl")
 (slime-setup '(slime-fancy slime-company))
 

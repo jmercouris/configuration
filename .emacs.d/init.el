@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-=") 'hs-toggle-hiding)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-/") 'comment-dwim)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; disable mouse

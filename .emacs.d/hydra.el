@@ -605,3 +605,19 @@ _q_uit
 (eval-after-load "json-mode"
   '(progn
   (define-key json-mode-map (kbd "s-h") 'hydra-json/body)))
+
+;; Lisp
+(defhydra hydra-lisp (:color blue :hint nil)
+  "
+    Navigation             Shell
+---------------------------------------------------------------------
+   Documentation           shel_l_
+   Definitions             _e_val region
+"
+  ("l" slime-repl)
+  ("e" slime-eval-region)
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in python mode
+(eval-after-load "lisp-mode"
+  '(progn
+  (define-key lisp-mode-map (kbd "s-h") 'hydra-lisp/body)))
