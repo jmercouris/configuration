@@ -1,3 +1,5 @@
+(in-package :next)
+
 (defun print-text ()
   (print "hey"))
 
