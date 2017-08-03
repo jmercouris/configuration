@@ -8,6 +8,6 @@
   (setf *meta-key* original_control))
 
 (defun print-text ()
-  (print "hey"))
+  (print "change window"))
 
-(define-key global-map (kbd "C-a") #'print-text)
+(define-key global-map (kbd "C-x o") #'print-text)
