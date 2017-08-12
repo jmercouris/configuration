@@ -611,9 +611,10 @@ _q_uit
   "
     Navigation             Shell
 ---------------------------------------------------------------------
-   Documentation           shel_l_
-   Definitions             _e_val region
+   _d_ocumentation           shel_l_
+                           _e_val region
 "
+  ("d" slime-documentation-lookup)
   ("l" slime-repl)
   ("e" slime-eval-region)
   ("q" nil "quit"))
