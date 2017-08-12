@@ -176,6 +176,8 @@
 (add-hook 'eww-mode-hook #'rename-eww-hook)
 ;; Ctrl + tab suggests completion based on git
 (global-set-key (kbd "<C-tab>") 'git-complete)
+;; set default browser
+(setq browse-url-browser-function 'eww-browse-url)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 ;; load additional files
