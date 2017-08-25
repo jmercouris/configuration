@@ -37,3 +37,47 @@
   (kill-new
    (concatenate 'string "./manage.py test "
 		(replace-in-string (projectile-project-root) "" (buffer-file-name)))))
+
+(defun my/calculate-stops ()
+  (save-excursion
+    (let ((start
+           (condition-case e
+               (while t (backward-sexp))
+             (error (point))))
+          stops)
+      (push start stops)
+      (condition-case e
+          (while t
+            (forward-sexp)
+            (when (looking-at "\\s-*,")
+              (push (point) stops)))
+        (error (push (point) stops)))
+      (nreverse stops))))
+
+(defun python-transpose-args ()
+  (interactive)
+  (when (looking-at "\\s-") (backward-sexp))
+  (cl-loop with p = (point)
+           with previous = nil
+           for stop on (my/calculate-stops)
+           for i upfrom 0
+           when (<= p (car stop)) do
+           (when previous
+             (let* ((end (cadr stop))
+                    (whole (buffer-substring previous end))
+                    middle last)
+               (delete-region previous end)
+               (goto-char previous)
+               (setf middle (if (> i 1) (- (car stop) previous)
+                              (string-match "[^, \\t]" whole 
+                                            (- (car stop) previous)))
+                     last (if (> i 1) (substring whole 0 middle)
+                            (concat (substring whole (- (car stop) previous) middle)
+                                    (substring whole 0 (- (car stop) previous)))))
+               (insert (substring whole middle) last)))
+           (cl-return)
+           end do (setf previous (car stop))))
+
+(eval-after-load "python"
+  '(progn
+  (define-key python-mode-map (kbd "C-M-t") 'python-transpose-args)))

@@ -162,3 +162,10 @@ This command is convenient when reading novel, documentation."
   (interactive)
   (call-interactively 'imenu)
   (reposition-window))
+
+(defun rgrep-ivy ()
+  "Rgrep disable ivy"
+  (interactive)
+  (ivy-mode -1)
+  (call-interactively 'rgrep)
+  (ivy-mode))
