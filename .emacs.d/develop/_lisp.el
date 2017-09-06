@@ -6,3 +6,4 @@
 
 (add-hook 'lisp-mode-hook 'highlight-indentation-mode)
 (add-hook 'lisp-mode-hook 'paredit-mode)
+(add-hook 'lisp-mode-hook 'smartparens-mode)

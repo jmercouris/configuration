@@ -13,7 +13,7 @@
     ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))
  '(package-selected-packages
    (quote
-    (popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode slime-company slime list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
+    (toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode slime-company slime list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
  '(window-resize-pixelwise t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

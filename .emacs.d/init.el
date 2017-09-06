@@ -145,6 +145,10 @@
  'org-babel-load-languages
  '((lisp . t)))
 (setq org-src-fontify-natively t)
+;; update the table of contents on save
+(if (require 'toc-org nil t)
+    (add-hook 'org-mode-hook 'toc-org-enable)
+  (warn "toc-org not found"))
 ;; projectile
 (projectile-global-mode)
 (setq projectile-enable-caching t)
