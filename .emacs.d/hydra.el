@@ -613,10 +613,12 @@ _q_uit
 ---------------------------------------------------------------------
    _d_ocumentation           shel_l_
                            _e_val region
+                           load _f_ile
 "
   ("d" slime-documentation-lookup)
   ("l" slime-repl)
   ("e" slime-eval-region)
+  ("f" slime-load-file)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "lisp-mode"
