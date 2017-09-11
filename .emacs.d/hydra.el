@@ -468,12 +468,12 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 ;; hydra browse
 (defhydra hydra-browse (:color red :hint nil)
   "
-Ring^^^                  Hiding^^          Directory
+Ring^^^                  Hiding^^          Navigation
 ---------------------------------------------------------
 _f_orward  local        _nd_efun          _t_oggle tree
 _b_ackward local        _nr_egion         _r_efresh point
 _gf_global forward      _w_iden           _d_ired
-_gb_global backward     _h_ide mode
+_gb_global backward     _h_ide mode       _i_menu list
 ^^                      _s_how toggle
 ^^                      show _a_ll
 _q_uit
@@ -493,8 +493,8 @@ _q_uit
   ("t" neotree-toggle)
   ("r" neotree-find)
   ("d" dired)
-  ("q" nil)
-  )
+  ("i" imenu-list-minor-mode)
+  ("q" nil))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))
 (global-set-key (kbd "s-b") 'hydra-browse/body)

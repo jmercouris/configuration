@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-dim-other-buffers-mode t)
  '(frame-resize-pixelwise t)
+ '(imenu-list-size 25)
  '(mode-line-format
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
@@ -13,7 +14,7 @@
     ("~/Work/.work.org" "~/.root.org" "~/Documents/Academic/.academic.org" "~/Projects/.projects.org")))
  '(package-selected-packages
    (quote
-    (toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode slime-company slime list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
+    (imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode slime-company slime list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors auto-dim-other-buffers counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
  '(window-resize-pixelwise t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
