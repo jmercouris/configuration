@@ -12,6 +12,8 @@
     (tool-bar-mode -1))
 ;; set initial scratch bar message
 (setq initial-scratch-message nil)
+;; set initial major mode to text mode
+(setq initial-major-mode 'text-mode)
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
