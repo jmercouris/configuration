@@ -609,16 +609,17 @@ _q_uit
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
   "
-    Navigation             Shell
+    Navigation     Formatting      Shell
 ---------------------------------------------------------------------
-   _d_ocumentation           shel_l_
-                           _e_val region
-                           load _f_ile
+   _d_ocumentation   check _p_arens    shel_l_
+                                   ^^^^_e_val region
+                                   ^^^^load _f_ile
 "
   ("d" slime-documentation-lookup)
   ("l" slime-repl)
   ("e" slime-eval-region)
   ("f" slime-load-file)
+  ("p" check-parens)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "lisp-mode"
