@@ -201,3 +201,4 @@
 (load "~/.emacs.d/develop/_lisp")
 (load "~/.emacs.d/develop/_yaml")
 (load "~/.emacs.d/develop/_tex")
+(load "~/.emacs.d/develop/_qt")

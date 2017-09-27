@@ -4,6 +4,8 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'company-mode)
 (add-hook 'python-mode-hook 'hs-minor-mode)
+(add-hook 'python-mode-hook 'smartparens-mode)
+
 
 (eval-after-load "company"
  '(add-to-list 'company-backends 'company-anaconda))
