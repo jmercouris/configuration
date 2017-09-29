@@ -137,8 +137,7 @@
       '((sequence "TODO" "EXEC" "WAIT" "APRV" "DONE")))
 (setq org-todo-keyword-faces
       '(("WAIT" . "gray") ("APRV" . "green")))
-(setq org-agenda-files (list "~/.root.org"
-                             "~/Documents/Academic/.academic.org"
+(setq org-agenda-files (list "~/Documents/Academic/.academic.org"
 			     "~/Projects/.projects.org"
 			     "~/Work/.work.org"))
 (org-babel-do-load-languages
@@ -191,7 +190,6 @@
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
-(load "~/.emacs.d/multi-smtp")
 (load "~/.emacs.d/functions")
 ;; load external packages
 (load "~/.emacs.d/packages/git-complete/git-complete")

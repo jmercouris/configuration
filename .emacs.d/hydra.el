@@ -374,7 +374,6 @@ _s-f_: file            _g_: git grep        _c_: cache clear
        ("s" gnus-group-enter-server-mode "Servers")
        ("m" gnus-group-new-mail "Compose m OR C-x m")
        ("#" gnus-topic-mark-topic "mark #")
-       ("a" hydra-switch-account/body "Switch Sending Account")
        ("q" nil "cancel"))
 
      (define-key gnus-group-mode-map (kbd "s-h") 'hydra-gnus-group/body)))
