@@ -48,8 +48,8 @@
 Clock^^         Report
 ---------------------------------------------------------
 log_i_n         generate _r_eport
-log_o_ut        visit _l_og file
-^              _w_orkday remaining
+log_o_ut       _w_orkday remaining
+^              
 "
   ("i" timeclock-in)
   ("o" timeclock-out)
