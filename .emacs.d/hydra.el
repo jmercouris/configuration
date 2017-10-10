@@ -54,7 +54,6 @@ log_o_ut        visit _l_og file
   ("i" timeclock-in)
   ("o" timeclock-out)
   ("r" timeclock-generate-report)
-  ("l" timeclock-visit-timelog)
   ("w" timeclock-workday-remaining-string)
   ("q" nil))
 ;; Assign Hydra to hotkey
