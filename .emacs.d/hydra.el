@@ -35,6 +35,7 @@
   ("m" magit-merge "merge")
   ("l" magit-log "magit log")
   ("d" vc-diff "diff")
+  ("f" magit-find-file "find file in branch")
   ("!" magit-git-command "command")
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
