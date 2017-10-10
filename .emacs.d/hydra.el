@@ -340,7 +340,6 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("s-p" counsel-projectile-switch-project "switch project")
   ("p"   counsel-projectile-switch-project)
   ("s"   counsel-projectile-switch-project)
-  ("r"   projectile-recentf)
   ("x"   counsel-projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
@@ -397,7 +396,6 @@ _s-f_: file            _g_: git grep        _c_: cache clear
        ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
        ("w" gnus-summary-wide-reply "Reply all S w")
        ("#" gnus-topic-mark-topic "mark #")
-       ("a" hydra-switch-account/body "Switch Sending Account")
        ("q" nil "cancel"))
 
      (define-key gnus-summary-mode-map (kbd "s-h") 'hydra-gnus-summary/body)))
@@ -413,7 +411,6 @@ _s-f_: file            _g_: git grep        _c_: cache clear
        ("W" gnus-article-wide-reply-with-original "Reply all with original S W")
        ("o" gnus-mime-save-part "Save attachment at point o")
        ("w" gnus-article-wide-reply "Reply all S w")
-       ("a" hydra-switch-account/body "Switch Sending Account")
        ("q" nil "cancel"))
 
      (define-key gnus-article-mode-map (kbd "s-h") 'hydra-gnus-article/body)))
@@ -427,14 +424,6 @@ _s-f_: file            _g_: git grep        _c_: cache clear
        ("cc" message-send-and-exit "Send C-c C-c")
        ("q" nil "cancel"))
      (define-key message-mode-map (kbd "s-h") 'hydra-message/body)))
-
-;; switch account hydra
-(eval-after-load 'gnus-group
-  '(progn
-     (defhydra hydra-switch-account (:color blue :columns 1)
-     "Switch Account"
-     ("h" set-email-home "Set Email Home")
-     ("w" set-email-work "Set Email Work"))))
 
 ;; hydra rectangle
 (defhydra hydra-rectangle (:body-pre (rectangle-mark-mode 1)
