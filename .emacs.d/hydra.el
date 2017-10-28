@@ -597,17 +597,19 @@ _q_uit
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
   "
-    Navigation     Formatting      Shell
+    Navigation     Formatting      REPL
 ---------------------------------------------------------------------
-   _d_ocumentation   check _p_arens    shel_l_
+   _d_ocumentation   check _p_arens    _o_pen
                                    ^^^^_e_val region
-                                   ^^^^load _f_ile
+                                   ^^^^_l_oad file
+                                   ^^^^_r_estart
 "
   ("d" slime-documentation-lookup)
-  ("l" slime-repl)
+  ("o" slime)
   ("e" slime-eval-region)
-  ("f" slime-load-file)
+  ("l" slime-load-file)
   ("p" check-parens)
+  ("r" slime-restart-inferior-lisp)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "lisp-mode"
