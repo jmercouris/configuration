@@ -76,6 +76,7 @@
 (global-set-key (kbd "C-x w") 'switch-window-then-delete)
 ;; magit setup
 (setq magit-completing-read-function 'ivy-completing-read)
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 ;; previous and Next Buffer
 (global-unset-key (kbd "s-n"))
 (global-set-key (kbd "s-n") 'next-buffer)
