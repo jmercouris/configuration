@@ -78,10 +78,8 @@
 (setq magit-completing-read-function 'ivy-completing-read)
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 ;; previous and Next Buffer
-(global-unset-key (kbd "s-n"))
-(global-set-key (kbd "s-n") 'next-buffer)
-(global-unset-key (kbd "s-p"))
-(global-set-key (kbd "s-p") 'previous-buffer)
+(global-set-key (kbd "s-]") 'next-buffer)
+(global-set-key (kbd "s-[") 'previous-buffer)
 ;; kill current buffer
 (global-set-key (kbd "s-d") 'kill-this-buffer)
 ;; windmove
