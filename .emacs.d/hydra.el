@@ -48,7 +48,7 @@
 Clock^^         Report
 ---------------------------------------------------------
 log_i_n         generate _r_eport
-log_o_ut       _w_orkday remaining
+log_o_ut        _w_orkday remaining
 ^              
 "
   ("i" timeclock-in)
@@ -600,9 +600,11 @@ _q_uit
     Navigation     Formatting      REPL
 ---------------------------------------------------------------------
    _d_ocumentation   check _p_arens    _o_pen
-                                   ^^^^_e_val region
+                   ^^re_i_ndent        _e_val region
                                    ^^^^_l_oad file
                                    ^^^^_r_estart
+                                   ^^^^load _s_ystem
+                                   ^^^^_c_lear
 "
   ("d" slime-documentation-lookup)
   ("o" slime)
@@ -610,6 +612,9 @@ _q_uit
   ("l" slime-load-file)
   ("p" check-parens)
   ("r" slime-restart-inferior-lisp)
+  ("s" slime-load-system)
+  ("c" slime-repl-clear-buffer)
+  ("i" paredit-reindent-defun)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "lisp-mode"
