@@ -34,12 +34,6 @@
   ;; Reload the modified file
   (revert-buffer t t))
 
-(defun python-django-test ()
-  (interactive)
-  (kill-new
-   (concatenate 'string "./manage.py test "
-		(replace-in-string (projectile-project-root) "" (buffer-file-name)))))
-
 (defun my/calculate-stops ()
   (save-excursion
     (let ((start
