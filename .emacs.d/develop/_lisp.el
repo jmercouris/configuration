@@ -4,6 +4,10 @@
 (setq inferior-lisp-program "/usr/local/src/ccl/dx86cl64")
 (slime-setup '(slime-fancy slime-company slime-asdf))
 
+(defun lisp-outline ()
+  (interactive)
+  (occur "defun \\|defclass\\|defmethod "))
+
 (add-hook 'lisp-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'lisp-mode-hook 'paredit-mode)
 (add-hook 'lisp-mode-hook 'smartparens-mode)

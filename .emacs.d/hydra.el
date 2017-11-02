@@ -599,15 +599,16 @@ _q_uit
   "
     Navigation     Formatting      REPL
 ---------------------------------------------------------------------
-   _d_ocumentation   check _p_arens    _o_pen
-                   ^^re_i_ndent        _e_val region
+   _d_ocumentation   check _p_arens    _O_pen
+   _o_utline         re_i_ndent        _e_val region
                                    ^^^^_l_oad file
                                    ^^^^_r_estart
                                    ^^^^load _s_ystem
                                    ^^^^_c_lear
 "
   ("d" slime-documentation-lookup)
-  ("o" slime)
+  ("O" slime)
+  ("o" lisp-outline)
   ("e" slime-eval-region)
   ("l" slime-load-file)
   ("p" check-parens)
