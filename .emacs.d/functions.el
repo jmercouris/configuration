@@ -80,18 +80,6 @@ by using nxml's indentation rules."
     (while (< (current-column) fill-column) (insert ?#))))
 (global-set-key (kbd "s-/") 'fill-comment)
 
-;; clear eshell buffer
-(defun eshell-clear-buffer ()
-  "Clear terminal"
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (eshell-send-input)))
-
-(add-hook 'eshell-mode-hook
-      '(lambda()
-	 (local-set-key (kbd "s-c") 'eshell-clear-buffer)))
-
 (defun set-window-width (n)
   "Set the selected window's width to N columns wide."
   (if (> n (window-width))

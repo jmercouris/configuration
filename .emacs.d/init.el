@@ -186,6 +186,7 @@
 (load "~/.emacs.d/theme")
 (load "~/.emacs.d/custom")
 (load "~/.emacs.d/private")
+(load "~/.emacs.d/eshell")
 (load "~/.emacs.d/irc")
 (load "~/.emacs.d/ivy")
 (load "~/.emacs.d/hydra")
