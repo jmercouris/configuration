@@ -601,6 +601,7 @@ _q_uit
 ---------------------------------------------------------------------
    _d_ocumentation   check _p_arens    _O_pen
    _o_utline         re_i_ndent        _e_val region
+                                   ^^^^eval de_f_un
                                    ^^^^_l_oad file
                                    ^^^^_r_estart
                                    ^^^^load _s_ystem
@@ -609,6 +610,7 @@ _q_uit
   ("d" slime-documentation-lookup)
   ("O" slime)
   ("o" lisp-outline)
+  ("f" slime-eval-defun)
   ("e" slime-eval-region)
   ("l" slime-load-file)
   ("p" check-parens)
