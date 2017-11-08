@@ -8,6 +8,10 @@
   (interactive)
   (occur "defun \\|defclass\\|defmethod "))
 
+(defun lisp-compile ()
+  (interactive)
+  (compile "ccl --no-init --load make.lisp"))
+
 (add-hook 'lisp-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'lisp-mode-hook 'paredit-mode)
 (add-hook 'lisp-mode-hook 'smartparens-mode)
@@ -15,3 +19,7 @@
 
 (add-hook 'slime-mode-hook 'company-mode)
 (add-hook 'slime-mode-hook 'smartparens-mode)
+
+(eval-after-load "lisp"
+  '(progn
+     (define-key lisp-mode-map (kbd "<f5>") 'lisp-compile)))
