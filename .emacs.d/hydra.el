@@ -99,13 +99,15 @@ _j_ ←           _v_ertical         _b_uffer        _u_ ←
 _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _P_rojectile    _o_ ↑
 _;_ →           _d_elete           _s_wap          _p_ →
-_F_ollow        _e_qualize         ^ ^             _8_0 columns
-_q_uit                    
+_F_ollow        _e_qualize         _[_backward     _8_0 columns
+_q_uit          ^        ^         _]_forward     
 "
-   ("j" windmove-left )
-   ("k" windmove-down )
-   ("l" windmove-up )
-   (";" windmove-right )
+   ("j" windmove-left)
+   ("k" windmove-down)
+   ("l" windmove-up)
+   (";" windmove-right)
+   ("[" previous-buffer)
+   ("]" next-buffer)
    ("u" hydra-move-splitter-left)
    ("i" hydra-move-splitter-down)
    ("o" hydra-move-splitter-up)
