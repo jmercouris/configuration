@@ -331,7 +331,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
                                         ^^_k_: uncache current
 
 "
-  ("c"   counsel-projectile-invalidate-cache)
+  ("c"   projectile-invalidate-cache)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
   ("fd"  projectile-find-file-in-directory)
