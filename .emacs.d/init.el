@@ -180,6 +180,9 @@
 (global-set-key (kbd "<C-tab>") 'git-complete)
 ;; set default browser
 (setq browse-url-browser-function 'eww-browse-url)
+;;popwin mode
+(require 'popwin)
+(popwin-mode 1)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 ;; load additional files
