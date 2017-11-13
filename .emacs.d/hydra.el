@@ -354,13 +354,14 @@ _s-f_: file            _g_: git grep        _c_: cache clear
 ;; dired
 (defhydra hydra-dired (:color blue :columns 1)
   "Dired"
+  ("f" find-name-dired "find recursive by name")
   ("s" peep-dired "show preview")
   ("n" dired-next-line "next line" :color red)
   ("p" dired-previous-line "previous line" :color red)
   ("q" nil "quit"))
 ;; Assign Hydra to hotkey
 (eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "s-h") 'hydra-dired/body) ))
+  (define-key dired-mode-map (kbd "s-h") 'hydra-dired/body)))
 
 ;; gnus
 (eval-after-load 'gnus-group
