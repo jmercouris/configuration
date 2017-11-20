@@ -196,7 +196,9 @@
 (load "~/.emacs.d/functions")
 ;; load external packages
 (load "~/.emacs.d/packages/git-complete/git-complete")
+(load "~/.emacs.d/packages/counsel-css/counsel-css")
 ;; load develop files
+(load "~/.emacs.d/develop/_css")
 (load "~/.emacs.d/develop/_python")
 (load "~/.emacs.d/develop/_c")
 (load "~/.emacs.d/develop/_lisp")
