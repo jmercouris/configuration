@@ -326,7 +326,7 @@ _q_uit          ^        ^         _]_forward
 ---------------------------------------------------------------------
 _s-f_: file            _g_: git grep        _c_: cache clear
  _fd_: file curr dir   _o_: multi-occur     _x_: remove known project
-  _d_: dir                                ^^_X_: cleanup non-existing
+  _d_: dir             _r_: replace         _X_: cleanup non-existing
                                         ^^_z_: cache current
                                         ^^_k_: uncache current
 
@@ -342,6 +342,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("s-p" counsel-projectile-switch-project "switch project")
   ("p"   counsel-projectile-switch-project)
   ("s"   counsel-projectile-switch-project)
+  ("r"   projectile-replace)
   ("x"   counsel-projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
