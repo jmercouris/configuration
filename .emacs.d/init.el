@@ -17,6 +17,8 @@
 (put 'upcase-region 'disabled nil)
 ;; undo tree mode
 (undo-tree-mode 1)
+;; disable tabs for indenting
+(setq-default indent-tabs-mode nil)
 ;; enable narrow-to-region mode (C-x-n-n)
 (put 'narrow-to-region 'disabled nil)
 ;; hs mode
