@@ -8,7 +8,7 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
-;; load osx specific things
+;; load MacOS specific configuration
 (when (memq window-system '(mac ns))
   (load "~/.emacs.d/osx.el"))
 ;; set default shell to bash for rgrep
@@ -39,17 +39,18 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 ;; setup yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
-;; peep-dired kill buffers on disabling of minor mode
-(setq peep-dired-cleanup-on-disable t)
-(setq peep-dired-ignored-extensions '("pyc"))
-;; neotree window position
-(setq neo-window-position 'right)
-;; neotree use ascii instead of folder icons
-(setq neo-theme 'ascii)
-;; neotree ignore specific folders
-(setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__"))
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+(use-package peep-dired
+  :config
+  (setq peep-dired-cleanup-on-disable t)
+  (setq peep-dired-ignored-extensions '("pyc")))
+(use-package neotree
+  :config
+  (setq neo-window-position 'right)
+  (setq neo-theme 'ascii)
+  (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__")))
 ;; set eshell prompt
 (setq eshell-prompt-function
       (lambda nil "> "))
@@ -71,57 +72,66 @@
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
 ;; switch window behavior uses switch-window package
-(global-set-key (kbd "C-x o") 'switch-window)
-(setq switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
-(setq switch-window-shortcut-style (quote qwerty))
-;; switch window kill window
-(global-set-key (kbd "C-x w") 'switch-window-then-delete)
+(use-package switch-window
+  :config
+  (global-set-key (kbd "C-x o") 'switch-window)
+  (setq switch-window-qwerty-shortcuts (quote ("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o")))
+  (setq switch-window-shortcut-style (quote qwerty))
+  (global-set-key (kbd "C-x w") 'switch-window-then-delete))
 ;; magit setup
-(setq magit-completing-read-function 'ivy-completing-read)
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+(use-package magit
+  :config
+  (setq magit-completing-read-function 'ivy-completing-read)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls))
 ;; previous and Next Buffer
 (global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-[") 'previous-buffer)
-;; kill current buffer
 (global-set-key (kbd "s-d") 'kill-this-buffer)
 ;; windmove
-(global-set-key (kbd "s-j") 'windmove-left)
-(global-set-key (kbd "s-k") 'windmove-down)
-(global-set-key (kbd "s-l") 'windmove-up)
-(global-set-key (kbd "s-;") 'windmove-right)
+(use-package windmove
+  :config
+  (global-set-key (kbd "s-j") 'windmove-left)
+  (global-set-key (kbd "s-k") 'windmove-down)
+  (global-set-key (kbd "s-l") 'windmove-up)
+  (global-set-key (kbd "s-;") 'windmove-right))
 ;; framemove
-(require 'framemove)
-(windmove-default-keybindings)
-(setq framemove-hook-into-windmove t)
+(use-package framemove
+  :config
+  (setq framemove-hook-into-windmove t))
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; auto dim other buffers
-(auto-dim-other-buffers-mode t)
-;; minor mode lighter sets to diminish in mode-line
-(eval-after-load "which-key" '(diminish 'which-key-mode))
-(eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
-(eval-after-load "company" '(diminish 'company-mode))
-(eval-after-load "flycheck" '(diminish 'flycheck-mode))
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "magit" '(diminish 'auto-revert-mode))
-(eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
-(eval-after-load "back-button" '(diminish 'back-button-mode))
-(eval-after-load "projectile" '(diminish 'projectile-mode))
-(eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
-(eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
-(eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
-(eval-after-load "hideshow" '(diminish 'hs-minor-mode))
-(eval-after-load "paredit" '(diminish 'paredit-mode))
+(use-package auto-dim-other-buffers
+  :config
+  (auto-dim-other-buffers-mode t)
+  (eval-after-load "which-key" '(diminish 'which-key-mode))
+  (eval-after-load "abbrev" '(diminish 'abbrev-mode))
+  (eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
+  (eval-after-load "company" '(diminish 'company-mode))
+  (eval-after-load "flycheck" '(diminish 'flycheck-mode))
+  (eval-after-load "eldoc" '(diminish 'eldoc-mode))
+  (eval-after-load "magit" '(diminish 'auto-revert-mode))
+  (eval-after-load "ivy" '(diminish 'ivy-mode))
+  (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
+  (eval-after-load "back-button" '(diminish 'back-button-mode))
+  (eval-after-load "projectile" '(diminish 'projectile-mode))
+  (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
+  (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
+  (eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
+  (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
+  (eval-after-load "paredit" '(diminish 'paredit-mode)))
 ;; don't open new windows for these buffers
 (add-to-list 'same-window-buffer-names "*wclock*")
 ;; which key prompts on C-x etc
-(which-key-mode)
-(which-key-setup-minibuffer)
+(use-package which-key
+  :config
+  (which-key-mode)
+  (which-key-setup-minibuffer))
 ;; use ibuffer instead of regular buffer list
-(defalias 'list-buffers 'ibuffer)
-(setq ibuffer-expert t)
+(use-package ibuffer
+  :config
+  (defalias 'list-buffers 'ibuffer)
+  (setq ibuffer-expert t))
 ;; imenu anywhere binding
 (global-set-key (kbd "C-.") 'ivy-imenu-anywhere)
 ;; imenu binding
@@ -131,16 +141,18 @@
 ;; down case region
 (put 'downcase-region 'disabled nil)
 ;; org configuration
-(setq org-startup-indented t)
-(setq org-log-done t)
-(setq org-return-follows-link t)
-(setq org-todo-keywords
-      '((sequence "TODO" "EXEC" "WAIT" "APRV" "DONE")))
-(setq org-todo-keyword-faces
-      '(("WAIT" . "gray") ("APRV" . "green")))
-(setq org-agenda-files (list "~/Documents/Academic/.academic.org"
-			     "~/Projects/.projects.org"
-			     "~/Work/.work.org"))
+(use-package org
+  :config 
+  (setq org-startup-indented t)
+  (setq org-log-done t)
+  (setq org-return-follows-link t)
+  (setq org-todo-keywords
+        '((sequence "TODO" "EXEC" "WAIT" "DONE")))
+  (setq org-todo-keyword-faces
+        '(("WAIT" . "gray")))
+  (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
+                               "~/Projects/.projects.org"
+                               "~/Work/.work.org")))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
@@ -150,9 +162,12 @@
     (add-hook 'org-mode-hook 'toc-org-enable)
   (warn "toc-org not found"))
 ;; projectile
-(projectile-global-mode)
-(setq projectile-enable-caching t)
-(counsel-projectile-on)
+(use-package projectile
+  :ensure t
+  :config (projectile-global-mode))
+(use-package counsel-projectile
+  :ensure t
+  :config (counsel-projectile-on))
 ;; set world time list
 (setq display-time-world-list
       (quote
@@ -168,9 +183,13 @@
 (define-key occur-mode-map (kbd "n") 'next-line)
 (define-key occur-mode-map (kbd "p") 'previous-line)
 ;; back button mode
-(back-button-mode 1)
+(use-package back-button
+  :ensure t
+  :config (back-button-mode 1))
 ;; smart parens mode
-(show-smartparens-global-mode +1)
+(use-package smartparens
+  :ensure t
+  :config (show-smartparens-global-mode +1))
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; auto-rename new eww buffers
@@ -183,8 +202,9 @@
 ;; set default browser
 (setq browse-url-browser-function 'eww-browse-url)
 ;;popwin mode
-(require 'popwin)
-(popwin-mode 1)
+(use-package popwin
+  :ensure t
+  :config (popwin-mode 1))
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 ;; load additional files
