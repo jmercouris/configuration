@@ -34,11 +34,3 @@ alias l='ls -la'
 alias router='netstat -rn |grep default'
 # Quit Terminal
 alias q='exit'
-# Alpine Custom Configuration File
-alias alpine='alpine -P ~/.pine.conf'
-#Folder Shortcut Alias
-alias downloads='cd /Users/jmercouris/Downloads'
-alias academic='cd /Users/jmercouris/Documents/Academic'
-alias documents='cd /Users/jmercouris/Documents'
-alias projects='cd /Users/jmercouris/Projects'
-alias desktop='cd /Users/jmercouris/Desktop'
