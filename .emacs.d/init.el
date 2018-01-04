@@ -152,7 +152,8 @@
         '(("WAIT" . "gray")))
   (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
                                "~/Projects/.projects.org"
-                               "~/Work/.work.org")))
+                               "~/Work/.work.org"
+                               "~/.root.org")))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
