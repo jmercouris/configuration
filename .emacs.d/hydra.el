@@ -94,7 +94,7 @@ _g_o to                      _t_ime stamp
 ;; window movement / management
 (defhydra hydra-window (:hint nil)
    "
-Movement^^       ^Split^           ^Switch^        ^Resize^
+Movement      ^Split^            ^Switch^        ^Resize^
 ----------------------------------------------------------------
 _j_ ←           _v_ertical         _b_uffer        _u_ ←
 _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
