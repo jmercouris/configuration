@@ -70,7 +70,7 @@ _b_ prev heading             _i_nsert url
 _n_ next heading (=level)    _a_rchive
 _p_ prev heading (=level)    _c_opy url
 _u_p higher heading          e_x_ecute src
-_g_o to
+_g_o to                      _t_ime stamp
 "
   ("f" outline-next-visible-heading)
   ("b" outline-previous-visible-heading)
@@ -84,6 +84,7 @@ _g_o to
   ("a" org-archive-subtree-default)
   ("c" org-retrieve-url-from-point)
   ("x" org-babel-execute-src-block)
+  ("t" org-time-stamp)
   ("q" nil))
 ;; Assign hydra to hotkey when in org mode
 (eval-after-load "org"
