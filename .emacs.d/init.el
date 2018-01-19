@@ -162,6 +162,8 @@
 (if (require 'toc-org nil t)
     (add-hook 'org-mode-hook 'toc-org-enable)
   (warn "toc-org not found"))
+;; org mode should auto-fill
+(add-hook 'org-mode-hook 'auto-fill-mode)
 ;; projectile
 (use-package projectile
   :ensure t
