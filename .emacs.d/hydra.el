@@ -344,7 +344,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("p"   counsel-projectile-switch-project)
   ("s"   counsel-projectile-switch-project)
   ("r"   projectile-replace)
-  ("x"   counsel-projectile-remove-known-project)
+  ("x"   projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
   ("k"   projectile-purge-file-from-cache)
