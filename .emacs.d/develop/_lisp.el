@@ -2,7 +2,7 @@
 (load "~/.quicklisp/clhs-use-local.el" t)
 
 (setq inferior-lisp-program "/usr/local/src/ccl/dx86cl64")
-(slime-setup '(slime-fancy slime-company slime-asdf slime-cl-indent))
+(slime-setup '(slime-fancy slime-company slime-asdf slime-indentation))
 
 (defun lisp-outline ()
   (interactive)
