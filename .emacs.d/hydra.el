@@ -557,6 +557,7 @@ _q_uit
 ;; hydra edit mode
 (defhydra hydra-edit (:color blue :columns 2)
   "Edit"
+  ("c" org-capture "capture")
   ("r" hydra-rectangle/body "rectangle")
   ("m" hydra-multiple-cursors/body "multiple cursors")
   ("e" er/expand-region "expand region")

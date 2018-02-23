@@ -55,7 +55,7 @@
   (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__")))
 ;; set eshell prompt
 (setq eshell-prompt-function
-      (lambda nil "> "))
+      (lambda nil ">"))
 ;; column
 (setq column-number-mode t)
 ;; scroll behavior
@@ -155,7 +155,8 @@
   (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
                                "~/Projects/.projects.org"
                                "~/Work/.work.org"
-                               "~/.root.org")))
+                               "~/.root.org"))
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
