@@ -156,7 +156,14 @@
                                "~/Projects/.projects.org"
                                "~/Work/.work.org"
                                "~/.root.org"))
-  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-capture-templates
+        '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
+           "* TODO %? %^G \n  %U")
+          ("n" "Note" entry (file (concat org-directory "/notes.org"))
+           "* %? %^G\n%U")
+          ("j" "Journal" entry
+           (file "/Users/jmercouris/Documents/Personal/Journal/journal.org")
+           "* %U %? %^G\n"))))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
