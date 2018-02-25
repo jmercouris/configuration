@@ -1,18 +1,16 @@
 # Export Path Variables
+set --export PATH /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin $PATH
+set --export PATH /opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin $PATH
 set --export PATH /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin $PATH
 set --export PATH /opt/local/bin /opt/local/sbin $PATH
-set --export PATH $PATH /opt/local/libexec/qt5/bin
 set --export PATH /Users/jmercouris/User $PATH
 # Python Specific Environment Variables
 set --export VIRTUAL_ENV_DISABLE_PROMPT 1
-set --export PYTHONPATH /Users/jmercouris/Projects/scikit-learn
 # Pkg-Config
 set --export PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/local/lib
-
 set --export CLICOLOR "1"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
-
 # Colorize less things such as man pages
 set -x LESS_TERMCAP_mb (printf "\033[01;31m")
 set -x LESS_TERMCAP_md (printf "\033[01;31m")
