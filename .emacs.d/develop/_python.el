@@ -77,3 +77,8 @@
 (eval-after-load "python"
   '(progn
   (define-key python-mode-map (kbd "C-M-t") 'python-transpose-args)))
+
+(defun python-shell-clear ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))

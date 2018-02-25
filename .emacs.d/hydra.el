@@ -292,9 +292,9 @@ _q_uit          ^        ^         _]_forward
 ---------------------------------------------------------------------
    Documentation_?_       _s_ort imports       shel_l_
    Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments          _f_lycheck error     _t_est
-   _r_eferences           _r_emove unused
-   _o_utline
+   _a_ssignments          _f_lycheck error     send _b_uffer
+   _r_eferences           _r_emove unused      send de_f_un
+   _o_utline                                 ^_k_clear
    _c_lass outline
 
 "
@@ -306,10 +306,12 @@ _q_uit          ^        ^         _]_forward
   ("i" indent-for-tab-command)
   ("l" python-shell)
   ("n" python-shell-send-region)
+  ("b" python-shell-send-buffer)
+  ("f" python-shell-send-defun)
   ("o" python-outline)
   ("c" python-class-outline)
+  ("k" python-shell-clear)
   ("f" flycheck-next-error :color red)
-  ("t" python-django-test)
   ("r" pyrm)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode

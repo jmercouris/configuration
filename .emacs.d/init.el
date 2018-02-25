@@ -153,8 +153,9 @@
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
   (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
-                               "~/Projects/.projects.org"
+                               "~/Projects/Next/offline/info.org"
                                "~/Work/.work.org"
+                               "~/.org/tasks.org"
                                "~/.root.org"))
   (setq org-capture-templates
         '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
