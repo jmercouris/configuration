@@ -63,14 +63,15 @@ log_o_ut        _w_orkday remaining
 ;; org
 (defhydra hydra-org (:color red :hint nil)
   "
-Navigation^                 Operations      Configuration
+Navigation                 ^^Operations   ^^^Clock
 ---------------------------------------------------------
-_f_ next heading             _s_ort            in_d_ent mode
-_b_ prev heading             _i_nsert url
+_f_ next heading             _s_ort         c_l_ock in
+_b_ prev heading             _i_nsert url   clock _o_ut
 _n_ next heading (=level)    _a_rchive
 _p_ prev heading (=level)    _c_opy url
 _u_p higher heading          e_x_ecute src
 _g_o to                      _t_ime stamp
+in_d_ent mode
 "
   ("f" outline-next-visible-heading)
   ("b" outline-previous-visible-heading)
@@ -78,6 +79,8 @@ _g_o to                      _t_ime stamp
   ("p" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("s" org-sort)
+  ("l" org-clock-in)
+  ("o" org-clock-out)
   ("i" org-insert-link)
   ("g" org-goto :exit t)
   ("d" org-indent-mode)
@@ -559,7 +562,6 @@ _q_uit
 ;; hydra edit mode
 (defhydra hydra-edit (:color blue :columns 2)
   "Edit"
-  ("c" org-capture "capture")
   ("r" hydra-rectangle/body "rectangle")
   ("m" hydra-multiple-cursors/body "multiple cursors")
   ("e" er/expand-region "expand region")
@@ -605,11 +607,11 @@ _q_uit
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
   "
-    Navigation     Formatting      REPL
+   Navigation      ^^Formatting      ^^REPL
 ---------------------------------------------------------------------
    _d_ocumentation   check _p_arens    _O_pen
    _o_utline         re_i_ndent        _e_val region
-   _w_ho calls                       ^^^eval de_f_un
+   _w_ho calls                       ^^eval de_f_un
                                    ^^^^_l_oad file
                                    ^^^^_r_estart
                                    ^^^^load _s_ystem
@@ -632,3 +634,13 @@ _q_uit
 (eval-after-load "lisp-mode"
   '(progn
   (define-key lisp-mode-map (kbd "s-h") 'hydra-lisp/body)))
+
+;; org
+ (defhydra hydra-global-org (:color blue :columns 1)
+  "Org"
+  ("c" org-capture "capture")
+  ("a" org-agenda "agenda")
+  ("q" nil "quit"))
+;; Assign Hydra to hotkey
+(global-unset-key (kbd "s-g"))
+(global-set-key (kbd "s-g") 'hydra-global-org/body)
