@@ -149,14 +149,14 @@
   (setq org-log-done t)
   (setq org-return-follows-link t)
   (setq org-todo-keywords
-        '((sequence "TODO" "EXEC" "WAIT" "DONE")))
+        '((sequence "TODO" "WAIT" "DONE")))
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
   (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
-                               "~/Projects/Next/offline/info.org"
+                               "~/Projects/Next/project/README.org"
                                "~/Work/.work.org"
                                "~/.org/tasks.org"
-                               "~/.root.org"))
+                               "~/.org/root.org"))
   (setq org-capture-templates
         '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
            "* TODO %? %^G \n  %U")
