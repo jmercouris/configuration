@@ -612,8 +612,8 @@ _q_uit
    _d_ocumentation   check _p_arens    _O_pen
    _o_utline         re_i_ndent        _e_val region
    _w_ho calls                       ^^eval de_f_un
-                                   ^^^^_l_oad file
-                                   ^^^^_r_estart
+   definition_._                     ^^_l_oad file
+   pop definition_,_                 ^^_r_estart
                                    ^^^^load _s_ystem
                                    ^^^^_c_lear
 "
@@ -629,6 +629,8 @@ _q_uit
   ("c" slime-repl-clear-buffer)
   ("i" paredit-reindent-defun)
   ("w" slime-who-calls)
+  ("." slime-edit-definition)
+  ("," slime-pop-find-definition-stack :color red)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
 (eval-after-load "lisp-mode"
