@@ -72,6 +72,7 @@ _p_ prev heading (=level)    _c_opy url
 _u_p higher heading          e_x_ecute src
 _g_o to                      _t_ime stamp
 in_d_ent mode
+_O_pen external
 "
   ("f" outline-next-visible-heading)
   ("b" outline-previous-visible-heading)
@@ -81,6 +82,7 @@ in_d_ent mode
   ("s" org-sort)
   ("l" org-clock-in)
   ("o" org-clock-out)
+  ("O" org-open-default-external)
   ("i" org-insert-link)
   ("g" org-goto :exit t)
   ("d" org-indent-mode)
