@@ -1,7 +1,7 @@
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (load "~/.quicklisp/clhs-use-local.el" t)
 
-(setq inferior-lisp-program "/usr/local/src/ccl/dx86cl64")
+(setq inferior-lisp-program "/opt/local/bin/sbcl")
 (slime-setup '(slime-fancy slime-company slime-asdf slime-indentation))
 
 (defun lisp-outline ()
