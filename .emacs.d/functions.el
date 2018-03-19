@@ -188,3 +188,14 @@ open and unsaved."
             (find-file filename)
             (call-interactively command))
           (dired-get-marked-files))))
+
+(defun sudo-find-file (file-name)
+  "Like find file, but opens the file as root."
+  (interactive "FSudo Find File: ")
+  (let ((tramp-file-name (concat "/sudo::" (expand-file-name file-name))))
+    (find-file tramp-file-name)))
+
+(defun org-open-default-external (&optional arg)
+  (interactive "P")
+  (let ((browse-url-browser-function #'browse-url-default-macosx-browser))
+    (org-open-at-point)))
