@@ -67,7 +67,7 @@ Navigation                 ^^Operations   ^^^Clock
 ---------------------------------------------------------
 _f_ next heading             _s_ort         c_l_ock in
 _b_ prev heading             _i_nsert url   clock _o_ut
-_n_ next heading (=level)    _a_rchive
+_n_ next heading (=level)    _a_rchive      _r_eport
 _p_ prev heading (=level)    _c_opy url
 _u_p higher heading          e_x_ecute src
 _g_o to                      _t_ime stamp
@@ -82,6 +82,7 @@ _O_pen external
   ("s" org-sort)
   ("l" org-clock-in)
   ("o" org-clock-out)
+  ("r" org-clock-report)
   ("O" org-open-default-external)
   ("i" org-insert-link)
   ("g" org-goto :exit t)
@@ -290,40 +291,6 @@ _q_uit          ^        ^         _]_forward
   '(progn
   (define-key restclient-mode-map (kbd "s-h") 'hydra-restclient/body)))
 
-;; Python
-(defhydra hydra-python (:color blue :hint nil)
-  "
-    Navigation          Formatting         Shell
----------------------------------------------------------------------
-   Documentation_?_       _s_ort imports       shel_l_
-   Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments          _f_lycheck error     send _b_uffer
-   _r_eferences           _r_emove unused      send de_f_un
-   _o_utline                                 ^_k_clear
-   _c_lass outline
-
-"
-  ("s" py-isort-region)
-  ("?" anaconda-mode-show-doc)
-  ("." anaconda-mode-find-definitions :color red)
-  ("a" anaconda-mode-find-assignments)
-  ("r" anaconda-mode-find-references)
-  ("i" indent-for-tab-command)
-  ("l" python-shell)
-  ("n" python-shell-send-region)
-  ("b" python-shell-send-buffer)
-  ("f" python-shell-send-defun)
-  ("o" python-outline)
-  ("c" python-class-outline)
-  ("k" python-shell-clear)
-  ("f" flycheck-next-error :color red)
-  ("r" pyrm)
-  ("q" nil "quit"))
-;; Assign hydra to hotkey when in python mode
-(eval-after-load "python"
-  '(progn
-  (define-key python-mode-map (kbd "s-h") 'hydra-python/body)))
-
 ;; projectile
 (defhydra hydra-projectile (:color blue
                             :hint nil)
@@ -482,14 +449,12 @@ _q_uit
   ("b" back-button-local-backward)
   ("gf" back-button-global-forward)
   ("gb" back-button-global-backward)
-
   ("nd" narrow-to-defun)
   ("nr" narrow-to-region)
   ("w" widen)
   ("h" hs-minor-mode)
   ("s" hs-toggle-hiding)
   ("a" hs-show-all)
-
   ("t" neotree-toggle)
   ("r" neotree-find)
   ("d" dired)
@@ -539,6 +504,7 @@ _q_uit
 (global-unset-key (kbd "s-i"))
 (global-set-key (kbd "s-i") 'hydra-info/body)
 
+;; hydra multiple cursors
 (defhydra hydra-multiple-cursors (:hint nil)
   "
      ^Up^            ^Down^        ^Other^
@@ -605,39 +571,6 @@ _q_uit
 (eval-after-load "json-mode"
   '(progn
   (define-key json-mode-map (kbd "s-h") 'hydra-json/body)))
-
-;; Lisp
-(defhydra hydra-lisp (:color blue :hint nil)
-  "
-   Navigation      ^^Formatting      ^^REPL
----------------------------------------------------------------------
-   _d_ocumentation   check _p_arens    _O_pen
-   _o_utline         re_i_ndent        _e_val region
-   _w_ho calls                       ^^eval de_f_un
-   definition_._                     ^^_l_oad file
-   pop definition_,_                 ^^_r_estart
-                                   ^^^^load _s_ystem
-                                   ^^^^_c_lear
-"
-  ("d" slime-documentation-lookup)
-  ("O" slime)
-  ("o" lisp-outline)
-  ("f" slime-eval-defun)
-  ("e" slime-eval-region)
-  ("l" slime-load-file)
-  ("p" check-parens)
-  ("r" slime-restart-inferior-lisp)
-  ("s" slime-load-system)
-  ("c" slime-repl-clear-buffer)
-  ("i" paredit-reindent-defun)
-  ("w" slime-who-calls)
-  ("." slime-edit-definition)
-  ("," slime-pop-find-definition-stack :color red)
-  ("q" nil "quit"))
-;; Assign hydra to hotkey when in python mode
-(eval-after-load "lisp-mode"
-  '(progn
-  (define-key lisp-mode-map (kbd "s-h") 'hydra-lisp/body)))
 
 ;; org
  (defhydra hydra-global-org (:color blue :columns 1)

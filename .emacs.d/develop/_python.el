@@ -82,3 +82,37 @@
   (interactive)
   (let ((comint-buffer-maximum-size 0))
     (comint-truncate-buffer)))
+
+;; Python
+(defhydra hydra-python (:color blue :hint nil)
+  "
+    Navigation          Formatting         Shell
+---------------------------------------------------------------------
+   Documentation_?_       _s_ort imports       shel_l_
+   Definitions_._         _i_ndent             send regio_n_
+   _a_ssignments          _f_lycheck error     send _b_uffer
+   _r_eferences           _r_emove unused      send de_f_un
+   _o_utline                                 ^_k_clear
+   _c_lass outline
+
+"
+  ("s" py-isort-region)
+  ("?" anaconda-mode-show-doc)
+  ("." anaconda-mode-find-definitions :color red)
+  ("a" anaconda-mode-find-assignments)
+  ("r" anaconda-mode-find-references)
+  ("i" indent-for-tab-command)
+  ("l" python-shell)
+  ("n" python-shell-send-region)
+  ("b" python-shell-send-buffer)
+  ("f" python-shell-send-defun)
+  ("o" python-outline)
+  ("c" python-class-outline)
+  ("k" python-shell-clear)
+  ("f" flycheck-next-error :color red)
+  ("r" pyrm)
+  ("q" nil "quit"))
+;; Assign hydra to hotkey when in python mode
+(eval-after-load "python"
+  '(progn
+  (define-key python-mode-map (kbd "s-h") 'hydra-python/body)))
