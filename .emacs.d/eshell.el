@@ -1,3 +1,6 @@
+;; set eshell prompt
+(setq eshell-prompt-function
+      (lambda nil ">"))
 (setq eshell-scroll-to-bottom-on-input 'all
       eshell-error-if-no-glob t
       eshell-hist-ignoredups t

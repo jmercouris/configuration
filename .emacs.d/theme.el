@@ -14,6 +14,8 @@
 (setq initial-scratch-message nil)
 ;; set initial major mode to text mode
 (setq initial-major-mode 'text-mode)
+;; disable tool tip mode
+(tooltip-mode 0)
 ;; make mode-line appear flat
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)

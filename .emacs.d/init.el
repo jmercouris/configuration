@@ -2,12 +2,15 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (package-initialize)
-;; use package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Configuration
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load MacOS specific configuration
 (when (memq window-system '(mac ns))
   (load "~/.emacs.d/osx.el"))
@@ -31,32 +34,14 @@
 (global-set-key (kbd "C-/") 'comment-dwim)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
-;; disable mouse
-(global-disable-mouse-mode)
-;; disable tool tip mode
-(tooltip-mode 0)
 ;; all back up files into same systemwide temp directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-;; setup yasnippet
-(use-package yasnippet
-  :config
-  (yas-global-mode 1))
-(use-package peep-dired
-  :config
-  (setq peep-dired-cleanup-on-disable t)
-  (setq peep-dired-ignored-extensions '("pyc")))
-(use-package neotree
-  :config
-  (setq neo-window-position 'right)
-  (setq neo-theme 'ascii)
-  (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__")))
-;; set eshell prompt
-(setq eshell-prompt-function
-      (lambda nil ">"))
-;; column
+;; set default browser
+(setq browse-url-browser-function 'eww-browse-url)
+;; show column number
 (setq column-number-mode t)
 ;; scroll behavior
 (setq scroll-step 1)
@@ -73,6 +58,52 @@
   (global-set-key (kbd "s-t") 'multi-term)
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
+;; .http files load rest-client mode
+(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+;; yes or no to y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
+;; occur mode n-p
+(define-key occur-mode-map (kbd "n") 'next-line)
+(define-key occur-mode-map (kbd "p") 'previous-line)
+;; previous and Next Buffer
+(global-set-key (kbd "s-]") 'next-buffer)
+(global-set-key (kbd "s-[") 'previous-buffer)
+(global-set-key (kbd "s-d") 'kill-this-buffer)
+;; don't open new windows for these buffers
+(add-to-list 'same-window-buffer-names "*wclock*")
+;; down case region
+(put 'downcase-region 'disabled nil)
+;; set world time list
+(setq display-time-world-list
+      (quote
+       (("America/Chicago" "Chicago")
+	("Europe/Berlin" "Berlin")
+	("Europe/Athens" "Athens")
+	("Europe/London" "London")
+	("America/Los_Angeles" "San Francisco")
+	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Package Setup
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; setup mouse disable
+(use-package disable-mouse
+  :config
+  (global-disable-mouse-mode))
+;; setup yasnippet
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+(use-package peep-dired
+  :config
+  (setq peep-dired-cleanup-on-disable t)
+  (setq peep-dired-ignored-extensions '("pyc")))
+;; setup neotree
+(use-package neotree
+  :config
+  (setq neo-window-position 'right)
+  (setq neo-theme 'ascii)
+  (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__")))
 ;; switch window behavior uses switch-window package
 (use-package switch-window
   :config
@@ -85,10 +116,6 @@
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
   (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls))
-;; previous and Next Buffer
-(global-set-key (kbd "s-]") 'next-buffer)
-(global-set-key (kbd "s-[") 'previous-buffer)
-(global-set-key (kbd "s-d") 'kill-this-buffer)
 ;; windmove
 (use-package windmove
   :config
@@ -100,8 +127,6 @@
 (use-package framemove
   :config
   (setq framemove-hook-into-windmove t))
-;; .http files load rest-client mode
-(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; auto dim other buffers
 (use-package auto-dim-other-buffers
   :config
@@ -122,8 +147,6 @@
   (eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
   (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
   (eval-after-load "paredit" '(diminish 'paredit-mode)))
-;; don't open new windows for these buffers
-(add-to-list 'same-window-buffer-names "*wclock*")
 ;; which key prompts on C-x etc
 (use-package which-key
   :config
@@ -135,13 +158,14 @@
   (defalias 'list-buffers 'ibuffer)
   (setq ibuffer-expert t))
 ;; imenu anywhere binding
-(global-set-key (kbd "C-.") 'ivy-imenu-anywhere)
-;; imenu binding
-(global-set-key (kbd "C->") 'imenu-reposition)
-;; use browse-kill ring as the default for M-y
-(browse-kill-ring-default-keybindings)
-;; down case region
-(put 'downcase-region 'disabled nil)
+(use-package imenu-anywhere
+  :config
+  (global-set-key (kbd "C-.") 'ivy-imenu-anywhere)
+  (global-set-key (kbd "C->") 'imenu-reposition))
+;; browse-kill ring
+(use-package browse-kill-ring
+  :config
+  (browse-kill-ring-default-keybindings))
 ;; org configuration
 (use-package org
   :config 
@@ -164,17 +188,17 @@
            "* %? %^G\n%U")
           ("j" "Journal" entry
            (file "/Users/jmercouris/Documents/Personal/Journal/journal.org")
-           "* %U %? %^G\n"))))
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((lisp . t)))
-(setq org-src-fontify-natively t)
-;; update the table of contents on save
-(if (require 'toc-org nil t)
-    (add-hook 'org-mode-hook 'toc-org-enable)
-  (warn "toc-org not found"))
-;; org mode should auto-fill
-(add-hook 'org-mode-hook 'auto-fill-mode)
+           "* %U %? %^G\n")))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((lisp . t)))
+  (setq org-src-fontify-natively t)
+  ;; update the table of contents on save
+  (if (require 'toc-org nil t)
+      (add-hook 'org-mode-hook 'toc-org-enable)
+    (warn "toc-org not found"))
+  ;; org mode should auto-fill
+  (add-hook 'org-mode-hook 'auto-fill-mode))
 ;; projectile
 (use-package projectile
   :ensure t
@@ -182,20 +206,6 @@
 (use-package counsel-projectile
   :ensure t
   :config (counsel-projectile-on))
-;; set world time list
-(setq display-time-world-list
-      (quote
-       (("America/Chicago" "Chicago")
-	("Europe/Berlin" "Berlin")
-	("Europe/Athens" "Athens")
-	("Europe/London" "London")
-	("America/Los_Angeles" "San Francisco")
-	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
-;; yes or no to y or n
-(defalias 'yes-or-no-p 'y-or-n-p)
-;; occur mode n-p
-(define-key occur-mode-map (kbd "n") 'next-line)
-(define-key occur-mode-map (kbd "p") 'previous-line)
 ;; back button mode
 (use-package back-button
   :ensure t
@@ -213,15 +223,16 @@
 (add-hook 'eww-mode-hook #'rename-eww-hook)
 ;; Ctrl + tab suggests completion based on git
 (global-set-key (kbd "<C-tab>") 'git-complete)
-;; set default browser
-(setq browse-url-browser-function 'eww-browse-url)
 ;;popwin mode
 (use-package popwin
   :ensure t
   :config (popwin-mode 1))
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
-;; load additional files
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load additional files
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/theme")
 (load "~/.emacs.d/custom")
 (load "~/.emacs.d/private")
