@@ -144,7 +144,6 @@
   (eval-after-load "projectile" '(diminish 'projectile-mode))
   (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
   (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
-  (eval-after-load "disable-mouse" '(diminish 'global-disable-mouse-mode))
   (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
   (eval-after-load "paredit" '(diminish 'paredit-mode)))
 ;; which key prompts on C-x etc
@@ -204,8 +203,7 @@
   :ensure t
   :config (projectile-global-mode))
 (use-package counsel-projectile
-  :ensure t
-  :config (counsel-projectile-on))
+  :ensure t)
 ;; back button mode
 (use-package back-button
   :ensure t
