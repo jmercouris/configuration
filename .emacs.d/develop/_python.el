@@ -6,7 +6,6 @@
 (add-hook 'python-mode-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
 
-
 (eval-after-load "company"
  '(add-to-list 'company-backends 'company-anaconda))
 
@@ -90,7 +89,7 @@
 ---------------------------------------------------------------------
    Documentation_?_       _s_ort imports       shel_l_
    Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments          _f_lycheck error     send _b_uffer
+   _a_ssignments          flycheck _e_rror     send _b_uffer
    _r_eferences           _r_emove unused      send de_f_un
    _o_utline                                 ^_k_clear
    _c_lass outline
@@ -109,7 +108,7 @@
   ("o" python-outline)
   ("c" python-class-outline)
   ("k" python-shell-clear)
-  ("f" flycheck-next-error :color red)
+  ("e" flycheck-next-error :color red)
   ("r" pyrm)
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in python mode
