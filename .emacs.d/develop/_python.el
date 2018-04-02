@@ -6,6 +6,13 @@
 (add-hook 'python-mode-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
 
+(use-package sphinx-doc
+  :diminish sphinx-doc-mode
+  :init
+  (add-hook 'python-mode-hook (lambda ()
+                                (require 'sphinx-doc)
+                                (sphinx-doc-mode t))))
+
 (eval-after-load "company"
  '(add-to-list 'company-backends 'company-anaconda))
 
@@ -91,7 +98,7 @@
    Definitions_._         _i_ndent             send regio_n_
    _a_ssignments          flycheck _e_rror     send _b_uffer
    _r_eferences           _r_emove unused      send de_f_un
-   _o_utline                                 ^_k_clear
+   _o_utline              s_p_hinx doc         _k_clear
    _c_lass outline
 
 "
@@ -102,6 +109,7 @@
   ("r" anaconda-mode-find-references)
   ("i" indent-for-tab-command)
   ("l" python-shell)
+  ("p" sphinx-doc)
   ("n" python-shell-send-region)
   ("b" python-shell-send-buffer)
   ("f" python-shell-send-defun)

@@ -88,10 +88,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setup mouse disable
 (use-package disable-mouse
+  :diminish global-disable-mouse-mode
   :config
   (global-disable-mouse-mode))
 ;; setup yasnippet
 (use-package yasnippet
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1))
 (use-package peep-dired
@@ -130,22 +132,23 @@
 ;; auto dim other buffers
 (use-package auto-dim-other-buffers
   :config
-  (auto-dim-other-buffers-mode t)
-  (eval-after-load "which-key" '(diminish 'which-key-mode))
-  (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-  (eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
-  (eval-after-load "company" '(diminish 'company-mode))
-  (eval-after-load "flycheck" '(diminish 'flycheck-mode))
-  (eval-after-load "eldoc" '(diminish 'eldoc-mode))
-  (eval-after-load "magit" '(diminish 'auto-revert-mode))
-  (eval-after-load "ivy" '(diminish 'ivy-mode))
-  (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
-  (eval-after-load "back-button" '(diminish 'back-button-mode))
-  (eval-after-load "projectile" '(diminish 'projectile-mode))
-  (eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
-  (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
-  (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
-  (eval-after-load "paredit" '(diminish 'paredit-mode)))
+  (auto-dim-other-buffers-mode t))
+
+(eval-after-load "which-key" '(diminish 'which-key-mode))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
+(eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
+(eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "magit" '(diminish 'auto-revert-mode))
+(eval-after-load "ivy" '(diminish 'ivy-mode))
+(eval-after-load "back-button" '(diminish 'back-button-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
+(eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
+(eval-after-load "hideshow" '(diminish 'hs-minor-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+
 ;; which key prompts on C-x etc
 (use-package which-key
   :config
