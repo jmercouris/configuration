@@ -215,6 +215,10 @@
 (use-package smartparens
   :ensure t
   :config (show-smartparens-global-mode +1))
+;;popwin mode
+(use-package popwin
+  :ensure t
+  :config (popwin-mode 1))
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; auto-rename new eww buffers
@@ -224,10 +228,6 @@
 (add-hook 'eww-mode-hook #'rename-eww-hook)
 ;; Ctrl + tab suggests completion based on git
 (global-set-key (kbd "<C-tab>") 'git-complete)
-;;popwin mode
-(use-package popwin
-  :ensure t
-  :config (popwin-mode 1))
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
 
