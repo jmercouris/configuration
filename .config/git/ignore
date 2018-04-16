@@ -29,3 +29,6 @@ Temporary Items
 # Emacs Desktop Files
 *.desktop
 *.desktop.lock
+
+# Ignore Tags Files
+TAGS
