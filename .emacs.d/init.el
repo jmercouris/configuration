@@ -230,6 +230,11 @@
 (global-set-key (kbd "<C-tab>") 'git-complete)
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
+;; setup elfeed
+(setq elfeed-feeds
+      '(("https://www.reddit.com/r/programming.rss" r/programming)
+        ("https://www.reddit.com/r/emacs.rss" r/emacs)
+        ("https://news.ycombinator.com/rss" yc/news)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
