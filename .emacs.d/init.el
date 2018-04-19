@@ -219,6 +219,9 @@
 (use-package popwin
   :ensure t
   :config (popwin-mode 1))
+(use-package beacon
+  :ensure t
+  :config (beacon-mode 1))
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; auto-rename new eww buffers
@@ -235,7 +238,6 @@
       '(("https://www.reddit.com/r/programming.rss" r/programming)
         ("https://www.reddit.com/r/emacs.rss" r/emacs)
         ("https://news.ycombinator.com/rss" yc/news)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
