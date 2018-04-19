@@ -148,6 +148,7 @@
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "beacon" '(diminish 'beacon-mode))
 
 ;; which key prompts on C-x etc
 (use-package which-key
