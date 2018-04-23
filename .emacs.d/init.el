@@ -129,10 +129,6 @@
 (use-package framemove
   :config
   (setq framemove-hook-into-windmove t))
-;; auto dim other buffers
-(use-package auto-dim-other-buffers
-  :config
-  (auto-dim-other-buffers-mode t))
 
 (eval-after-load "which-key" '(diminish 'which-key-mode))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
