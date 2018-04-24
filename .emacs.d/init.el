@@ -140,7 +140,6 @@
 (eval-after-load "ivy" '(diminish 'ivy-mode))
 (eval-after-load "back-button" '(diminish 'back-button-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
-(eval-after-load "auto-dim-other-buffers" '(diminish 'auto-dim-other-buffers-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 (eval-after-load "hideshow" '(diminish 'hs-minor-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
