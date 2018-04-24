@@ -297,13 +297,13 @@ _q_uit          ^        ^         _]_forward
   "
     Projectile: %(projectile-project-root)
 
-    Find File          Search/Tags         Cache
----------------------------------------------------------------------
-_s-f_: file            _g_: git grep        _c_: cache clear
- _fd_: file curr dir   _o_: multi-occur     _x_: remove known project
+    Find File          Search/Tags         Cache                  ^^^^^Operations
+----------------------------------------------------------------------------------------
+_s-f_: file            _g_: git grep        _c_: cache clear            _k_: Kill buffers
+ _fd_: file curr dir   _o_: multi-occur     _x_: remove known project   _i_: ibuffer
   _d_: dir             _r_: replace         _X_: cleanup non-existing
-                                        ^^_z_: cache current
-                                        ^^_k_: uncache current
+                                        ^^^^_z_: cache current
+                                        ^^^^_K_: uncache current
 
 "
   ("c"   projectile-invalidate-cache)
@@ -312,7 +312,8 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("fd"  projectile-find-file-in-directory)
   ("g"   counsel-git-grep)
   ("s-g" ggtags-update-tags)
-  ("K"   counsel-projectile-kill-buffers)
+  ("k"   projectile-kill-buffers)
+  ("i"   projectile-ibuffer)
   ("o"   projectile-multi-occur)
   ("s-p" counsel-projectile-switch-project "switch project")
   ("p"   counsel-projectile-switch-project)
@@ -321,7 +322,7 @@ _s-f_: file            _g_: git grep        _c_: cache clear
   ("x"   projectile-remove-known-project)
   ("X"   projectile-cleanup-known-projects)
   ("z"   projectile-cache-current-file)
-  ("k"   projectile-purge-file-from-cache)
+  ("K"   projectile-purge-file-from-cache)
   ("q"   nil "cancel" :color blue))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-f"))
