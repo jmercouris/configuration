@@ -299,14 +299,16 @@ _q_uit          ^        ^         _]_forward
 
     Find File          Search/Tags         Cache                  ^^^^^Operations
 ----------------------------------------------------------------------------------------
-_s-f_: file            _g_: git grep        _c_: cache clear            _k_: Kill buffers
+_s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kill buffers
  _fd_: file curr dir   _o_: multi-occur     _x_: remove known project   _i_: ibuffer
-  _d_: dir             _r_: replace         _X_: cleanup non-existing
-                                        ^^^^_z_: cache current
+  _d_: dir             _r_: replace         _X_: cleanup non-existing   _c_: Compile
+                                        ^^^^_z_: cache current          _t_: Test
                                         ^^^^_K_: uncache current
 
 "
-  ("c"   projectile-invalidate-cache)
+  ("C"   projectile-invalidate-cache)
+  ("c"   projectile-compile-project)
+  ("t"   projectile-test-project)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
   ("fd"  projectile-find-file-in-directory)
