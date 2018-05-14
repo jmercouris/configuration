@@ -366,6 +366,7 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
        "Do?"
        ("d" gnus-summary-delete-article "Delete Article")
        ("s" gnus-summary-show-thread "Show thread")
+       ("m" gnus-summary-move-article "Move Article")
        ("h" gnus-summary-hide-thread "Hide thread")
        ("n" gnus-summary-insert-new-articles "Refresh / N")
        ("f" gnus-summary-mail-forward "Forward C-c C-f")
