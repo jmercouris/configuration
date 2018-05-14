@@ -174,10 +174,7 @@
         '((sequence "TODO" "WAIT" "DONE")))
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
-  (setq org-agenda-files (list "~/Documents/Academic/.academic.org"
-                               "~/Projects/Next/project/README.org"
-                               "~/Work/.work.org"
-                               "~/.org/tasks.org"
+  (setq org-agenda-files (list "~/.org/tasks.org"
                                "~/.org/root.org"))
   (setq org-capture-templates
         '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
