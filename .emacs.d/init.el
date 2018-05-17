@@ -171,7 +171,7 @@
   (setq org-log-done t)
   (setq org-return-follows-link t)
   (setq org-todo-keywords
-        '((sequence "TODO" "WAIT" "DONE")))
+        '((sequence "TASK" "DONE")))
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
   (setq org-agenda-files (list "~/.org/tasks.org"
