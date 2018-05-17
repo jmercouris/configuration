@@ -43,6 +43,7 @@
  '(neo-header-face ((t (:foreground "green3"))))
  '(neo-root-dir-face ((t (:foreground "green3"))))
  '(org-level-2 ((t (:foreground "royal blue"))))
- '(org-level-3 ((t (:inherit outline-3 :foreground "gray40"))))
+ '(org-level-3 ((t (:inherit outline-3 :foreground "cadet blue"))))
+ '(org-todo ((t (:foreground "RoyalBlue2"))))
  '(show-paren-match ((t (:background "SeaGreen1"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))
