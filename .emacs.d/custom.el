@@ -10,6 +10,9 @@
  '(company-idle-delay 0.25)
  '(disable-mouse-mode-global-lighter "")
  '(frame-resize-pixelwise t)
+ '(gnutls-trustfiles
+   (quote
+    ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/private/etc/ssl/cert.pem")))
  '(imenu-list-size 25)
  '(mode-line-format
    (quote
