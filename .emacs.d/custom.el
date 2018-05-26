@@ -20,11 +20,14 @@
  '(org-directory "~/.org")
  '(package-selected-packages
    (quote
-    (beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls slime-company gist qt-pro-mode imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
+    (jinja2-mode sml-modeline beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls slime-company gist qt-pro-mode imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
  '(send-mail-function (quote smtpmail-send-it))
+ '(sml-modeline-borders nil)
+ '(sml-modeline-mode t)
+ '(sml-modeline-numbers (quote percentage))
  '(window-resize-pixelwise t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -49,4 +52,6 @@
  '(org-level-3 ((t (:inherit outline-3 :foreground "cadet blue"))))
  '(org-todo ((t (:foreground "RoyalBlue2"))))
  '(show-paren-match ((t (:background "SeaGreen1"))))
+ '(sml-modeline-end-face ((t (:background "gray70"))))
+ '(sml-modeline-vis-face ((t (:background "gray55"))))
  '(term-color-white ((t (:background "white" :foreground "light green")))))
