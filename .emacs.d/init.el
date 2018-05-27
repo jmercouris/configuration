@@ -52,6 +52,8 @@
 (global-unset-key (kbd "s-o"))
 (global-set-key (kbd "s-r") 'window-configuration-to-register)
 (global-set-key (kbd "s-o") 'jump-to-register)
+;; comment box
+(global-set-key (kbd "s-/") 'comment-box)
 ;; multi-term configuration
 (global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)

@@ -71,15 +71,6 @@ by using nxml's indentation rules."
       (indent-region begin end))
     (message "Ah, much better!"))
 
-;; fill comment to width
-(defun fill-comment ()
-  "Fill text to column width for comments"
-  (interactive)
-  (save-excursion
-    (move-end-of-line 1)
-    (while (< (current-column) fill-column) (insert ?#))))
-(global-set-key (kbd "s-/") 'fill-comment)
-
 (defun set-window-width (n)
   "Set the selected window's width to N columns wide."
   (if (> n (window-width))
