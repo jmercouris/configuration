@@ -176,8 +176,6 @@
         '((sequence "TASK" "DONE")))
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
-  (setq org-agenda-files (list "~/.org/tasks.org"
-                               "~/.org/root.org"))
   (setq org-capture-templates
         '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
            "* TODO %? %^G \n  %U")
