@@ -8,7 +8,7 @@
   ;; set fringe mode to disable by default
   (set-fringe-mode 0))
 ;; disable tool bar
-(if window-system
+(when window-system
     (tool-bar-mode -1))
 ;; set initial scratch bar message
 (setq initial-scratch-message nil)
