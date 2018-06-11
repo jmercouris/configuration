@@ -22,7 +22,8 @@
 
 (eval-after-load "lisp"
   '(progn
-     (define-key lisp-mode-map (kbd "<f5>") 'lisp-compile)))
+     (define-key lisp-mode-map (kbd "<f5>") 'lisp-compile)
+     (sp-local-pair '(lisp-mode) "'" "'" :actions nil)))
 
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
