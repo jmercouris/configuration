@@ -10,6 +10,7 @@
  '(company-idle-delay 0.25)
  '(disable-mouse-mode-global-lighter "")
  '(frame-resize-pixelwise t)
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(gnutls-trustfiles
    (quote
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/private/etc/ssl/cert.pem")))
@@ -20,7 +21,7 @@
  '(org-directory "~/Documents/Organization")
  '(package-selected-packages
    (quote
-    (elfeed edbi edbi-sqlite jinja2-mode sml-modeline beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls slime-company gist qt-pro-mode imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda highlight-indent-guides highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
+    (slime-company elfeed edbi edbi-sqlite jinja2-mode sml-modeline beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls gist qt-pro-mode imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
@@ -42,7 +43,6 @@
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
  '(font-lock-variable-name-face ((t (:foreground "green3"))))
- '(fringe ((t nil)))
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
  '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))

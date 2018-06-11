@@ -4,9 +4,7 @@
 (menu-bar-mode -1)
 (when (display-graphic-p)
   ;; disable scroll bar
-  (scroll-bar-mode -1)
-  ;; set fringe mode to disable by default
-  (set-fringe-mode 0))
+  (scroll-bar-mode -1))
 ;; disable tool bar
 (when window-system
     (tool-bar-mode -1))
