@@ -99,7 +99,7 @@
    _a_ssignments          flycheck _e_rror     send _b_uffer
    _r_eferences           _r_emove unused      send de_f_un
    _o_utline              s_p_hinx doc         _k_clear
-   _c_lass outline
+   _c_lass outline                          ^^ _t_est
 
 "
   ("s" py-isort-region)
@@ -110,6 +110,7 @@
   ("i" indent-for-tab-command)
   ("l" python-shell)
   ("p" sphinx-doc)
+  ("t" realgud:pdb)
   ("n" python-shell-send-region)
   ("b" python-shell-send-buffer)
   ("f" python-shell-send-defun)
