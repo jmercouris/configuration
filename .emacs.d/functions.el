@@ -190,3 +190,11 @@ open and unsaved."
   (interactive "P")
   (let ((browse-url-browser-function #'browse-url-default-macosx-browser))
     (org-open-at-point)))
+
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer 
+        (delq (current-buffer) 
+              (remove-if-not 'buffer-file-name (buffer-list)))))
+(global-set-key (kbd "C-c k") 'kill-other-buffers)
