@@ -24,7 +24,14 @@
     (slime-company elfeed edbi edbi-sqlite jinja2-mode sml-modeline beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls gist qt-pro-mode imenu-list toc-org soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda highlight-cl chronos diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient find-file-in-repository multi-term web-mode undo-tree neotree markdown-mode magit latex-preview-pane kivy-mode hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
- '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp))))
+ '(safe-local-variable-values
+   (quote
+    ((Package . CL-INTERPOL)
+     (Package . CL-UNICODE)
+     (Package . CL-USER)
+     (Syntax . COMMON-LISP)
+     (Base . 10)
+     (Syntax . ANSI-Common-Lisp))))
  '(send-mail-function (quote smtpmail-send-it))
  '(sml-modeline-borders nil)
  '(sml-modeline-mode t)

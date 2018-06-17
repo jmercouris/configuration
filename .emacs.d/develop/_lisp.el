@@ -1,4 +1,3 @@
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (load "~/.quicklisp/clhs-use-local.el" t)
 
 (setq inferior-lisp-program "/opt/local/bin/sbcl")
@@ -8,22 +7,11 @@
   (interactive)
   (occur "defun \\|defclass\\|defmethod "))
 
-(defun lisp-compile ()
-  (interactive)
-  (compile "ccl --no-init --load make.lisp"))
-
 (add-hook 'lisp-mode-hook 'highlight-indentation-mode)
 (add-hook 'lisp-mode-hook 'paredit-mode)
 (add-hook 'lisp-mode-hook 'smartparens-mode)
 (add-hook 'lisp-mode-hook 'company-mode)
-
-(add-hook 'slime-mode-hook 'company-mode)
 (add-hook 'slime-mode-hook 'smartparens-mode)
-
-(eval-after-load "lisp"
-  '(progn
-     (define-key lisp-mode-map (kbd "<f5>") 'lisp-compile)
-     (sp-local-pair '(lisp-mode) "'" "'" :actions nil)))
 
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
