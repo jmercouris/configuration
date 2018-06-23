@@ -12,6 +12,7 @@
     (eshell/alias "gd" "magit-diff-unstaged")
     (eshell/alias "gds" "magit-diff-staged")
     (eshell/alias "d" "dired $1")))
+(setenv "PAGER" "cat")
 (defun eshell/clear ()
   "Clear the eshell buffer."
   (let ((inhibit-read-only t))
