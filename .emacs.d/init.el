@@ -177,9 +177,9 @@
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
   (setq org-capture-templates
-        '(("t" "TODO" entry (file (concat org-directory "/tasks.org"))
+        '(("t" "TODO" entry (file "/Users/jmercouris/Documents/Organization/tasks.org")
            "* TODO %? %^G \n  %U")
-          ("n" "Note" entry (file (concat org-directory "/notes.org"))
+          ("n" "Note" entry (file "/Users/jmercouris/Documents/Organization/notes.org")
            "* %? %^G\n%U")
           ("j" "Journal" entry
            (file "/Users/jmercouris/Documents/Personal/Journal/journal.org")
