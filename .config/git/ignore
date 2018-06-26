@@ -32,3 +32,6 @@ Temporary Items
 
 # Ignore Tags Files
 TAGS
+
+# Ignore org archive files
+*org_archive
