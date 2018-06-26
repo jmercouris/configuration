@@ -73,10 +73,14 @@ _u_p higher heading          e_x_ecute src
 _g_o to                      _t_ime stamp
 in_d_ent mode
 _O_pen external
+_N_arrow to subtree
+_W_iden to document
 "
   ("f" outline-next-visible-heading)
   ("b" outline-previous-visible-heading)
   ("n" org-forward-heading-same-level)
+  ("N" org-narrow-to-subtree)
+  ("W" widen)
   ("p" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("s" org-sort)
