@@ -233,6 +233,9 @@
       '(("https://www.reddit.com/r/programming.rss" r/programming)
         ("https://www.reddit.com/r/emacs.rss" r/emacs)
         ("https://news.ycombinator.com/rss" yc/news)))
+;; Use ace jump zap to char instead of normal zap to char
+(global-unset-key (kbd "M-z"))
+(global-set-key (kbd "M-z") 'ace-jump-zap-to-char)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
