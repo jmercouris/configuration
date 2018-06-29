@@ -34,5 +34,3 @@
 (blink-cursor-mode 0)
 ;; font Size
 (set-face-attribute 'default nil :height 144)
-;; turn on sml-mode-line
-(sml-modeline-mode)
