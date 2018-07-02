@@ -34,3 +34,5 @@
 (blink-cursor-mode 0)
 ;; font Size
 (set-face-attribute 'default nil :height 144)
+;; remove title from window
+(setq frame-title-format nil)
