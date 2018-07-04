@@ -100,18 +100,6 @@ by using nxml's indentation rules."
 			      (dired-get-filename)
 			    (or (buffer-file-name) "")))))
 
-(defun clear-buffer-redraw ()
-  (interactive)
-  (erase-buffer)
-  (next-buffer)
-  (previous-buffer))
-;; enable buffer erasing
-(put 'erase-buffer 'disabled nil)
-;; clear buffer
-(global-unset-key (kbd "s-c"))
-(global-set-key (kbd "s-c") 'clear-buffer-redraw)
-
-
 (defun replace-in-string (what with in)
   (replace-regexp-in-string (regexp-quote what) with in nil 'literal))
 
