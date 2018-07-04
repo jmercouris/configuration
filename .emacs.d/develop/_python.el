@@ -99,7 +99,8 @@
    _a_ssignments          flycheck _e_rror     send _b_uffer
    _r_eferences           _r_emove unused      send de_f_un
    _o_utline              s_p_hinx doc         _k_clear
-   _c_lass outline                          ^^ _t_est
+   _c_lass outline                           ^^_t_est
+                                           ^^^^_v_irtual environment
 
 "
   ("s" py-isort-region)
@@ -115,6 +116,7 @@
   ("b" python-shell-send-buffer)
   ("f" python-shell-send-defun)
   ("o" python-outline)
+  ("v" pyvenv-activate)
   ("c" python-class-outline)
   ("k" python-shell-clear)
   ("e" flycheck-next-error :color red)
