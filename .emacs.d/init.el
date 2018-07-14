@@ -166,6 +166,7 @@
   :config
   (defalias 'list-buffers 'ibuffer)
   (setq ibuffer-expert t)
+  (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("lisp" (mode . lisp-mode))
