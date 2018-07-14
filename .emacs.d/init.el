@@ -152,11 +152,40 @@
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
+;; Define ibuffer filter groups for each known project
+(defun define-projectile-filter-groups ()
+  (when (boundp 'projectile-known-projects)
+    (setq my/project-filter-groups
+        (mapcar
+         (lambda (it)
+           (let ((name (file-name-nondirectory (directory-file-name it))))
+             `(,name (filename . ,(expand-file-name it)))))
+         projectile-known-projects))))
 ;; use ibuffer instead of regular buffer list
 (use-package ibuffer
   :config
   (defalias 'list-buffers 'ibuffer)
-  (setq ibuffer-expert t))
+  (setq ibuffer-expert t)
+  (setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("lisp" (mode . lisp-mode))
+               ("python" (mode . python-mode))
+               ("org" (mode . org-mode))
+               ("dired" (mode . dired-mode))
+               ("irc" (or
+                       (mode . circe-channel-mode)
+                       (mode . circe-server-mode)))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")))
+               ("gnus" (or
+                        (mode . message-mode)
+                        (mode . mail-mode)
+                        (mode . gnus-group-mode)
+                        (mode . gnus-summary-mode)
+                        (mode . gnus-article-mode)))))))
+  (add-hook 'ibuffer-mode-hook
+            (lambda () (ibuffer-switch-to-saved-filter-groups "default"))))
 ;; imenu anywhere binding
 (use-package imenu-anywhere
   :config
