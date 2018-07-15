@@ -173,6 +173,7 @@
                ("python" (mode . python-mode))
                ("org" (mode . org-mode))
                ("dired" (mode . dired-mode))
+               ("eww" (mode . eww-mode))
                ("irc" (or
                        (mode . circe-channel-mode)
                        (mode . circe-server-mode)))
@@ -260,7 +261,8 @@
 (setq custom-file "~/.emacs.d/custom.el")
 ;; setup elfeed
 (setq elfeed-feeds
-      '(("https://www.reddit.com/r/emacs.rss" r/emacs)
+      '(("https://www.reddit.com/r/emacs.rss" emacs)
+        ("feed://cestlaz.github.io/rss.xml" emacs)
         ("https://news.ycombinator.com/rss" yc/news)
         ("https://tim.blog/feed/" tim-ferris/blog)))
 ;; Use ace jump zap to char instead of normal zap to char
