@@ -26,7 +26,8 @@
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values
    (quote
-    ((Package . CL-INTERPOL)
+    ((Package . CL-PPCRE)
+     (Package . CL-INTERPOL)
      (Package . CL-UNICODE)
      (Package . CL-USER)
      (Syntax . COMMON-LISP)
