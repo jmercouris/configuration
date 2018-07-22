@@ -171,6 +171,7 @@
       (quote (("default"
                ("lisp" (mode . lisp-mode))
                ("python" (mode . python-mode))
+               ("sldb" (mode . sldb-mode))
                ("org" (mode . org-mode))
                ("dired" (mode . dired-mode))
                ("eww" (mode . eww-mode))
