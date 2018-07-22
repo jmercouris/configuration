@@ -269,6 +269,8 @@
 ;; Use ace jump zap to char instead of normal zap to char
 (global-unset-key (kbd "M-z"))
 (global-set-key (kbd "M-z") 'ace-jump-zap-to-char)
+;; move-text moves lines of text up or down
+(move-text-default-bindings)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
