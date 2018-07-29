@@ -445,11 +445,11 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
   "
 Ring^^^                  Hiding^^          Navigation
 ---------------------------------------------------------
-_f_orward  local        _nd_efun          _t_oggle tree
-_b_ackward local        _nr_egion         _r_efresh point
-_gf_global forward      _w_iden           _d_ired
-_gb_global backward     _h_ide mode       _i_menu list
-^^                      _s_how toggle
+_f_orward  local        _nd_efun          _d_ired sidebar
+_b_ackward local        _nr_egion         _i_buffer sidebar
+_gf_global forward      _w_iden           _I_menu list
+_gb_global backward     _h_ide mode       _S_idebar toggle
+^^                      _s_how toggle     
 ^^                      show _a_ll
 _q_uit
 "
@@ -463,10 +463,10 @@ _q_uit
   ("h" hs-minor-mode)
   ("s" hs-toggle-hiding)
   ("a" hs-show-all)
-  ("t" neotree-toggle)
-  ("r" neotree-find)
-  ("d" dired)
-  ("i" imenu-list-minor-mode)
+  ("d" dired-sidebar-toggle-sidebar)
+  ("S" sidebar-toggle)
+  ("i" ibuffer-sidebar-toggle-sidebar)
+  ("I" imenu-list-minor-mode)
   ("q" nil))
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-b"))

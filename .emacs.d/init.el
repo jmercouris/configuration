@@ -102,12 +102,6 @@
   :config
   (setq peep-dired-cleanup-on-disable t)
   (setq peep-dired-ignored-extensions '("pyc")))
-;; setup neotree
-(use-package neotree
-  :config
-  (setq neo-window-position 'right)
-  (setq neo-theme 'ascii)
-  (setq neo-hidden-regexp-list '("^\\." "\\.cs\\.meta$" "\\.pyc$" "~$" "^#.*#$" "__pycache__")))
 ;; switch window behavior uses switch-window package
 (use-package switch-window
   :config

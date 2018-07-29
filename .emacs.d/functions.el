@@ -186,3 +186,9 @@ open and unsaved."
         (delq (current-buffer) 
               (remove-if-not 'buffer-file-name (buffer-list)))))
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
+
+(defun sidebar-toggle ()
+  "Toggle both `dired-sidebar' and `ibuffer-sidebar'."
+  (interactive)
+  (dired-sidebar-toggle-sidebar)
+  (ibuffer-sidebar-toggle-sidebar))

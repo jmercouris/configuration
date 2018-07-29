@@ -26,7 +26,7 @@
     current buffer's file. The eshell is renamed to match that
     directory to make multiple eshell windows easier."
   (interactive)
-  (let* ((height (/ (window-total-height) 3)))
+  (let* ((height (/ (window-total-height) 2)))
     (split-window-vertically (- height))
     (other-window 1)
     (eshell "new")

@@ -5,7 +5,7 @@
          :nick ,freenode-nick
          :sasl-username ,freenode-username
          :sasl-password ,freenode-password
-	 :channels ("#lisp" "#lispcafe" "#next-browser" "#ccl" "#startups")
+	 :channels ("#lisp" "#lispcafe" "#next-browser" "#ccl" "#startups" "##fitness")
 	 :port "6697")))
 
 (setq circe-default-part-message "Exit.")
