@@ -311,7 +311,7 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
 
 "
   ("C"   projectile-invalidate-cache)
-  ("c"   projectile-compile-project)
+  ("c"   makefile-executor-execute-project-target)
   ("t"   projectile-test-project)
   ("d"   counsel-projectile-find-dir)
   ("s-f" counsel-projectile-find-file)
@@ -589,3 +589,10 @@ _q_uit
 ;; Assign Hydra to hotkey
 (global-unset-key (kbd "s-g"))
 (global-set-key (kbd "s-g") 'hydra-global-org/body)
+
+(defhydra hydra-register (:color blue :columns 1)
+  "Register"
+  ("r" window-configuration-to-register "register")
+  ("o" jump-to-regsiter "open register"))
+(global-unset-key (kbd "s-r"))
+(global-set-key (kbd "s-r") 'hydra-register/body)

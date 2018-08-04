@@ -7,31 +7,23 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Configuration
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load MacOS specific configuration
 (when (memq window-system '(mac ns))
   (load "~/.emacs.d/osx.el"))
-;; set default shell to bash for rgrep
-(setq shell-file-name "/bin/sh")
 ;; allow upcase region
 (put 'upcase-region 'disabled nil)
-;; undo tree mode
-(undo-tree-mode 1)
 ;; when yanking over a marked region, overwrite
 (delete-selection-mode)
 ;; disable tabs for indenting
 (setq-default indent-tabs-mode nil)
 ;; enable narrow-to-region mode (C-x-n-n)
 (put 'narrow-to-region 'disabled nil)
-;; hs mode
-(load-library "hideshow")
-(global-set-key (kbd "C-=") 'hs-toggle-hiding)
+;; down case region
+(put 'downcase-region 'disabled nil)
 ;; rebind comment region
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-/") 'comment-dwim)
+(global-set-key (kbd "s-/") 'comment-box)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; all back up files into same systemwide temp directory
@@ -39,21 +31,12 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-;; set default browser
-(setq browse-url-browser-function 'eww-browse-url)
 ;; show column number
 (setq column-number-mode t)
 ;; scroll behavior
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
-;; window register save and recall
-(global-unset-key (kbd "s-r"))
-(global-unset-key (kbd "s-o"))
-(global-set-key (kbd "s-r") 'window-configuration-to-register)
-(global-set-key (kbd "s-o") 'jump-to-register)
-;; comment box
-(global-set-key (kbd "s-/") 'comment-box)
 ;; multi-term configuration
 (global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)
@@ -64,17 +47,10 @@
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
-;; occur mode n-p
-(define-key occur-mode-map (kbd "n") 'next-line)
-(define-key occur-mode-map (kbd "p") 'previous-line)
 ;; previous and Next Buffer
 (global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-d") 'kill-this-buffer)
-;; don't open new windows for these buffers
-(add-to-list 'same-window-buffer-names "*wclock*")
-;; down case region
-(put 'downcase-region 'disabled nil)
 ;; set world time list
 (setq display-time-world-list
       (quote
@@ -84,18 +60,16 @@
 	("Europe/London" "London")
 	("America/Los_Angeles" "San Francisco")
 	("America/Argentina/Buenos_Aires" "Buenos Aires"))))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setup mouse disable
 (use-package disable-mouse
-  :diminish global-disable-mouse-mode
+  :diminish disable-mouse-global-mode
   :config
   (global-disable-mouse-mode))
 ;; setup yasnippet
 (use-package yasnippet
-  :diminish yas-minor-mode
   :config
   (yas-global-mode 1))
 (use-package peep-dired
@@ -126,8 +100,6 @@
   :config
   (setq framemove-hook-into-windmove t))
 
-(eval-after-load "which-key" '(diminish 'which-key-mode))
-(eval-after-load "abbrev" '(diminish 'abbrev-mode))
 (eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
 (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
@@ -135,14 +107,13 @@
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
 (eval-after-load "back-button" '(diminish 'back-button-mode))
-(eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
-(eval-after-load "hideshow" '(diminish 'hs-minor-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "beacon" '(diminish 'beacon-mode))
 
 ;; which key prompts on C-x etc
 (use-package which-key
+  :diminish which-key-mode
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
@@ -171,7 +142,7 @@
                ("eww" (mode . eww-mode))
                ("irc" (or
                        (mode . circe-channel-mode)
-                       (mode . circe-server-mode)))
+                       (mode . circe-servper-mode)))
                ("emacs" (or
                          (name . "^\\*scratch\\*$")
                          (name . "^\\*Messages\\*$")))
@@ -214,17 +185,13 @@
    'org-babel-load-languages
    '((lisp . t)))
   (setq org-src-fontify-natively t)
-  ;; update the table of contents on save
-  (if (require 'toc-org nil t)
-      (add-hook 'org-mode-hook 'toc-org-enable)
-    (warn "toc-org not found"))
   ;; org mode should auto-fill
   (add-hook 'org-mode-hook 'auto-fill-mode)
   (setq org-src-tab-acts-natively t))
-
 ;; projectile
 (use-package projectile
   :ensure t
+  :diminish projectile-mode
   :config (projectile-global-mode))
 (use-package counsel-projectile
   :ensure t)
@@ -232,10 +199,6 @@
 (use-package back-button
   :ensure t
   :config (back-button-mode 1))
-;; smart parens mode
-(use-package smartparens
-  :ensure t
-  :config (show-smartparens-global-mode +1))
 ;;popwin mode
 (use-package popwin
   :ensure t
@@ -245,11 +208,6 @@
   :config (beacon-mode 1))
 ;; docview mode continuous
 (setq doc-view-continuous t)
-;; auto-rename new eww buffers
-(defun rename-eww-hook ()
-  "Rename eww browser's buffer so sites open in new page."
-  (rename-buffer "eww" t))
-(add-hook 'eww-mode-hook #'rename-eww-hook)
 ;; Ctrl + tab suggests completion based on git
 (global-set-key (kbd "<C-tab>") 'git-complete)
 ;; set custom file
@@ -257,7 +215,6 @@
 ;; setup elfeed
 (setq elfeed-feeds
       '(("https://www.reddit.com/r/emacs.rss" emacs)
-        ("feed://cestlaz.github.io/rss.xml" emacs)
         ("https://news.ycombinator.com/rss" yc/news)
         ("https://tim.blog/feed/" tim-ferris/blog)))
 ;; Use ace jump zap to char instead of normal zap to char
@@ -269,7 +226,7 @@
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/theme")
-(load "~/.emacs.d/custom")
+;; (load "~/.emacs.d/custom")
 (load "~/.emacs.d/private")
 (load "~/.emacs.d/eshell")
 (load "~/.emacs.d/irc")
@@ -278,13 +235,10 @@
 (load "~/.emacs.d/functions")
 ;; load external packages
 (load "~/.emacs.d/packages/git-complete/git-complete")
-(load "~/.emacs.d/packages/counsel-css/counsel-css")
 ;; load develop files
-(load "~/.emacs.d/develop/_css")
+(load "~/.emacs.d/develop/_lisp")
 (load "~/.emacs.d/develop/_python")
 (load "~/.emacs.d/develop/_c")
-(load "~/.emacs.d/develop/_lisp")
 (load "~/.emacs.d/develop/_yaml")
 (load "~/.emacs.d/develop/_tex")
-(load "~/.emacs.d/develop/_qt")
 (load "~/.emacs.d/develop/_php")

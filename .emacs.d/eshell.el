@@ -18,9 +18,6 @@
   (let ((inhibit-read-only t))
     (erase-buffer)
     (eshell-send-input)))
-(defun eshell/q ()
-  "Clear the eshell buffer."
-  (call-interactively 'kill-this-buffer))
 (defun eshell-here ()
   "Opens up a new shell in the directory associated with the
     current buffer's file. The eshell is renamed to match that
@@ -32,4 +29,6 @@
     (eshell "new")
     (insert (concat "ls"))
     (eshell-send-input)))
+(setq eshell-prompt-function
+      (lambda () "$ "))
 (bind-key "C-!" 'eshell-here)

@@ -3,8 +3,6 @@
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\M-s" 'swiper-all)
 (global-set-key (kbd "s-SPC") 'counsel-M-x)
-(global-unset-key (kbd "s-x"))
-(global-set-key (kbd "s-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 ;; flex search for everything but swiper
 (setq ivy-re-builders-alist
@@ -19,5 +17,3 @@
     (interactive)
     (ivy-set-action 'kill-buffer)
     (ivy-done)))
-;; bind to C-c j
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
