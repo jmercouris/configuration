@@ -226,7 +226,7 @@
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/theme")
-;; (load "~/.emacs.d/custom")
+(load "~/.emacs.d/custom")
 (load "~/.emacs.d/private")
 (load "~/.emacs.d/eshell")
 (load "~/.emacs.d/irc")
