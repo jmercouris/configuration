@@ -11,7 +11,6 @@
 (add-hook 'lisp-mode-hook 'paredit-mode)
 (add-hook 'lisp-mode-hook 'smartparens-mode)
 (add-hook 'lisp-mode-hook 'company-mode)
-(add-hook 'lisp-mode-hook 'highlight-parentheses-mode)
 (add-hook 'slime-mode-hook 'smartparens-mode)
 
 ;; Lisp

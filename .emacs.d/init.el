@@ -10,6 +10,8 @@
 ;; load MacOS specific configuration
 (when (memq window-system '(mac ns))
   (load "~/.emacs.d/osx.el"))
+;; set default shell to bash for rgrep/git grep
+(setq shell-file-name "/bin/sh")
 ;; allow upcase region
 (put 'upcase-region 'disabled nil)
 ;; when yanking over a marked region, overwrite
@@ -223,6 +225,8 @@
 (global-set-key (kbd "M-z") 'ace-jump-zap-to-char)
 ;; move-text moves lines of text up or down
 (move-text-default-bindings)
+;; add hook to highlight parenthesis
+(add-hook 'prog-mode-hook 'highlight-parentheses-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
