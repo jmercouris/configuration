@@ -593,6 +593,6 @@ _q_uit
 (defhydra hydra-register (:color blue :columns 1)
   "Register"
   ("r" window-configuration-to-register "register")
-  ("o" jump-to-regsiter "open register"))
+  ("o" jump-to-register "open register"))
 (global-unset-key (kbd "s-r"))
 (global-set-key (kbd "s-r") 'hydra-register/body)
