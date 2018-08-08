@@ -192,3 +192,8 @@ open and unsaved."
   (interactive)
   (dired-sidebar-toggle-sidebar)
   (ibuffer-sidebar-toggle-sidebar))
+
+(defun slime-lisp-select ()
+  "Allow selection of slime from slime-lisp-implementations"
+  (interactive)
+  (let ((current-prefix-arg '-)) (call-interactively 'slime)))

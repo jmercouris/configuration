@@ -1,7 +1,11 @@
 (load "~/.quicklisp/clhs-use-local.el" t)
 
-(setq inferior-lisp-program "/opt/local/bin/sbcl")
+
 (slime-setup '(slime-fancy slime-company slime-asdf slime-indentation))
+
+(setq slime-lisp-implementations
+      '((sbcl ("/opt/local/bin/sbcl" ""))
+        (sbcl-mem ("/opt/local/bin/sbcl" "--dynamic-space-size" "2560"))))
 
 (defun lisp-outline ()
   (interactive)
