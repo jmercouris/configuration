@@ -549,7 +549,7 @@ _q_uit
 ;; hydra circe mode
 (defhydra hydra-irc (:color red :columns 2)
   "IRC"
-  ("r" circe-reconnect "reconnect")
+  ("r" circe-reconnect "reconnect" :exit t)
   ("n" tracking-next-buffer "next unread buffer")
   ("q" nil "quit"))
 ;; Assign hydra to hotkey when in circe mode

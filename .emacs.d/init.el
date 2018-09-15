@@ -217,7 +217,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 ;; setup elfeed
 (setq elfeed-feeds
-      '(("https://www.reddit.com/r/emacs.rss" emacs)
+      '(("https://www.reddit.com/r/Common_Lisp.rss" common/lisp)
+        ("https://www.reddit.com/r/lisp.rss" lisp)
+        ("https://www.reddit.com/r/emacs.rss" emacs)
         ("https://news.ycombinator.com/rss" yc/news)
         ("https://tim.blog/feed/" tim-ferris/blog)))
 ;; Use ace jump zap to char instead of normal zap to char

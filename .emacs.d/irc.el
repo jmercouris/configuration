@@ -5,8 +5,10 @@
          :nick ,freenode-nick
          :sasl-username ,freenode-username
          :sasl-password ,freenode-password
-	 :channels ("#lisp" "#lispcafe" "#next-browser" "#ccl" "#startups" "##fitness")
+	 :channels ("#lisp" "#lispcafe" "#next-browser" "#ccl" "#startups")
 	 :port "6697")))
 
 (setq circe-default-part-message "Exit.")
 (setq circe-reduce-lurker-spam t)
+(require 'circe-color-nicks)
+(enable-circe-color-nicks)

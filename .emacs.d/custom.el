@@ -21,14 +21,20 @@
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
  '(org-directory "/Users/jmercouris/Documents/Organization/")
+ '(org-projectile-capture-template "* TASK %?
+")
+ '(org-projectile-per-project-filepath "README.org")
+ '(org-projectile-projects-file "/Users/jmercouris/Documents/Organization/projects.org")
  '(package-selected-packages
    (quote
-    (nginx-mode highlight-parentheses tldr makefile-executor edbi-database-url ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed edbi edbi-sqlite jinja2-mode beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls gist imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode undo-tree markdown-mode magit latex-preview-pane hydra circe auctex)))
+    (htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor edbi-database-url ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed edbi edbi-sqlite jinja2-mode beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin magit-gh-pulls gist imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet back-button multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode undo-tree markdown-mode magit latex-preview-pane hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values
    (quote
-    ((Package . CL-PPCRE)
+    ((Package . CL-FAD)
+     (Package . FLEXI-STREAMS)
+     (Package . CL-PPCRE)
      (Package . CL-INTERPOL)
      (Package . CL-UNICODE)
      (Package . CL-USER)
