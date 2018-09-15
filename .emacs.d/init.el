@@ -109,7 +109,6 @@
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "back-button" '(diminish 'back-button-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "beacon" '(diminish 'beacon-mode))
@@ -198,10 +197,6 @@
   :config (projectile-global-mode))
 (use-package counsel-projectile
   :ensure t)
-;; back button mode
-(use-package back-button
-  :ensure t
-  :config (back-button-mode 1))
 ;;popwin mode
 (use-package popwin
   :ensure t

@@ -443,20 +443,16 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
 ;; hydra browse
 (defhydra hydra-browse (:color red :hint nil)
   "
-Ring^^^                  Hiding^^          Navigation
----------------------------------------------------------
-_f_orward  local        _nd_efun          _d_ired sidebar
-_b_ackward local        _nr_egion         _i_buffer sidebar
-_gf_global forward      _w_iden           _I_menu list
-_gb_global backward     _h_ide mode       _S_idebar toggle
-^^                      _s_how toggle     
-^^                      show _a_ll
+  Hiding^^          Navigation
+----------------------------------
+ _nd_efun          _d_ired sidebar
+ _nr_egion         _i_buffer sidebar
+ _w_iden           _I_menu list
+ _h_ide mode       _S_idebar toggle
+ _s_how toggle     
+ show _a_ll
 _q_uit
 "
-  ("f" back-button-local-forward)
-  ("b" back-button-local-backward)
-  ("gf" back-button-global-forward)
-  ("gb" back-button-global-backward)
   ("nd" narrow-to-defun)
   ("nr" narrow-to-region)
   ("w" widen)
