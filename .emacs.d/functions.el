@@ -132,13 +132,6 @@ This command is convenient when reading novel, documentation."
   (call-interactively 'imenu)
   (reposition-window))
 
-(defun rgrep-ivy ()
-  "Rgrep disable ivy"
-  (interactive)
-  (ivy-mode -1)
-  (call-interactively 'rgrep)
-  (ivy-mode))
-
 (defun nxml-where ()
   "Display the hierarchy of XML elements the point is on as a path."
   (interactive)
