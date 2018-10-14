@@ -1,5 +1,3 @@
-(require 'nnir)
-
 ;; set main method to nil
 (setq gnus-select-method '(nnml ""))
 
@@ -14,7 +12,12 @@
                 (nnimap-address "mail.gandi.net")
                 (nnimap-authinfo-file "~/.authinfo.gpg")
                 (nnimap-server-port 993)
-                (nnimap-stream ssl))))
+                (nnimap-stream ssl))
+        (nnfolder "archive"
+                  (nnfolder-directory   "~/Mail/archive")
+                  (nnfolder-active-file "~/Mail/archive/active")
+                  (nnfolder-get-new-mail nil)
+                  (nnfolder-inhibit-expiry t))))
 
 ;; personal Information
 (setq user-full-name "John Mercouris")
@@ -44,7 +47,7 @@
 (setq mm-text-html-renderer 'shr)
 
 ;; always use topic mode
-(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+;; (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
 ;;To set personal email
 (defun setPersonal ()
@@ -63,3 +66,4 @@
           '(lambda ()
              (cond ((string-match "personal" gnus-newsgroup-name) (setPersonal))
                    ((string-match "work" gnus-newsgroup-name) (setWork)))))
+
