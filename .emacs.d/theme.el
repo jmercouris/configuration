@@ -29,7 +29,7 @@
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
-(add-to-list 'default-frame-alist '(cursor-color . "#00f900"))
+(add-to-list 'default-frame-alist '(cursor-color . "#00ee00"))
 ;; disable Cursor Blink
 (blink-cursor-mode 0)
 ;; font Size
