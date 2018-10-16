@@ -15,6 +15,10 @@
  '(gnutls-trustfiles
    (quote
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/private/etc/ssl/cert.pem")))
+ '(hl-paren-attributes nil)
+ '(hl-paren-background-colors (quote ("gray50" "gray70" "gray80" "gray90")))
+ '(hl-paren-colors (quote ("green" "green2" "green3" "green4")))
+ '(hl-paren-highlight-adjacent t)
  '(ibuffer-sidebar-display-alist (quote ((side . right) (slot . 1))))
  '(imenu-list-size 25)
  '(mode-line-format
@@ -56,10 +60,11 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
+ '(font-lock-builtin-face ((t (:foreground "gray40"))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
- '(font-lock-function-name-face ((t (:foreground "green4"))))
- '(font-lock-keyword-face ((t (:foreground "royal blue"))))
+ '(font-lock-function-name-face ((t (:background "gray97" :foreground "#008B45"))))
+ '(font-lock-keyword-face ((t (:foreground "#1c70e3"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
  '(font-lock-variable-name-face ((t (:foreground "green3"))))
  '(highlight-indentation-face ((t (:background "gray95"))))
