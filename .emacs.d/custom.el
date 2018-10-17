@@ -67,6 +67,7 @@
  '(font-lock-keyword-face ((t (:foreground "#1c70e3"))))
  '(font-lock-string-face ((t (:foreground "dark red"))))
  '(font-lock-variable-name-face ((t (:foreground "green3"))))
+ '(fringe ((t (:background "white"))))
  '(highlight-indentation-face ((t (:background "gray95"))))
  '(hiwin-face ((t (:background "gray95"))))
  '(mode-line ((t (:background "gray55" :foreground "White" :box nil))))
