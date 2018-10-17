@@ -368,20 +368,10 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
   '(progn
      (defhydra hydra-gnus-summary (:color blue :columns 1)
        "Do?"
+       ("a" gnus-summary-archive-article "Archive Article")
        ("d" gnus-summary-delete-article "Delete Article")
-       ("s" gnus-summary-show-thread "Show thread")
        ("m" gnus-summary-move-article "Move Article")
-       ("h" gnus-summary-hide-thread "Hide thread")
        ("n" gnus-summary-insert-new-articles "Refresh / N")
-       ("f" gnus-summary-mail-forward "Forward C-c C-f")
-       ("!" gnus-summary-tick-article-forward "Mail -> disk !")
-       ("p" gnus-summary-put-mark-as-read "Mail <- disk")
-       ("c" gnus-summary-catchup-and-exit "Read all c")
-       ("e" gnus-summary-resend-message-edit "Resend S D e")
-       ("r" gnus-summary-reply-with-original "Reply with original R")
-       ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
-       ("w" gnus-summary-wide-reply "Reply all S w")
-       ("#" gnus-topic-mark-topic "mark #")
        ("q" nil "cancel"))
 
      (define-key gnus-summary-mode-map (kbd "s-h") 'hydra-gnus-summary/body)))

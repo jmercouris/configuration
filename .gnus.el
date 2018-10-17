@@ -46,9 +46,6 @@
 ;; read HTML mail
 (setq mm-text-html-renderer 'shr)
 
-;; always use topic mode
-;; (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
-
 ;;To set personal email
 (defun setPersonal ()
   (interactive)
@@ -60,6 +57,20 @@
   (interactive)
   (message "from work")
   (setq user-mail-address "john@atlas.engineer"))
+
+(setq gnus-parameters
+      '(("personal"
+         (posting-style
+          (address "john@mercouris.email")
+          (gcc "nnimap+personal:Sent Messages")))
+        ("work"
+         (posting-style
+          (address "john@atlas.engineer")
+          (gcc "nnimap+work:Sent Messages")))))
+
+(defun gnus-summary-archive-article ()
+  (interactive)
+  (gnus-summary-move-article :to-newsgroup "nnfolder+archive:Archive"))
 
 ;;Select automatically while replying 
 (add-hook 'message-mode-hook
