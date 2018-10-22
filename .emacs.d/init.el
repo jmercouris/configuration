@@ -89,8 +89,7 @@
 ;; magit setup
 (use-package magit
   :config
-  (setq magit-completing-read-function 'ivy-completing-read)
-  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls))
+  (setq magit-completing-read-function 'ivy-completing-read))
 ;; windmove
 (use-package windmove
   :config
