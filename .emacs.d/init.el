@@ -137,6 +137,10 @@
       (quote (("default"
                ("lisp" (mode . lisp-mode))
                ("python" (mode . python-mode))
+               ("web" (or
+                       (mode . css-mode)
+                       (mode . html-mode)
+                       (mode . mhtml-mode)))
                ("sldb" (mode . sldb-mode))
                ("org" (mode . org-mode))
                ("dired" (mode . dired-mode))
