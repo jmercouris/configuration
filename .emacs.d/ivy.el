@@ -4,6 +4,7 @@
 (global-set-key "\M-s" 'swiper-all)
 (global-set-key (kbd "s-SPC") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-x C-j") 'counsel-file-jump)
 ;; flex search for everything but swiper
 (setq ivy-re-builders-alist
       '((swiper . ivy--regex-plus)
