@@ -24,6 +24,7 @@
  '(mode-line-format
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+ '(org-contacts-files (quote ("/Users/jmercouris/Work/Atlas/Atlas/contacts.org")))
  '(org-directory "/Users/jmercouris/Documents/Organization/")
  '(org-projectile-capture-template "* TASK %?
 ")

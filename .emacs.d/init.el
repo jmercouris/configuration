@@ -1,6 +1,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'load-path "~/.emacs.d/org/lisp")
+(add-to-list 'load-path "~/.emacs.d/org/contrib/lisp" t)
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -170,7 +172,8 @@
   (browse-kill-ring-default-keybindings))
 ;; org configuration
 (use-package org
-  :config 
+  :config
+  (require 'org-contacts)
   (setq org-startup-indented t)
   (setq org-log-done t)
   (setq org-return-follows-link t)
@@ -179,13 +182,17 @@
   (setq org-todo-keyword-faces
         '(("WAIT" . "gray")))
   (setq org-capture-templates
-        '(("t" "TODO" entry (file "/Users/jmercouris/Documents/Organization/tasks.org")
-           "* TODO %? %^G \n  %U")
+        '(("t" "Personal Task" entry (file "/Users/jmercouris/Documents/Organization/tasks.org")
+           "* TASK %? %^G \n  %U")
           ("n" "Note" entry (file "/Users/jmercouris/Documents/Organization/notes.org")
            "* %? %^G\n%U")
-          ("j" "Journal" entry
-           (file "/Users/jmercouris/Documents/Personal/Journal/journal.org")
-           "* %U %? %^G\n")))
+          ("j" "Journal" entry (file "/Users/jmercouris/Documents/Personal/Journal/journal.org")
+           "* %U %? %^G\n")
+          ("w" "Work Task" entry (file "/Users/jmercouris/Work/Atlas/Document/Atlas/tasks.org")
+           "* TASK %? %^G \n  %U")
+          ("c" "Work Contact" entry (file "/Users/jmercouris/Work/Atlas/Atlas/contacts.org")
+           "* %(org-contacts-template-name)
+              %(org-contacts-template-email)")))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((lisp . t)))
