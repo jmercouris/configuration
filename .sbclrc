@@ -8,3 +8,5 @@
 (sb-ext:set-sbcl-source-location "/usr/local/src/sbcl/")
 
 (setf *print-length* 20)
+
+(declaim (optimize (debug 3) (speed 0)))
