@@ -42,24 +42,6 @@
 (global-unset-key (kbd "s-m"))
 (global-set-key (kbd "s-m") 'hydra-vc/body)
 
-;; timeclock
-(defhydra hydra-timeclock (:color blue :hint nil)
-  "
-Clock^^         Report
----------------------------------------------------------
-log_i_n         generate _r_eport
-log_o_ut        _w_orkday remaining
-^              
-"
-  ("i" timeclock-in)
-  ("o" timeclock-out)
-  ("r" timeclock-generate-report)
-  ("w" timeclock-workday-remaining-string)
-  ("q" nil))
-;; Assign Hydra to hotkey
-(global-unset-key (kbd "s-a"))
-(global-set-key (kbd "s-a") 'hydra-timeclock/body)
-
 ;; org
 (defhydra hydra-org (:color red :hint nil)
   "
