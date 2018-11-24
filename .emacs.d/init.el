@@ -20,6 +20,8 @@
 (delete-selection-mode)
 ;; disable tabs for indenting
 (setq-default indent-tabs-mode nil)
+;; remove extra spacing before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; enable narrow-to-region mode (C-x-n-n)
 (put 'narrow-to-region 'disabled nil)
 ;; down case region
