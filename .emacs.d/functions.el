@@ -1,4 +1,4 @@
-;; show file name 
+;; show file name
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
   (interactive)
@@ -66,7 +66,7 @@ by using nxml's indentation rules."
   (save-excursion
       (nxml-mode)
       (goto-char begin)
-      (while (search-forward-regexp "\>[ \\t]*\<" nil t) 
+      (while (search-forward-regexp "\>[ \\t]*\<" nil t)
         (backward-char) (insert "\n"))
       (indent-region begin end))
     (message "Ah, much better!"))
@@ -175,8 +175,8 @@ open and unsaved."
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
-  (mapc 'kill-buffer 
-        (delq (current-buffer) 
+  (mapc 'kill-buffer
+        (delq (current-buffer)
               (remove-if-not 'buffer-file-name (buffer-list)))))
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
 
