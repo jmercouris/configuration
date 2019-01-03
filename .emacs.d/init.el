@@ -236,6 +236,10 @@
 (move-text-default-bindings)
 ;; add hook to highlight parenthesis
 (add-hook 'prog-mode-hook 'highlight-parentheses-mode)
+;; change how URLS are browsed
+(setq browse-url-browser-function '(("http://www.lispworks.com/reference/HyperSpec/.*" . eww-browse-url)
+                                    ("file:///.*HyperSpec.*" . eww-browse-url)
+                                    ("." . browse-url-default-browser)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
