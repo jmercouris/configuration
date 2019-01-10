@@ -5,6 +5,7 @@
 (add-hook 'python-mode-hook 'company-mode)
 (add-hook 'python-mode-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook 'smartparens-mode)
+(add-hook 'python-mode-hook 'turn-off-indent-tabs)
 
 (use-package sphinx-doc
   :diminish sphinx-doc-mode
@@ -71,7 +72,7 @@
                (delete-region previous end)
                (goto-char previous)
                (setf middle (if (> i 1) (- (car stop) previous)
-                              (string-match "[^, \\t]" whole 
+                              (string-match "[^, \\t]" whole
                                             (- (car stop) previous)))
                      last (if (> i 1) (substring whole 0 middle)
                             (concat (substring whole (- (car stop) previous) middle)
