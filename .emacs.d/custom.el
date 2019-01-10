@@ -24,6 +24,9 @@
  '(mode-line-format
    (quote
     ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+ '(org-agenda-files
+   (quote
+    ("~/Work/Atlas/Documents/Atlas/business.org" "~/Documents/Organization/tasks.org" "~/Work/Atlas/Documents/Atlas/tasks.org" "~/Work/Ermis/README.org")))
  '(org-contacts-files (quote ("/Users/jmercouris/Work/Atlas/Atlas/contacts.org")))
  '(org-directory "/Users/jmercouris/Documents/Organization/")
  '(org-projectile-capture-template "* TASK %?
@@ -32,7 +35,7 @@
  '(org-projectile-projects-file "/Users/jmercouris/Documents/Organization/projects.org")
  '(package-selected-packages
    (quote
-    (toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor edbi-database-url ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed edbi edbi-sqlite jinja2-mode beacon sphinx-doc php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode undo-tree markdown-mode magit latex-preview-pane hydra circe auctex)))
+    (latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor edbi-database-url ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed edbi edbi-sqlite jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values

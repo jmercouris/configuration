@@ -27,9 +27,8 @@
 ;; down case region
 (put 'downcase-region 'disabled nil)
 ;; rebind comment region
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-/") 'comment-dwim)
-(global-set-key (kbd "s-/") 'comment-box)
+(global-set-key (kbd "M-/") 'comment-box)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; all back up files into same systemwide temp directory
