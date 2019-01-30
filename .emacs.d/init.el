@@ -11,7 +11,7 @@
   (require 'use-package))
 ;; load MacOS specific configuration
 (when (memq window-system '(mac ns))
-  (load "~/.emacs.d/osx.el"))
+  (load "~/.emacs.d/darwin.el"))
 ;; set default shell to bash for rgrep/git grep
 (setq shell-file-name "/bin/sh")
 ;; allow upcase region
@@ -121,15 +121,6 @@
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
-;; Define ibuffer filter groups for each known project
-(defun define-projectile-filter-groups ()
-  (when (boundp 'projectile-known-projects)
-    (setq my/project-filter-groups
-        (mapcar
-         (lambda (it)
-           (let ((name (file-name-nondirectory (directory-file-name it))))
-             `(,name (filename . ,(expand-file-name it)))))
-         projectile-known-projects))))
 ;; use ibuffer instead of regular buffer list
 (use-package ibuffer
   :config
@@ -215,6 +206,11 @@
 (use-package beacon
   :ensure t
   :config (beacon-mode 1))
+(use-package goto-last-change
+  :ensure t
+  :config
+  (global-unset-key (kbd "s--"))
+  (global-set-key (kbd "s--") 'goto-last-change))
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; Ctrl + tab suggests completion based on git
