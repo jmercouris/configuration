@@ -259,3 +259,4 @@
 (load "~/.emacs.d/develop/_yaml")
 (load "~/.emacs.d/develop/_tex")
 (load "~/.emacs.d/develop/_php")
+(load "~/.emacs.d/develop/_sql")
