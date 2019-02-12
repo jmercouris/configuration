@@ -72,9 +72,49 @@
   (interactive)
   (gnus-summary-move-article :to-newsgroup "nnfolder+archive:Archive"))
 
-;;Select automatically while replying 
+;;Select automatically while replying
 (add-hook 'message-mode-hook
           '(lambda ()
              (cond ((string-match "personal" gnus-newsgroup-name) (setPersonal))
                    ((string-match "work" gnus-newsgroup-name) (setWork)))))
 
+
+;;Three pane configuration
+(gnus-add-configuration
+     '(article
+       (horizontal 1.0
+                   (vertical 30
+                             (group 1.0))
+                   (vertical 1.0
+                             (summary 0.25 point)
+                             (article 1.0)))))
+    (gnus-add-configuration
+     '(summary
+       (horizontal 1.0
+                   (vertical 30
+                             (group 1.0))
+                   (vertical 1.0
+                             (summary 1.0 point)))))
+
+
+;; Summary View
+(when window-system
+  (setq gnus-sum-thread-tree-indent "  ")
+  (setq gnus-sum-thread-tree-root "") ;; "● ")
+  (setq gnus-sum-thread-tree-false-root "") ;; "◯ ")
+  (setq gnus-sum-thread-tree-single-indent "") ;; "◎ ")
+  (setq gnus-sum-thread-tree-vertical        "│")
+  (setq gnus-sum-thread-tree-leaf-with-other "├─► ")
+  (setq gnus-sum-thread-tree-single-leaf     "╰─► "))
+(setq gnus-summary-line-format
+      (concat
+       "%0{%U%R%z%}"
+       "%3{│%}" "%1{%d%}" "%3{│%}" ;; date
+       "  "
+       "%4{%-20,20f%}"               ;; name
+       "  "
+       "%3{│%}"
+       " "
+       "%1{%B%}"
+       "%s\n"))
+(setq gnus-summary-display-arrow t)
