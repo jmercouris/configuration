@@ -61,12 +61,10 @@
 (setq gnus-parameters
       '(("personal"
          (posting-style
-          (address "john@mercouris.email")
-          (gcc "nnimap+personal:Sent Messages")))
+          (address "john@mercouris.email")))
         ("work"
          (posting-style
-          (address "john@atlas.engineer")
-          (gcc "nnimap+work:Sent Messages")))))
+          (address "john@atlas.engineer")))))
 
 (defun gnus-summary-archive-article ()
   (interactive)
