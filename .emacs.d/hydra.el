@@ -93,7 +93,7 @@ _k_ ↓           _h_orizontal       _f_ind files    _i_ ↓
 _l_ ↑           _1_only this       _P_rojectile    _o_ ↑
 _;_ →           _d_elete           _s_wap          _p_ →
 _F_ollow        _e_qualize         _[_backward     _8_0 columns
-_q_uit          ^        ^         _]_forward     
+_q_uit          ^        ^         _]_forward
 "
    ("j" windmove-left)
    ("k" windmove-down)
@@ -364,10 +364,11 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
      (defhydra hydra-gnus-article (:color blue :columns 1)
        "Do?"
        ("f" gnus-summary-mail-forward "Forward")
-       ("r" gnus-article-reply-with-original "Reply with original R")
-       ("W" gnus-article-wide-reply-with-original "Reply all with original S W")
+       ("R" gnus-summary-reply "Reply")
+       ("r" gnus-article-reply-with-original "Reply with original")
+       ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
+       ("w" gnus-summary-wide-reply "Reply all S w")
        ("o" gnus-mime-save-part "Save attachment at point o")
-       ("w" gnus-article-wide-reply "Reply all S w")
        ("q" nil "cancel"))
 
      (define-key gnus-article-mode-map (kbd "s-h") 'hydra-gnus-article/body)))
@@ -419,7 +420,7 @@ _b_   _f_     _y_ank        _t_ype       _e_xchange-point
  _nr_egion         _i_buffer sidebar
  _w_iden           _I_menu list
  _h_ide mode       _S_idebar toggle
- _s_how toggle     
+ _s_how toggle
  show _a_ll
 _q_uit
 "

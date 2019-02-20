@@ -81,19 +81,18 @@
 (gnus-add-configuration
      '(article
        (horizontal 1.0
-                   (vertical 30
+                   (vertical 25
                              (group 1.0))
                    (vertical 1.0
-                             (summary 0.25 point)
+                             (summary 0.35 point)
                              (article 1.0)))))
     (gnus-add-configuration
      '(summary
        (horizontal 1.0
-                   (vertical 30
+                   (vertical 25
                              (group 1.0))
                    (vertical 1.0
                              (summary 1.0 point)))))
-
 
 ;; Summary View
 (when window-system
@@ -109,10 +108,35 @@
        "%0{%U%R%z%}"
        "%3{│%}" "%1{%d%}" "%3{│%}" ;; date
        "  "
-       "%4{%-20,20f%}"               ;; name
+       "%4{%-20,20f%}"             ;; name
        "  "
        "%3{│%}"
        " "
        "%1{%B%}"
        "%s\n"))
 (setq gnus-summary-display-arrow t)
+
+(setq gnus-group-line-format "%uG\n")
+(defun gnus-user-format-function-G (arg)
+  (let ((mapped-name (assoc gnus-tmp-group group-name-map)))
+    (if (null mapped-name)
+        gnus-tmp-group
+      (cdr mapped-name))))
+
+(setq group-name-map '(("nnfolder+archive:Archive" . "Archive")
+                       ("nnimap+personal:Sent" . "Personal Sent")
+                       ("nnimap+personal:Travel" . "Peronsal Travel")
+                       ("nnimap+work:Archive" . "Work Archive")
+                       ("nnimap+work:Drafts" . "Work Drafts")
+                       ("nnimap+work:Sent" . "Work Sent")
+                       ("nnimap+work:Sent Messages" . "Work Sent Messages")
+                       ("nnimap+work:Deleted Messages" . "Work Deleted Messages")
+                       ("nnimap+work:INBOX" . "Work Inbox")
+                       ("nnimap+personal:Deleted Messages" . "Personal Deleted Messages")
+                       ("nnimap+personal:Drafts" . "Personal Drafts")
+                       ("nnimap+personal:INBOX" . "Personal Inbox")
+                       ("nnimap+personal:Junk" . "Personal Junk")
+                       ("nnimap+personal:Sent Messages" . "Personal Sent Messages")
+                       ("nnimap+personal:Trash" . "Personal Trash")
+                       ("nnimap+personal:Archive" . "Personal Archive")
+                       ("nnimap+personal:Notes" . "Personal Notes")))
