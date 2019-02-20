@@ -1,7 +1,7 @@
 (load "~/.quicklisp/clhs-use-local.el" t)
 
 
-(slime-setup '(slime-fancy slime-company slime-asdf slime-indentation))
+(slime-setup '(slime-fancy slime-company slime-asdf slime-indentation slime-sbcl-exts))
 
 (setq slime-lisp-implementations
       '((sbcl ("/opt/local/bin/sbcl" ""))
