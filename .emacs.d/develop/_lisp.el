@@ -20,9 +20,9 @@
 ;; Lisp
 (defhydra hydra-lisp (:color blue :hint nil)
   "
-   Navigation      ^^Formatting      ^^REPL
+   Navigation      ^^Formatting      ^^REPL          ^^Testing
 ---------------------------------------------------------------------
-   _d_ocumentation   check _p_arens    _O_pen
+   _d_ocumentation   check _p_arens    _O_pen          _t_est system
    _o_utline         re_i_ndent        _e_val region
    _w_ho calls                       ^^eval de_f_un
    definition_._                     ^^_l_oad file
@@ -39,6 +39,7 @@
   ("p" check-parens)
   ("r" slime-restart-inferior-lisp)
   ("s" slime-load-system)
+  ("t" slime-repl-test-system)
   ("c" slime-repl-clear-buffer)
   ("i" paredit-reindent-defun)
   ("w" slime-who-calls)
