@@ -248,6 +248,7 @@
 (load "~/.emacs.d/functions")
 ;; load external packages
 (load "~/.emacs.d/packages/git-complete/git-complete")
+(load "~/.emacs.d/packages/orgit/orgit")
 ;; load develop files
 (load "~/.emacs.d/develop/_lisp")
 (load "~/.emacs.d/develop/_python")
