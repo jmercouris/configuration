@@ -34,12 +34,13 @@
  '(orgit-path (list "~/Source/Lisp" "~/Work/Atlas" "~/Projects"))
  '(package-selected-packages
    (quote
-    (ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
+    (webpaste ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values
    (quote
-    ((package . puri)
+    ((org-tags-column . -77)
+     (package . puri)
      (Syntax . Common-lisp)
      (package . CL-STRING-MATCH)
      (Package . CL-FAD)

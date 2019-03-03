@@ -211,6 +211,12 @@
   :config
   (global-unset-key (kbd "s--"))
   (global-set-key (kbd "s--") 'goto-last-change))
+(use-package webpaste
+  :ensure t
+  :config
+  (progn
+    (setq webpaste-provider-priority '("dpaste.com" "ix.io"))))
+
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; Ctrl + tab suggests completion based on git
