@@ -216,7 +216,12 @@
   :config
   (progn
     (setq webpaste-provider-priority '("dpaste.com" "ix.io"))))
-
+(with-eval-after-load 'magit
+ (setq magit-repository-directories '(("~/Work/Atlas" . 1)
+                                       ("~/Projects" . 1)
+                                       ("~/Source" . 1))))
+(with-eval-after-load 'orgit
+ (setq orgit-store-repository-id t))
 ;; docview mode continuous
 (setq doc-view-continuous t)
 ;; Ctrl + tab suggests completion based on git
@@ -254,7 +259,6 @@
 (load "~/.emacs.d/functions")
 ;; load external packages
 (load "~/.emacs.d/packages/git-complete/git-complete")
-(load "~/.emacs.d/packages/orgit/orgit")
 ;; load develop files
 (load "~/.emacs.d/develop/_lisp")
 (load "~/.emacs.d/develop/_python")
