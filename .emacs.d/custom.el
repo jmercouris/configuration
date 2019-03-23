@@ -7,7 +7,8 @@
  '(beacon-blink-duration 0.2)
  '(beacon-blink-when-window-scrolls nil)
  '(beacon-mode t)
- '(company-idle-delay 0.25)
+ '(company-idle-delay 0.1)
+ '(company-show-numbers t)
  '(dired-sidebar-display-alist (quote ((side . right) (slot . -1))))
  '(disable-mouse-mode-global-lighter "")
  '(frame-resize-pixelwise t)
@@ -34,12 +35,13 @@
  '(orgit-path (list "~/Source/Lisp" "~/Work/Atlas" "~/Projects"))
  '(package-selected-packages
    (quote
-    (webpaste ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
+    (magit-todos webpaste ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values
    (quote
-    ((org-tags-column . -77)
+    ((system-time-locale . "C")
+     (org-tags-column . -77)
      (package . puri)
      (Syntax . Common-lisp)
      (package . CL-STRING-MATCH)
@@ -63,8 +65,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
+ '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo"))))
  '(circe-prompt-face ((t (:background "textBackgroundColor" :foreground "Black" :weight bold))))
+ '(company-scrollbar-bg ((t (:background "gray"))))
+ '(company-scrollbar-fg ((t (:background "blue"))))
+ '(company-tooltip ((t (:background "#eee" :foreground "black"))))
  '(font-lock-builtin-face ((t (:foreground "gray40"))))
  '(font-lock-comment-face ((t (:foreground "gray55"))))
  '(font-lock-doc-face ((t (:foreground "gray40"))))
