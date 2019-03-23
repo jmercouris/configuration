@@ -78,9 +78,9 @@ by using nxml's indentation rules."
       (shrink-window-horizontally (- (window-width) n))))
 
 (defun set-80-columns ()
-  "Set the selected window to 80 columns."
+  "Set the selected window to 81 columns."
   (interactive)
-  (set-window-width 80))
+  (set-window-width 81))
 
 (defun org-retrieve-url-from-point ()
   (interactive)
