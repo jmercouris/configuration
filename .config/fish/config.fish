@@ -11,13 +11,15 @@ set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
 set --export TESSDATA_PREFIX /opt/local/share/tessdata
 # Colorize less things such as man pages
-set -x LESS_TERMCAP_mb (printf "\033[01;31m")
-set -x LESS_TERMCAP_md (printf "\033[01;31m")
-set -x LESS_TERMCAP_me (printf "\033[0m")
-set -x LESS_TERMCAP_se (printf "\033[0m")
-set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
-set -x LESS_TERMCAP_ue (printf "\033[0m")
-set -x LESS_TERMCAP_us (printf "\033[01;32m")
+set -x  LESS_TERMCAP_mb (printf "\033[01;31m")
+set -x  LESS_TERMCAP_md (printf "\033[01;31m")
+set -x  LESS_TERMCAP_me (printf "\033[0m")
+set -x  LESS_TERMCAP_se (printf "\033[0m")
+set -x  LESS_TERMCAP_so (printf "\033[01;44;33m")
+set -x  LESS_TERMCAP_ue (printf "\033[0m")
+set -x  LESS_TERMCAP_us (printf "\033[01;32m")
+# Set Environment Variables
+set -Ux APP_ENV "development"
 
 # Open Emacs in a terminal window
 alias e="emacs -nw"
