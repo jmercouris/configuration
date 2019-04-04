@@ -366,8 +366,8 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
        ("f" gnus-summary-mail-forward "Forward")
        ("R" gnus-summary-reply "Reply")
        ("r" gnus-article-reply-with-original "Reply with original")
-       ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
-       ("w" gnus-summary-wide-reply "Reply all S w")
+       ("w" gnus-summary-wide-reply-with-original "Reply all with original S W")
+       ("W" gnus-summary-wide-reply "Reply all S w")
        ("o" gnus-mime-save-part "Save attachment at point o")
        ("q" nil "cancel"))
 
