@@ -125,6 +125,7 @@
 
 (setq group-name-map '(("nnfolder+archive:Archive" . "Archive")
                        ("nnimap+personal:Sent" . "Personal Sent")
+                       ("nnimap+personal:Legal" . "Peronsal Legal")
                        ("nnimap+personal:Travel" . "Peronsal Travel")
                        ("nnimap+work:Archive" . "Work Archive")
                        ("nnimap+work:Drafts" . "Work Drafts")
