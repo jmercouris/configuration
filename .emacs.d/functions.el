@@ -212,3 +212,10 @@ comment box."
   (goto-char e)
   (set-marker e nil)))
 (global-set-key (kbd "s-/") 'fill-comment-box)
+
+(defun ediff-copy-both-to-C ()
+  (interactive)
+  (ediff-copy-diff ediff-current-difference nil 'C nil
+                   (concat
+                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+                    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
