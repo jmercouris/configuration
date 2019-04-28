@@ -84,7 +84,7 @@
                    (vertical 25
                              (group 1.0))
                    (vertical 1.0
-                             (summary 0.35 point)
+                             (summary 0.25 point)
                              (article 1.0)))))
     (gnus-add-configuration
      '(summary

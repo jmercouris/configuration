@@ -57,6 +57,7 @@ in_d_ent mode
 _O_pen external
 _N_arrow to subtree
 _W_iden to document
+_A_genda
 "
   ("f" outline-next-visible-heading)
   ("b" outline-previous-visible-heading)
@@ -74,6 +75,7 @@ _W_iden to document
   ("g" org-goto :exit t)
   ("d" org-indent-mode)
   ("a" org-archive-subtree-default)
+  ("A" org-agenda)
   ("c" org-retrieve-url-from-point)
   ("x" org-babel-execute-src-block)
   ("t" org-time-stamp)

@@ -42,6 +42,8 @@
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
+;; allow dired to copy to other dired buffers
+(setq dired-dwim-target t)
 ;; multi-term configuration
 (global-unset-key (kbd "s-t"))
 (when (require 'multi-term nil t)
