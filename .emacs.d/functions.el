@@ -219,3 +219,16 @@ comment box."
                    (concat
                     (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+(defun swap-brackets-parens ()
+  (interactive)
+  (keyboard-translate ?\( ?\[)
+  (keyboard-translate ?\) ?\])
+  (keyboard-translate ?\[ ?\()
+  (keyboard-translate ?\] ?\)));;swap-brackets-parens
+
+(defun normal-brackets-parens ()
+  (interactive)
+  (keyboard-translate ?\( ?\()
+  (keyboard-translate ?\) ?\))
+  (keyboard-translate ?\[ ?\[)
+  (keyboard-translate ?\] ?\]));;normal-brackets-parens
