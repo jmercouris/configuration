@@ -34,6 +34,9 @@
       '(gnus-thread-sort-by-most-recent-date
         (not gnus-thread-sort-by-number)))
 
+;; when replying to emails put email signature above
+(setq message-cite-reply-position 'above)
+
 ;; show threads
 (setq gnus-show-threads t)
 
