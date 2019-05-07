@@ -381,6 +381,7 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
      (defhydra hydra-message (:color blue :columns 1)
        "Do?"
        ("ca" mml-attach-file "Attach C-c C-a")
+       ("m" message-mark-inserted-region "Mark Inserted Region C-c M-m")
        ("cc" message-send-and-exit "Send C-c C-c")
        ("q" nil "cancel"))
      (define-key message-mode-map (kbd "s-h") 'hydra-message/body)))
