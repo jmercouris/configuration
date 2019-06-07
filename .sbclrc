@@ -10,3 +10,6 @@
 (setf *print-length* 20)
 
 (declaim (optimize (debug 3) (speed 0)))
+
+(ql:quickload :cffi)
+(pushnew "/opt/local/lib/" cffi:*foreign-library-directories* :test #'equal)
