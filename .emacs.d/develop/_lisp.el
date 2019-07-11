@@ -1,7 +1,6 @@
-(load "~/.quicklisp/clhs-use-local.el" t)
+(load "/Users/jmercouris/.quicklisp/clhs-use-local.el" t)
 
-
-(slime-setup '(slime-fancy slime-company slime-asdf slime-indentation slime-sbcl-exts))
+(slime-setup '(slime-fancy slime-company slime-asdf slime-indentation slime-sbcl-exts slime-scratch))
 
 (setq slime-lisp-implementations
       '((sbcl ("/opt/local/bin/sbcl" ""))
@@ -14,7 +13,6 @@
 (add-hook 'lisp-mode-hook 'highlight-indentation-mode)
 (add-hook 'lisp-mode-hook 'paredit-mode)
 (add-hook 'lisp-mode-hook 'company-mode)
-(add-hook 'lisp-mode-hook 'swap-brackets-parens)
 (add-hook 'lisp-mode-hook 'turn-off-indent-tabs)
 (add-hook 'slime-mode-hook 'smartparens-mode)
 

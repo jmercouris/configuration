@@ -10,6 +10,7 @@ set --export CLICOLOR "1"
 set --export VISUAL "emacs -nw"
 set --export EDITOR "$VISUAL"
 set --export TESSDATA_PREFIX /opt/local/share/tessdata
+set --export DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 # Colorize less things such as man pages
 set -x  LESS_TERMCAP_mb (printf "\033[01;31m")
 set -x  LESS_TERMCAP_md (printf "\033[01;31m")
