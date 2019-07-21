@@ -9,27 +9,24 @@
  '(beacon-mode t)
  '(company-idle-delay 0.1)
  '(company-show-numbers t)
- '(dired-sidebar-display-alist (quote ((side . right) (slot . -1))))
+ '(dired-sidebar-display-alist '((side . right) (slot . -1)))
  '(disable-mouse-mode-global-lighter "")
  '(frame-resize-pixelwise t)
- '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(fringe-mode '(nil . 0) nil (fringe))
  '(gnutls-trustfiles
-   (quote
-    ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/private/etc/ssl/cert.pem")))
+   '("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/private/etc/ssl/cert.pem"))
  '(hl-paren-attributes nil)
- '(hl-paren-background-colors (quote ("gray50" "gray70" "gray80" "gray90")))
- '(hl-paren-colors (quote ("green" "green2" "green3" "green4")))
+ '(hl-paren-background-colors '("gray50" "gray70" "gray80" "gray90"))
+ '(hl-paren-colors '("green" "green2" "green3" "green4"))
  '(hl-paren-highlight-adjacent t)
- '(ibuffer-sidebar-display-alist (quote ((side . right) (slot . 1))))
+ '(ibuffer-sidebar-display-alist '((side . right) (slot . 1)))
  '(imenu-list-size 25)
  '(message-signature "-John")
  '(mode-line-format
-   (quote
-    ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces)))
+   '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
  '(org-agenda-files
-   (quote
-    ("~/Work/Atlas/Documents/Consulting/SocialFlight/socialflight.org" "~/Work/Atlas/Documents/tasks.org" "~/Work/Atlas/Atlas/notes.org")))
- '(org-contacts-files (quote ("/Users/jmercouris/Work/Atlas/Atlas/contacts.org")))
+   '("~/Documents/Organization/tasks.org" "~/Work/Atlas/Documents/tasks.org" "~/Work/Atlas/Atlas/notes.org"))
+ '(org-contacts-files '("/Users/jmercouris/Work/Atlas/Atlas/contacts.org"))
  '(org-directory "/Users/jmercouris/Documents/Organization/")
  '(org-projectile-capture-template "* TASK %?
 ")
@@ -37,13 +34,11 @@
  '(org-projectile-projects-file "/Users/jmercouris/Documents/Organization/projects.org")
  '(orgit-path (list "~/Source/Lisp" "~/Work/Atlas" "~/Projects"))
  '(package-selected-packages
-   (quote
-    (gnuplot orgtbl-ascii-plot ledger-mode magit-todos webpaste ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex)))
+   '(rich-minority pyimport scss-mode magit-org-todos gnuplot orgtbl-ascii-plot ledger-mode magit-todos webpaste ztree goto-last-change edbi-sqlite edbi latex-preview-pane sphinx-doc toc-org csv-mode htmlize fish-mode org-projectile nginx-mode highlight-parentheses tldr makefile-executor ibuffer-sidebar dired-sidebar w3m move-text vlf ace-jump-zap slime-company elfeed jinja2-mode beacon php-mode date-at-point pyvenv hungry-delete popwin imenu-list soap-client popup json-navigator paredit use-package highlight-indentation dired+ framemove yaml-mode list-processes+ anaconda-mode company-anaconda diminish expand-region flycheck disable-mouse smartparens yasnippet multiple-cursors counsel-projectile projectile peep-dired flx counsel flyspell-correct-ivy browse-kill-ring imenu-anywhere py-isort which-key json-mode realgud exec-path-from-shell avy switch-window restclient multi-term web-mode markdown-mode magit hydra circe auctex))
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(safe-local-variable-values
-   (quote
-    ((system-time-locale . "C")
+   '((system-time-locale . "C")
      (org-tags-column . -77)
      (package . puri)
      (Syntax . Common-lisp)
@@ -56,11 +51,11 @@
      (Package . CL-USER)
      (Syntax . COMMON-LISP)
      (Base . 10)
-     (Syntax . ANSI-Common-Lisp))))
- '(send-mail-function (quote smtpmail-send-it))
+     (Syntax . ANSI-Common-Lisp)))
+ '(send-mail-function 'smtpmail-send-it)
  '(sml-modeline-borders nil)
  '(sml-modeline-mode t)
- '(sml-modeline-numbers (quote percentage))
+ '(sml-modeline-numbers 'percentage)
  '(wdired-allow-to-change-permissions t)
  '(window-resize-pixelwise t))
 (custom-set-faces

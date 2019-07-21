@@ -29,6 +29,8 @@
 ;; rebind comment region
 (global-set-key (kbd "C-/") 'comment-dwim)
 (global-set-key (kbd "M-/") 'comment-box)
+;; dabbrev expand
+(global-set-key (kbd "s-/") 'dabbrev-expand)
 ;; truncate lines by default
 (set-default 'truncate-lines t)
 ;; all back up files into same systemwide temp directory
@@ -52,6 +54,8 @@
   (global-set-key (kbd "s-{") 'multi-term-prev))
 ;; .http files load rest-client mode
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+;; log files automatically tail
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; previous and Next Buffer
@@ -244,6 +248,8 @@
 (move-text-default-bindings)
 ;; add hook to highlight parenthesis
 (add-hook 'prog-mode-hook 'highlight-parentheses-mode)
+;; change glyph showing lines are truncated
+(set-display-table-slot standard-display-table 0 ?\|)
 ;; change how URLS are browsed
 (setq browse-url-browser-function '(("http://www.lispworks.com/reference/HyperSpec/.*" . eww-browse-url)
                                     ("file:///.*HyperSpec.*" . eww-browse-url)
