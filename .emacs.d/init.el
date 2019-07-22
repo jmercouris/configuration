@@ -118,6 +118,7 @@
 (eval-after-load "magit" '(diminish 'auto-revert-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
 (eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
+(eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
 (eval-after-load "paredit" '(diminish 'paredit-mode))
 (eval-after-load "beacon" '(diminish 'beacon-mode))
 
