@@ -29,6 +29,5 @@
     (eshell "new")
     (insert (concat "ls"))
     (eshell-send-input)))
-(setq eshell-prompt-function
-      (lambda () "$ "))
+
 (bind-key "C-!" 'eshell-here)
