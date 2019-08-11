@@ -219,3 +219,13 @@ comment box."
                    (concat
                     (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+
+(defun zoom-in ()
+  (interactive)
+  (let ((x (+ 10 (face-attribute 'default :height))))
+    (set-face-attribute 'default nil :height x)))
+
+(defun zoom-out ()
+  (interactive)
+  (let ((x (- (face-attribute 'default :height) 10)))
+    (set-face-attribute 'default nil :height x)))
