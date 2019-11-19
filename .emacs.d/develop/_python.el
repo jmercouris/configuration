@@ -1,5 +1,3 @@
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'company-mode)
@@ -13,9 +11,6 @@
   (add-hook 'python-mode-hook (lambda ()
                                 (require 'sphinx-doc)
                                 (sphinx-doc-mode t))))
-
-(eval-after-load "company"
- '(add-to-list 'company-backends 'company-anaconda))
 
 (setq realgud:pdb-command-name "python -m pdb")
 
@@ -95,20 +90,16 @@
   "
     Navigation          Formatting         Shell
 ---------------------------------------------------------------------
-   Documentation_?_       _s_ort imports       shel_l_
-   Definitions_._         _i_ndent             send regio_n_
-   _a_ssignments          flycheck _e_rror     send _b_uffer
-   _r_eferences           _r_emove unused      send de_f_un
-   _o_utline              s_p_hinx doc         _k_clear
-   _c_lass outline                           ^^_t_est
-                                           ^^^^_v_irtual environment
+   _o_utline           _s_ort imports       shel_l_
+   _c_lass outline     _i_ndent             send regio_n_
+                     flycheck _e_rror     send _b_uffer
+                     _r_emove unused      send de_f_un
+                     s_p_hinx doc         _k_clear
+                     _t_est
+                                         ^_v_irtual environment
 
 "
   ("s" py-isort-region)
-  ("?" anaconda-mode-show-doc)
-  ("." anaconda-mode-find-definitions :color red)
-  ("a" anaconda-mode-find-assignments)
-  ("r" anaconda-mode-find-references)
   ("i" indent-for-tab-command)
   ("l" python-shell)
   ("p" sphinx-doc)
