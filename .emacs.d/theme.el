@@ -25,7 +25,7 @@
 (add-hook 'term-mode-hook (lambda ()
 			    (setq-local global-hl-line-mode
 					nil)))
-(set-face-background 'hl-line "#DEDEDE")
+(set-face-background 'hl-line "#F5F5F5")
 ;; change Highlighted Text Color
 (set-face-attribute 'region nil :background "#00ed00")
 ;; set cursor color
