@@ -6,7 +6,13 @@
          :sasl-username ,freenode-username
          :sasl-password ,freenode-password
 	 :channels ("#lisp" "#next-browser" "#startups")
-	 :port "6697")))
+	 :port "6697")
+        ("ircnet"
+         :host "irc.ircnet.com"
+         :tls t
+         :nick ,freenode-nick
+         :channels ("#worldchat")
+         :port "6697")))
 
 (setq circe-default-part-message "Exit.")
 (setq circe-reduce-lurker-spam t)
