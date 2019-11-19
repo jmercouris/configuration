@@ -20,8 +20,6 @@
 (delete-selection-mode)
 ;; disable tabs for indenting
 (setq-default indent-tabs-mode nil)
-;; remove extra spacing before save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; enable narrow-to-region mode (C-x-n-n)
 (put 'narrow-to-region 'disabled nil)
 ;; down case region
@@ -52,10 +50,6 @@
   (global-set-key (kbd "s-t") 'multi-term)
   (global-set-key (kbd "s-}") 'multi-term-next)
   (global-set-key (kbd "s-{") 'multi-term-prev))
-;; .http files load rest-client mode
-(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
-;; log files automatically tail
-(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
 ;; yes or no to y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; previous and Next Buffer
@@ -74,6 +68,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; setup log file
+(use-package auto-revert-tail-mode
+  :mode "\\.log\\'")
+;; use forge
+(use-package forge
+  :after magit)
+;; setup restclient mode
+(use-package restclient-mode
+  :mode "\\.http$")
 ;; setup mouse disable
 (use-package disable-mouse
   :diminish disable-mouse-global-mode
@@ -110,18 +113,6 @@
 (use-package framemove
   :config
   (setq framemove-hook-into-windmove t))
-
-(eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
-(eval-after-load "company" '(diminish 'company-mode))
-(eval-after-load "flycheck" '(diminish 'flycheck-mode))
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "magit" '(diminish 'auto-revert-mode))
-(eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
-(eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
-(eval-after-load "paredit" '(diminish 'paredit-mode))
-(eval-after-load "beacon" '(diminish 'beacon-mode))
-
 ;; which key prompts on C-x etc
 (use-package which-key
   :diminish which-key-mode
@@ -223,6 +214,17 @@
   :config
   (progn
     (setq webpaste-provider-priority '("dpaste.com" "ix.io"))))
+;; diminish modes
+(eval-after-load "anaconda-mode" '(diminish 'anaconda-mode))
+(eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "magit" '(diminish 'auto-revert-mode))
+(eval-after-load "ivy" '(diminish 'ivy-mode))
+(eval-after-load "highlight-indentation" '(diminish 'highlight-indentation-mode))
+(eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "beacon" '(diminish 'beacon-mode))
 (with-eval-after-load 'magit
  (setq magit-repository-directories '(("~/Work/Atlas" . 1)
                                        ("~/Projects" . 1)
@@ -241,7 +243,8 @@
         ("https://www.reddit.com/r/lisp.rss" lisp)
         ("https://www.reddit.com/r/emacs.rss" emacs)
         ("https://news.ycombinator.com/rss" yc/news)
-        ("https://tim.blog/feed/" tim-ferris/blog)))
+        ("https://tim.blog/feed/" tim-ferris/blog)
+        ("https://signalvnoise.com/posts.rss" signal/noise)))
 ;; Use ace jump zap to char instead of normal zap to char
 (global-unset-key (kbd "M-z"))
 (global-set-key (kbd "M-z") 'ace-jump-zap-to-char)

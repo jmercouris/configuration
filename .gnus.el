@@ -73,8 +73,9 @@
 ;;Select automatically while replying
 (add-hook 'message-mode-hook
           '(lambda ()
-             (cond ((string-match "personal" gnus-newsgroup-name) (setPersonal))
-                   ((string-match "work" gnus-newsgroup-name) (setWork)))))
+             (when gnus-newsgroup-name
+               (cond ((string-match "personal" gnus-newsgroup-name) (setPersonal))
+                     ((string-match "work" gnus-newsgroup-name) (setWork))))))
 
 
 ;;Three pane configuration
