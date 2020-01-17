@@ -21,6 +21,7 @@
  '(hl-paren-highlight-adjacent t)
  '(ibuffer-sidebar-display-alist '((side . right) (slot . 1)))
  '(imenu-list-size 25)
+ '(ivy-mode t)
  '(message-signature "-John")
  '(mode-line-format
    '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position smartrep-mode-line-string "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
