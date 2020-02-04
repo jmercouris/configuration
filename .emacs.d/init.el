@@ -164,7 +164,6 @@
 (use-package org
   :config
   (require 'org-contacts)
-  (setq org-startup-indented t)
   (setq org-log-done t)
   (setq org-return-follows-link t)
   (setq org-todo-keywords
@@ -244,7 +243,9 @@
         ("https://www.reddit.com/r/emacs.rss" emacs)
         ("https://news.ycombinator.com/rss" yc/news)
         ("https://tim.blog/feed/" tim-ferris/blog)
-        ("https://signalvnoise.com/posts.rss" signal/noise)))
+        ("https://signalvnoise.com/posts.rss" signal/noise)
+        ("http://rss.sciam.com/ScientificAmerican-Global?format=xml" scientific/american)
+        ("https://www.npr.org/rss/rss.php?id=1001" npr)))
 ;; Use ace jump zap to char instead of normal zap to char
 (global-unset-key (kbd "M-z"))
 (global-set-key (kbd "M-z") 'ace-jump-zap-to-char)

@@ -26,6 +26,34 @@
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
 
+(defun toggle-transparency ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(85 . 50) '(100 . 100)))))
+
+;;swap-brackets-parens
+(defun swap-brackets-parens ()
+  (interactive)
+  (keyboard-translate ?\( ?\[)
+  (keyboard-translate ?\) ?\])
+  (keyboard-translate ?\[ ?\()
+  (keyboard-translate ?\] ?\)))
+
+;;normal-brackets-parens
+(defun normal-brackets-parens ()
+  (interactive)
+  (keyboard-translate ?\( ?\()
+  (keyboard-translate ?\) ?\))
+  (keyboard-translate ?\[ ?\[)
+  (keyboard-translate ?\] ?\]))
+
 ;; define a function to scroll with the cursor in place, moving the page instead
 ;; Navigation Functions
 (defun scroll-down-in-place (n)
