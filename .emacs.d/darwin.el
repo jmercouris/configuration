@@ -1,4 +1,5 @@
 ;; make full screen
+(setq ns-use-native-fullscreen nil)
 (toggle-frame-fullscreen)
 
 ;; use OS X's Spotlight for M-x locate
