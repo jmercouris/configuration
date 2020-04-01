@@ -238,14 +238,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 ;; setup elfeed
 (setq elfeed-feeds
-      '(("https://www.reddit.com/r/Common_Lisp.rss" common/lisp)
-        ("https://www.reddit.com/r/lisp.rss" lisp)
-        ("https://www.reddit.com/r/emacs.rss" emacs)
-        ("https://news.ycombinator.com/rss" yc/news)
+      '(("https://news.ycombinator.com/rss" yc/news)
         ("https://tim.blog/feed/" tim-ferris/blog)
-        ("https://signalvnoise.com/posts.rss" signal/noise)
-        ("http://rss.sciam.com/ScientificAmerican-Global?format=xml" scientific/american)
-        ("https://www.npr.org/rss/rss.php?id=1001" npr)))
+        ("https://signalvnoise.com/posts.rss" signal/noise)))
 ;; Use ace jump zap to char instead of normal zap to char
 (global-unset-key (kbd "M-z"))
 (global-set-key (kbd "M-z") 'ace-jump-zap-to-char)
