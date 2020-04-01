@@ -4,6 +4,7 @@
 
 (setq slime-lisp-implementations
       '((sbcl ("/opt/local/bin/sbcl" ""))
+        (ccl ("/Users/jmercouris/User/ccl" ""))
         (sbcl-mem ("/opt/local/bin/sbcl" "--dynamic-space-size" "2560"))))
 
 (defun lisp-outline ()
