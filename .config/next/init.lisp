@@ -24,8 +24,15 @@
 
 #+darwin
 (define-command cpu-sleep ()
+  "Put the computer to sleep."
   (uiop:run-program "/Users/jmercouris/User/cpu_sleep"))
 
 #+darwin
 (define-command cpu-battery ()
+  "Show the battery status."
   (echo (uiop:run-program "/Users/jmercouris/User/cpu_battery" :output :string)))
+
+#+darwin
+(define-command open-in-safari ()
+  "Open the current URL in Safari"
+  (uiop:run-program (list "open" "-a" "Safari" (url (current-buffer)))))
