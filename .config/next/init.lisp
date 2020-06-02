@@ -2,7 +2,8 @@
 
 (define-configuration browser
   ((session-restore-prompt :always-ask)
-   (autofills (list (next::make-autofill :key "Name" :fill "John Mercouris")))))
+   (autofills (list (next::make-autofill :key "Name" :fill "John Mercouris")))
+   (visual-editor "/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs")))
 
 (define-configuration buffer
   ((keymap-scheme-name scheme:emacs)
@@ -36,3 +37,8 @@
 (define-command open-in-safari ()
   "Open the current URL in Safari"
   (uiop:run-program (list "open" "-a" "Safari" (url (current-buffer)))))
+
+(ql:quickload :nx-reader)
+(setf nx-reader:rss-urls (list "https://news.ycombinator.com/rss"
+                               "https://tim.blog/feed/"))
+
