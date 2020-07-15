@@ -1,12 +1,12 @@
 (setf *socket-path* nil)
 
 (define-configuration browser
-  ((session-restore-prompt :always-ask)
-   (autofills (list (nyxt::make-autofill :key "Name" :fill "John Mercouris")))
+  ((session-restore-prompt :never-restore)
    (external-editor-program "/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs")))
 
 (define-configuration buffer
-  ((keymap-scheme-name scheme:emacs)
+  ((default-modes (append '(emacs-mode) %slot-default))
+   (keymap-scheme-name scheme:emacs)
    (default-new-buffer-url "about:blank")
    (override-map (let ((map (make-keymap "my-override-map")))
                              (define-key map
@@ -23,6 +23,8 @@
                                       :basename (basename path)
                                       :dirname "/tmp/nyxt/")))
 
+(define-url-group github (match-bookmarks "+github"))
+
 #+darwin
 (define-command cpu-sleep ()
   "Put the computer to sleep."
@@ -38,7 +40,7 @@
   "Open the current URL in Safari"
   (uiop:run-program (list "open" "-a" "Safari" (url (current-buffer)))))
 
-(ql:quickload :nx-reader)
-(setf nx-reader:rss-urls (list "https://news.ycombinator.com/rss"
-                               "https://tim.blog/feed/"))
+;; (ql:quickload :nx-reader)
+;; (setf nx-reader:rss-urls (list "https://news.ycombinator.com/rss"
+;;                                "https://tim.blog/feed/"))
 
