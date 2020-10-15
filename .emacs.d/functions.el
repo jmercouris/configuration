@@ -257,3 +257,8 @@ comment box."
   (interactive)
   (let ((x (- (face-attribute 'default :height) 10)))
     (set-face-attribute 'default nil :height x)))
+
+(defun email ()
+  (interactive)
+  (toggle-frame-fullscreen (make-frame-command))
+  (gnus))

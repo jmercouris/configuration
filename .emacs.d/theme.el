@@ -1,3 +1,4 @@
+(when window-system (set-frame-size (selected-frame) 120 60))
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 ;; disable menu bar

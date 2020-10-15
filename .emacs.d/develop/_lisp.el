@@ -2,6 +2,9 @@
 
 (slime-setup '(slime-fancy slime-company slime-asdf slime-indentation slime-sbcl-exts slime-scratch))
 
+(setq lisp-indent-function 'common-lisp-indent-function)
+(setq common-lisp-style-default "modern")
+
 (setq slime-lisp-implementations
       '((sbcl ("/opt/local/bin/sbcl" ""))
         (ccl ("/Users/jmercouris/User/ccl" ""))

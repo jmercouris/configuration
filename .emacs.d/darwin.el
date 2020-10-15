@@ -1,5 +1,5 @@
 ;; make full screen
-(setq ns-use-native-fullscreen nil)
+(setq ns-use-native-fullscreen t)
 
 ;; use OS X's Spotlight for M-x locate
 (setq locate-make-command-line (lambda (s) `("mdfind" "-name" ,s)))

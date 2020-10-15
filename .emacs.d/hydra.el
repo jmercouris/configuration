@@ -290,7 +290,7 @@ _q_uit          ^        ^         _]_forward
 _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kill buffers
  _fd_: file curr dir   _o_: multi-occur     _x_: remove known project   _i_: ibuffer
   _d_: dir             _r_: replace         _X_: cleanup non-existing   _c_: Compile
-                                        ^^^^_z_: cache current          _t_: Test
+                     ^^_G_: ripgrep         _z_: cache current          _t_: Test
                                         ^^^^_K_: uncache current
 
 "
@@ -301,6 +301,7 @@ _s-f_: file            _g_: git grep        _C_: cache clear            _k_: Kil
   ("s-f" counsel-projectile-find-file)
   ("fd"  projectile-find-file-in-directory)
   ("g"   counsel-git-grep)
+  ("G"   projectile-ripgrep)
   ("s-g" ggtags-update-tags)
   ("k"   projectile-kill-buffers)
   ("i"   projectile-ibuffer)

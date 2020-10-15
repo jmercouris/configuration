@@ -60,9 +60,11 @@
 
 (setq gnus-parameters
       '(("personal"
+         (gcc-self . t)
          (posting-style
           (address "john@mercouris.email")))
         ("work"
+         (gcc-self . t)
          (posting-style
           (address "john@atlas.engineer")))))
 
